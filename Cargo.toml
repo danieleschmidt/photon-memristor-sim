@@ -1,0 +1,63 @@
+[package]
+name = "photon-memristor-sim"
+version = "0.1.0"
+edition = "2021"
+authors = ["Daniel Schmidt <email@example.com>"]
+description = "Rust/WASM simulator for neuromorphic photonic-memristor arrays"
+license = "MIT"
+repository = "https://github.com/yourusername/photon-memristor-sim"
+homepage = "https://photon-memristor-sim.dev"
+documentation = "https://docs.rs/photon-memristor-sim"
+keywords = ["photonics", "memristor", "neuromorphic", "simulation", "wasm"]
+categories = ["science", "simulation", "wasm"]
+readme = "README.md"
+
+[lib]
+name = "photon_memristor_sim"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+nalgebra = "0.32"
+num-complex = "0.4"
+rayon = "1.7"
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "1.0"
+
+# WASM-specific dependencies
+wasm-bindgen = { version = "0.2", optional = true }
+js-sys = { version = "0.3", optional = true }
+web-sys = { version = "0.3", optional = true }
+console_error_panic_hook = { version = "0.1", optional = true }
+
+[dependencies.pyo3]
+version = "0.20"
+features = ["extension-module", "abi3-py38"]
+optional = true
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1.0"
+approx = "0.5"
+
+[features]
+default = ["python"]
+python = ["pyo3"]
+wasm = ["wasm-bindgen", "js-sys", "web-sys", "console_error_panic_hook"]
+
+[[bench]]
+name = "simulation_benchmark"
+harness = false
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.release-wasm]
+inherits = "release"
+opt-level = "s"
+
+[package.metadata.maturin]
+python-source = "python"
+module-name = "photon_memristor_sim._core"

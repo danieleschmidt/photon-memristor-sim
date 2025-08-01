@@ -1,0 +1,113 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "photon-memristor-sim"
+description = "Rust/WASM simulator for neuromorphic photonic-memristor arrays"
+authors = [{name = "Daniel Schmidt", email = "email@example.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+keywords = ["photonics", "memristor", "neuromorphic", "simulation", "wasm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Rust",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.20.0",
+    "jax>=0.4.0",
+    "jaxlib>=0.4.0",
+    "matplotlib>=3.5.0",
+    "scipy>=1.7.0",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://photon-memristor-sim.dev"
+Repository = "https://github.com/yourusername/photon-memristor-sim"
+Documentation = "https://photon-memristor-sim.readthedocs.io"
+Changelog = "https://github.com/yourusername/photon-memristor-sim/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+viz = [
+    "plotly>=5.0.0",
+    "ipywidgets>=7.6.0",
+    "jupyter>=1.0.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-benchmark>=4.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "mypy>=1.0.0",
+    "pre-commit>=2.20.0",
+    "maturin>=1.0.0",
+]
+docs = [
+    "sphinx>=5.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+    "myst-parser>=0.18.0",
+    "sphinx-autodoc-typehints>=1.19.0",
+]
+
+[tool.maturin]
+python-source = "python"
+module-name = "photon_memristor_sim._core"
+features = ["pyo3/extension-module"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+strict_optional = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --strict-config"
+testpaths = [
+    "tests",
+    "python/tests",
+]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+source = ["python/photon_memristor_sim", "src"]
+omit = ["*/tests/*", "*/test_*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
