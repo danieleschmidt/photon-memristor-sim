@@ -1,0 +1,91 @@
+{
+    "name": "Photon-Memristor-Sim Development",
+    "image": "mcr.microsoft.com/devcontainers/rust:1-bullseye",
+    
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.11",
+            "installTools": true
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "18"
+        },
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {
+            "version": "latest"
+        }
+    },
+    
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.pylint",
+                "ms-python.mypy-type-checker",
+                "bradlc.vscode-tailwindcss",
+                "esbenp.prettier-vscode",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "vadimcn.vscode-lldb",
+                "serayuzgur.crates",
+                "tamasfe.even-better-toml",
+                "formulahendry.code-runner",
+                "ms-vscode.cmake-tools",
+                "ms-vscode.cpptools"
+            ],
+            "settings": {
+                "rust-analyzer.cargo.features": "all",
+                "rust-analyzer.checkOnSave.command": "clippy",
+                "rust-analyzer.procMacro.enable": true,
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.linting.mypyEnabled": true,
+                "python.formatting.provider": "black",
+                "python.formatting.blackArgs": ["--line-length=88"],
+                "python.analysis.typeCheckingMode": "strict",
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": true
+                },
+                "files.exclude": {
+                    "**/target": true,
+                    "**/__pycache__": true,
+                    "**/.pytest_cache": true,
+                    "**/node_modules": true,
+                    "**/.mypy_cache": true
+                }
+            }
+        }
+    },
+    
+    "postCreateCommand": ".devcontainer/post-create.sh",
+    "postStartCommand": ".devcontainer/post-start.sh",
+    
+    "forwardPorts": [
+        8000,  // Python development server
+        8080,  // WASM demo server
+        3000,  // Node.js development
+        6080   // VNC for GUI applications
+    ],
+    
+    "mounts": [
+        "source=${localWorkspaceFolder}/.cache,target=/root/.cache,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder}/.cargo,target=/usr/local/cargo,type=bind,consistency=cached"
+    ],
+    
+    "remoteEnv": {
+        "PYTHONPATH": "/workspaces/photon-memristor-sim/python:${PYTHONPATH}",
+        "RUST_LOG": "debug",
+        "CARGO_INCREMENTAL": "1",
+        "RUST_BACKTRACE": "1"
+    },
+    
+    "containerEnv": {
+        "TZ": "UTC"
+    }
+}

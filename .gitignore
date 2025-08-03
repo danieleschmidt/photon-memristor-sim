@@ -105,6 +105,26 @@ secrets.yaml
 *.swp
 .backup/
 
+# Development environment
+.devcontainer/.vscode/
+cache/
+experiments/
+results/
+data/
+logs/
+
+# Editor config
+.editorconfig
+
+# Pre-commit
+.pre-commit-config.yaml
+
+# Additional profiling
+*.prof
+*.memprof
+massif.out.*
+flamegraph.svg
+
 # Terragon tracking
 .terragon/runtime/
 .terragon/logs/
