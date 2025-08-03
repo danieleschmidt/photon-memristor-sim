@@ -22,6 +22,7 @@ num-complex = "0.4"
 rayon = "1.7"
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0"
+rand = "0.8"
 
 # WASM-specific dependencies
 wasm-bindgen = { version = "0.2", optional = true }
@@ -34,6 +35,10 @@ version = "0.20"
 features = ["extension-module", "abi3-py38"]
 optional = true
 
+[dependencies.numpy]
+version = "0.20"
+optional = true
+
 [dev-dependencies]
 criterion = { version = "0.5", features = ["html_reports"] }
 proptest = "1.0"
@@ -41,12 +46,12 @@ approx = "0.5"
 
 [features]
 default = ["python"]
-python = ["pyo3"]
+python = ["pyo3", "numpy"]
 wasm = ["wasm-bindgen", "js-sys", "web-sys", "console_error_panic_hook"]
 
-[[bench]]
-name = "simulation_benchmark"
-harness = false
+# [[bench]]
+# name = "simulation_benchmark" 
+# harness = false
 
 [profile.release]
 opt-level = 3
