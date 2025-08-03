@@ -382,23 +382,334 @@ class PhotonicNeuralNetwork:
         }
 
 
+# Advanced architectures and training utilities
+
+class PhotonicResidualBlock(PhotonicLayer):
+    """Photonic residual block for deep networks."""
+    
+    def __init__(self, features: int, name: str = "photonic_residual"):
+        super().__init__(name)
+        self.features = features
+        self.linear1 = PhotonicLinear(features, f"{name}_linear1")
+        self.linear2 = PhotonicLinear(features, f"{name}_linear2")
+        
+    def init_params(self, key: jax.random.PRNGKey, input_shape: Tuple[int, ...]) -> Dict[str, jnp.ndarray]:
+        keys = random.split(key, 2)
+        params1 = self.linear1.init_params(keys[0], input_shape)
+        params2 = self.linear2.init_params(keys[1], input_shape)
+        
+        return {
+            "linear1": params1,
+            "linear2": params2
+        }
+    
+    def __call__(self, inputs: jnp.ndarray, params: Dict, training: bool = True, **kwargs) -> jnp.ndarray:
+        # First linear layer + activation
+        x = self.linear1(inputs, params["linear1"], training)
+        x = jnp.maximum(0, x)  # ReLU
+        
+        # Second linear layer
+        x = self.linear2(x, params["linear2"], training)
+        
+        # Residual connection
+        return inputs + x
+
+
+class PhotonicGANGenerator(PhotonicNeuralNetwork):
+    """Photonic generator for GANs using optical nonlinearities."""
+    
+    def __init__(self, latent_dim: int, output_dim: int, hidden_layers: List[int]):
+        layers = [latent_dim] + hidden_layers + [output_dim]
+        super().__init__(layers, activation="photonic_tanh")
+    
+    def generate(self, noise: jnp.ndarray, params: Optional[Dict] = None) -> jnp.ndarray:
+        """Generate samples from noise."""
+        return self(noise, params, training=False)
+
+
+class PhotonicGANDiscriminator(PhotonicNeuralNetwork):
+    """Photonic discriminator for GANs."""
+    
+    def __init__(self, input_dim: int, hidden_layers: List[int]):
+        layers = [input_dim] + hidden_layers + [1]
+        super().__init__(layers, activation="photonic_relu")
+    
+    def discriminate(self, samples: jnp.ndarray, params: Optional[Dict] = None) -> jnp.ndarray:
+        """Classify samples as real or fake."""
+        logits = self(samples, params, training=True)
+        return jax.nn.sigmoid(logits)
+
+
+class HardwareAwareOptimizer:
+    """Optimizer that respects hardware constraints."""
+    
+    def __init__(self, base_optimizer, constraints: Dict[str, Any]):
+        self.base_optimizer = base_optimizer
+        self.constraints = constraints
+    
+    def init(self, params):
+        return self.base_optimizer.init(params)
+    
+    def update(self, grads, opt_state, params=None):
+        # Apply hardware constraints to gradients
+        constrained_grads = self._apply_constraints(grads, params)
+        
+        # Update using base optimizer
+        updates, new_opt_state = self.base_optimizer.update(constrained_grads, opt_state, params)
+        
+        return updates, new_opt_state
+    
+    def _apply_constraints(self, grads, params):
+        """Apply power, thermal, and fabrication constraints."""
+        constrained_grads = {}
+        
+        for layer_name, layer_grads in grads.items():
+            constrained_layer_grads = {}
+            
+            for param_name, grad in layer_grads.items():
+                if param_name == "device_states":
+                    # Constrain device states to [0, 1]
+                    current_states = params[layer_name][param_name] if params else None
+                    if current_states is not None:
+                        # Zero gradients for states at boundaries
+                        at_lower_bound = current_states <= 0.0
+                        at_upper_bound = current_states >= 1.0
+                        
+                        grad = jnp.where(at_lower_bound & (grad < 0), 0, grad)
+                        grad = jnp.where(at_upper_bound & (grad > 0), 0, grad)
+                
+                elif param_name == "weights":
+                    # Power constraint on weights
+                    power_budget = self.constraints.get("power_budget", 0.1)
+                    weight_norm = jnp.linalg.norm(grad)
+                    if weight_norm > power_budget:
+                        grad = grad * power_budget / weight_norm
+                
+                constrained_layer_grads[param_name] = grad
+            
+            constrained_grads[layer_name] = constrained_layer_grads
+        
+        return constrained_grads
+
+
+def train_photonic_network(network: PhotonicNeuralNetwork,
+                          train_data: Tuple[jnp.ndarray, jnp.ndarray],
+                          val_data: Optional[Tuple[jnp.ndarray, jnp.ndarray]] = None,
+                          epochs: int = 100,
+                          batch_size: int = 32,
+                          learning_rate: float = 0.001,
+                          hardware_constraints: Optional[Dict] = None) -> Dict[str, List[float]]:
+    """Train photonic neural network with hardware-aware optimization."""
+    
+    X_train, y_train = train_data
+    
+    # Initialize optimizer
+    import optax
+    
+    base_optimizer = optax.adam(learning_rate)
+    if hardware_constraints:
+        optimizer = HardwareAwareOptimizer(base_optimizer, hardware_constraints)
+    else:
+        optimizer = base_optimizer
+    
+    # Initialize parameters
+    key = jax.random.PRNGKey(42)
+    params = network.init_params(key, (1, network.layer_sizes[0]))
+    opt_state = optimizer.init(params)
+    
+    # Training history
+    history = {
+        'train_loss': [],
+        'train_accuracy': [],
+        'val_loss': [],
+        'val_accuracy': [],
+        'power_consumption': [],
+        'device_efficiency': []
+    }
+    
+    @jax.jit
+    def train_step(params, opt_state, batch):
+        def loss_fn(p):
+            return network.loss_fn(p, batch[0], batch[1])
+        
+        loss, grads = jax.value_and_grad(loss_fn)(params)
+        updates, opt_state = optimizer.update(grads, opt_state, params)
+        params = optax.apply_updates(params, updates)
+        
+        return params, opt_state, loss
+    
+    @jax.jit
+    def eval_step(params, batch):
+        loss = network.loss_fn(params, batch[0], batch[1])
+        predictions = network(batch[0], params, training=False)
+        
+        # Calculate accuracy for classification
+        if y_train.ndim == 1 or y_train.shape[-1] == 1:
+            # Binary classification
+            accuracy = jnp.mean((predictions > 0.5) == (batch[1] > 0.5))
+        else:
+            # Multi-class classification
+            accuracy = jnp.mean(jnp.argmax(predictions, axis=-1) == jnp.argmax(batch[1], axis=-1))
+        
+        return loss, accuracy
+    
+    # Training loop
+    for epoch in range(epochs):
+        # Shuffle training data
+        key = jax.random.PRNGKey(epoch)
+        perm = jax.random.permutation(key, len(X_train))
+        X_shuffled = X_train[perm]
+        y_shuffled = y_train[perm]
+        
+        # Training batches
+        epoch_losses = []
+        num_batches = len(X_train) // batch_size
+        
+        for i in range(num_batches):
+            start_idx = i * batch_size
+            end_idx = start_idx + batch_size
+            batch = (X_shuffled[start_idx:end_idx], y_shuffled[start_idx:end_idx])
+            
+            params, opt_state, loss = train_step(params, opt_state, batch)
+            epoch_losses.append(loss)
+        
+        # Calculate training metrics
+        train_loss = jnp.mean(jnp.array(epoch_losses))
+        train_loss_full, train_acc = eval_step(params, (X_train, y_train))
+        
+        history['train_loss'].append(float(train_loss))
+        history['train_accuracy'].append(float(train_acc))
+        
+        # Validation metrics
+        if val_data is not None:
+            val_loss, val_acc = eval_step(params, val_data)
+            history['val_loss'].append(float(val_loss))
+            history['val_accuracy'].append(float(val_acc))
+        
+        # Hardware metrics
+        network.params = params
+        power = network.total_power()
+        device_count = network.device_count()
+        efficiency = float(train_acc) / max(power, 1e-6)
+        
+        history['power_consumption'].append(power)
+        history['device_efficiency'].append(efficiency)
+        
+        # Logging
+        if epoch % 10 == 0 or epoch == epochs - 1:
+            print(f"Epoch {epoch:3d}: "
+                  f"Loss={train_loss:.4f}, "
+                  f"Acc={train_acc:.4f}, "
+                  f"Power={power:.3f}mW, "
+                  f"Devices={device_count}")
+    
+    # Update network with final parameters
+    network.params = params
+    return history
+
+
+def create_photonic_autoencoder(input_dim: int, latent_dim: int, 
+                               hidden_layers: Optional[List[int]] = None) -> Tuple[PhotonicNeuralNetwork, PhotonicNeuralNetwork]:
+    """Create photonic encoder-decoder pair for autoencoders."""
+    
+    if hidden_layers is None:
+        hidden_layers = [input_dim // 2, input_dim // 4]
+    
+    # Encoder: input -> latent
+    encoder_layers = [input_dim] + hidden_layers + [latent_dim]
+    encoder = PhotonicNeuralNetwork(encoder_layers, activation="photonic_relu")
+    
+    # Decoder: latent -> input
+    decoder_layers = [latent_dim] + hidden_layers[::-1] + [input_dim]
+    decoder = PhotonicNeuralNetwork(decoder_layers, activation="photonic_sigmoid")
+    
+    return encoder, decoder
+
+
+def create_photonic_gan(latent_dim: int, output_dim: int,
+                       gen_hidden: Optional[List[int]] = None,
+                       disc_hidden: Optional[List[int]] = None) -> Tuple[PhotonicGANGenerator, PhotonicGANDiscriminator]:
+    """Create photonic GAN generator and discriminator."""
+    
+    if gen_hidden is None:
+        gen_hidden = [128, 256, 512]
+    if disc_hidden is None:
+        disc_hidden = [512, 256, 128]
+    
+    generator = PhotonicGANGenerator(latent_dim, output_dim, gen_hidden)
+    discriminator = PhotonicGANDiscriminator(output_dim, disc_hidden)
+    
+    return generator, discriminator
+
+
+def benchmark_against_electronic(photonic_net: PhotonicNeuralNetwork,
+                                electronic_net: Callable,
+                                test_data: Tuple[jnp.ndarray, jnp.ndarray],
+                                batch_size: int = 1000) -> Dict[str, float]:
+    """Benchmark photonic vs electronic neural network performance."""
+    
+    X_test, y_test = test_data
+    
+    # Photonic network performance
+    photonic_metrics = photonic_net.benchmark_performance(batch_size)
+    
+    # Electronic network timing (simplified)
+    import time
+    start_time = time.time()
+    electronic_pred = electronic_net(X_test[:batch_size])
+    electronic_time = time.time() - start_time
+    
+    electronic_throughput = batch_size / electronic_time
+    
+    # Accuracy comparison
+    photonic_pred = photonic_net(X_test[:batch_size], training=False)
+    
+    photonic_acc = jnp.mean(jnp.argmax(photonic_pred, axis=-1) == jnp.argmax(y_test[:batch_size], axis=-1))
+    electronic_acc = jnp.mean(jnp.argmax(electronic_pred, axis=-1) == jnp.argmax(y_test[:batch_size], axis=-1))
+    
+    return {
+        'photonic_throughput': photonic_metrics['throughput'],
+        'electronic_throughput': electronic_throughput,
+        'speedup': photonic_metrics['throughput'] / electronic_throughput,
+        'photonic_accuracy': float(photonic_acc),
+        'electronic_accuracy': float(electronic_acc),
+        'accuracy_degradation': float(electronic_acc - photonic_acc),
+        'power_consumption': photonic_metrics['power_consumption'],
+        'energy_efficiency': photonic_metrics['efficiency']
+    }
+
+
 # Convenience functions
 def create_photonic_mlp(layers: List[int], **kwargs) -> PhotonicNeuralNetwork:
     """Create a multi-layer perceptron with photonic layers."""
     return PhotonicNeuralNetwork(layers, **kwargs)
 
 
+def create_photonic_classifier(input_dim: int, num_classes: int,
+                              hidden_layers: Optional[List[int]] = None,
+                              **kwargs) -> PhotonicNeuralNetwork:
+    """Create a photonic neural network for classification."""
+    if hidden_layers is None:
+        hidden_layers = [256, 128]
+    
+    layers = [input_dim] + hidden_layers + [num_classes]
+    return PhotonicNeuralNetwork(layers, **kwargs)
+
+
 def create_photonic_cnn(input_shape: Tuple[int, int, int], 
                        num_classes: int, **kwargs) -> Any:
     """Create a convolutional neural network with photonic layers."""
-    # Would implement CNN architecture
-    pass
+    # Placeholder for future CNN implementation
+    height, width, channels = input_shape
+    flattened_size = height * width * channels
+    return create_photonic_classifier(flattened_size, num_classes, **kwargs)
 
 
 def create_photonic_transformer(d_model: int, num_heads: int, 
                               num_layers: int, **kwargs) -> Any:
     """Create a transformer with photonic attention."""
-    # Would implement transformer architecture
+    # Placeholder for future transformer implementation
+    # Would use PhotonicAttention layers
     pass
 
 

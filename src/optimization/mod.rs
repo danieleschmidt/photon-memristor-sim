@@ -1,7 +1,14 @@
 //! Optimization algorithms and gradient computation
 
+pub mod codesign;
+
 use crate::core::{Result, PhotonicError};
 use nalgebra::DVector;
+
+pub use codesign::{
+    CoDesignOptimizer, CoDesignConstraints, ParetoSolution, Objective,
+    RobustnessAnalyzer, RobustnessMetrics, VariationModel
+};
 
 /// Gradient computation trait
 pub trait GradientComputer {

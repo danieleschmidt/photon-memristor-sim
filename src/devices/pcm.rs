@@ -101,11 +101,122 @@ impl MemristiveDevice for PCMDevice {
     }
 }
 
-/// Crystallization model for PCM
-pub struct CrystallizationModel;
+/// Crystallization model for PCM based on Johnson-Mehl-Avrami equation
+pub struct CrystallizationModel {
+    pub activation_energy: f64,    // eV
+    pub pre_exponential: f64,      // Hz
+    pub avrami_exponent: f64,      // dimensionless
+}
 
 impl CrystallizationModel {
-    pub fn crystallization_rate(_temperature: f64) -> f64 {
-        1e6 // Simplified rate
+    /// GST material parameters
+    pub fn gst() -> Self {
+        Self {
+            activation_energy: 2.2,     // eV
+            pre_exponential: 1e13,      // Hz
+            avrami_exponent: 2.5,       // typical for nucleation-growth
+        }
+    }
+    
+    /// GSST material parameters  
+    pub fn gsst() -> Self {
+        Self {
+            activation_energy: 1.8,     // eV (lower than GST)
+            pre_exponential: 1e12,      // Hz
+            avrami_exponent: 2.2,
+        }
+    }
+    
+    /// Calculate crystallization rate at given temperature
+    pub fn crystallization_rate(&self, temperature: f64) -> f64 {
+        let k_b = 8.617e-5; // eV/K
+        let exp_factor = (-self.activation_energy / (k_b * temperature)).exp();
+        self.pre_exponential * exp_factor
+    }
+    
+    /// Calculate crystalline fraction evolution (JMA equation)
+    pub fn crystalline_fraction(&self, temperature: f64, time: f64, current_fraction: f64) -> f64 {
+        let rate = self.crystallization_rate(temperature);
+        let avrami_time = (rate * time).powf(self.avrami_exponent);
+        let target_fraction = 1.0 - (-avrami_time).exp();
+        
+        // Interpolate towards target based on kinetics
+        let alpha = 1.0 - (-rate * time).exp();
+        current_fraction + alpha * (target_fraction - current_fraction)
+    }
+}
+
+/// Thermal model for PCM heating
+pub struct ThermalModel {
+    pub thermal_conductivity: f64,    // W/m/K
+    pub specific_heat: f64,           // J/kg/K  
+    pub density: f64,                 // kg/m³
+    pub melting_point: f64,           // K
+    pub crystallization_temp: f64,    // K
+}
+
+impl ThermalModel {
+    pub fn gst() -> Self {
+        Self {
+            thermal_conductivity: 0.5,    // W/m/K
+            specific_heat: 200.0,         // J/kg/K
+            density: 6150.0,              // kg/m³
+            melting_point: 888.0,         // K
+            crystallization_temp: 423.0,  // K (150°C)
+        }
+    }
+    
+    /// Calculate temperature rise from optical power
+    pub fn temperature_rise(&self, power: f64, volume: f64, pulse_duration: f64) -> f64 {
+        let energy = power * pulse_duration;
+        let mass = self.density * volume;
+        let thermal_capacity = mass * self.specific_heat;
+        
+        // Simplified: neglect heat diffusion for short pulses
+        energy / thermal_capacity
+    }
+    
+    /// Check if temperature enables phase transition
+    pub fn phase_transition_enabled(&self, temperature: f64) -> (bool, bool) {
+        let can_melt = temperature > self.melting_point;
+        let can_crystallize = temperature > self.crystallization_temp && temperature < self.melting_point;
+        (can_melt, can_crystallize)
+    }
+}
+
+/// Optical constants model for PCM materials
+pub struct OpticalModel {
+    pub amorphous_n: Complex64,
+    pub crystalline_n: Complex64,
+    pub wavelength: f64,
+}
+
+impl OpticalModel {
+    /// GST optical constants at 1550nm
+    pub fn gst_1550nm() -> Self {
+        Self {
+            amorphous_n: Complex64::new(4.0, 0.1),     // n + ik (amorphous)
+            crystalline_n: Complex64::new(6.5, 0.5),   // n + ik (crystalline)
+            wavelength: 1550e-9,
+        }
+    }
+    
+    /// Calculate effective refractive index based on crystallinity
+    pub fn effective_index(&self, crystallinity: f64) -> Complex64 {
+        // Linear interpolation between amorphous and crystalline
+        self.amorphous_n * (1.0 - crystallinity) + self.crystalline_n * crystallinity
+    }
+    
+    /// Calculate transmission coefficient
+    pub fn transmission(&self, crystallinity: f64, thickness: f64) -> Complex64 {
+        let n_eff = self.effective_index(crystallinity);
+        let k = 2.0 * std::f64::consts::PI * n_eff.im / self.wavelength;
+        let absorption = (-k * thickness).exp();
+        
+        // Fresnel transmission (simplified, normal incidence)
+        let r = ((n_eff - Complex64::new(1.0, 0.0)) / (n_eff + Complex64::new(1.0, 0.0))).norm_sqr();
+        let fresnel_factor = (1.0 - r).sqrt();
+        
+        Complex64::new(fresnel_factor * absorption, 0.0)
     }
 }
