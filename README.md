@@ -582,9 +582,9 @@ cargo bench
 ```bibtex
 @software{photon_memristor_sim,
   title={Photon-Memristor-Sim: Differentiable Neuromorphic Photonic Simulation},
-  author={Your Name},
+  author={Daniel Schmidt},
   year={2025},
-  url={https://github.com/yourusername/photon-memristor-sim}
+  url={https://github.com/danieleschmidt/photon-memristor-sim}
 }
 ```
 
