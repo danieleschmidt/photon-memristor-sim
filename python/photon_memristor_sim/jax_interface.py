@@ -37,7 +37,11 @@ def photonic_matmul(inputs: jnp.ndarray, weights: jnp.ndarray,
     weights_np = np.asarray(weights, dtype=np.float64)
     
     # Call Rust implementation
-    outputs_np = jax_photonic_matmul(inputs_np, weights_np, wavelength)
+    # Convert inputs to list for Rust interface
+    inputs_list = inputs_np.tolist() if inputs_np.ndim == 1 else inputs_np.flatten().tolist()
+    weights_list = weights_np.tolist()
+    
+    outputs_np = jax_photonic_matmul(inputs_list, weights_list, wavelength)
     
     return jnp.array(outputs_np)
 
@@ -58,9 +62,14 @@ def photonic_matmul_bwd(residuals: Tuple, grad_outputs: jnp.ndarray) -> Tuple:
     weights_np = np.asarray(weights, dtype=np.float64)
     grad_outputs_np = np.asarray(grad_outputs, dtype=np.float64)
     
+    # Convert to lists for Rust interface
+    inputs_list = inputs_np.tolist() if inputs_np.ndim == 1 else inputs_np.flatten().tolist()
+    weights_list = weights_np.tolist()
+    grad_outputs_list = grad_outputs_np.tolist() if grad_outputs_np.ndim == 1 else grad_outputs_np.flatten().tolist()
+    
     # Compute gradients using Rust implementation
     grad_inputs_np, grad_weights_np = jax_photonic_matmul_vjp(
-        inputs_np, weights_np, grad_outputs_np, wavelength
+        inputs_list, weights_list, grad_outputs_list, wavelength
     )
     
     grad_inputs = jnp.array(grad_inputs_np)

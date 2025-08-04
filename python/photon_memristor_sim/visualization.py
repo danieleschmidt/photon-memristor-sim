@@ -623,7 +623,12 @@ def create_photonic_colormap(name: str = 'photonic') -> LinearSegmentedColormap:
 
 
 # Register custom colormap
-plt.cm.register_cmap(name='photonic', cmap=create_photonic_colormap())
+try:
+    from matplotlib.colors import register_cmap
+    register_cmap(name='photonic', cmap=create_photonic_colormap())
+except (ImportError, AttributeError):
+    # Fallback for older matplotlib versions
+    pass
 
 
 __all__ = [
