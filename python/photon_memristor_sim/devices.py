@@ -154,17 +154,14 @@ class OxideMemristor(PhotonicDevice):
         # Conductance affects free carrier concentration
         carrier_density = self.conductance * self.thickness / (1.6e-19 * self.material_props[self.oxide_type]["mobility"])
         
-        # Plasma dispersion effect
-        plasma_freq_sq = carrier_density * (1.6e-19)**2 / (8.85e-12 * 9.1e-31)  # Simplified
+        # Simplified plasma dispersion effect
         omega = 2 * jnp.pi * 3e8 / wavelength
         
-        # Change in refractive index due to free carriers
-        delta_n = -plasma_freq_sq / (2 * omega**2)
-        delta_alpha = 0  # Simplified - neglect absorption change
+        # Simplified model: conductance affects transmission
+        modulation_strength = jnp.clip(self.conductance * 1e6, 0, 1)  # Normalize
         
-        # Apply modulation
-        phase_shift = 2 * jnp.pi * delta_n * self.thickness / wavelength
-        transmission = jnp.exp(1j * phase_shift - delta_alpha * self.thickness)
+        # Apply modulation (simplified - real part only)
+        transmission = 0.5 + 0.5 * modulation_strength
         
         return optical_field * transmission
     
