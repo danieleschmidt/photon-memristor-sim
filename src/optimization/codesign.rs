@@ -5,9 +5,10 @@ use crate::devices::traits::PhotonicDevice;
 use crate::simulation::PhotonicArray;
 use nalgebra::{DVector, DMatrix};
 use std::collections::HashMap;
+use rand::{self, Rng};
 
 /// Multi-objective optimization objectives
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Eq, Hash, PartialEq)]
 pub enum Objective {
     /// Minimize prediction error
     Accuracy,
@@ -192,15 +193,15 @@ impl CoDesignOptimizer {
     
     /// Generate random network weights
     fn random_network_weights(&self) -> Result<DVector<f64>> {
-        use rand_distr::{Normal, Distribution};
+        // use rand_distr::{Normal, Distribution};
         let mut rng = rand::thread_rng();
         
-        let normal = Normal::new(0.0, 0.1).map_err(|_| 
-            PhotonicError::simulation_error("Failed to create normal distribution"))?;
+        // let normal = Normal::new(0.0, 0.1).map_err(|_| 
+        //     PhotonicError::simulation("Failed to create normal distribution"))?;
         
         // For demo, assume 1000 network weights
         let weights: Vec<f64> = (0..1000)
-            .map(|_| normal.sample(&mut rng))
+            .map(|_| rng.gen_range(-0.1..0.1))
             .collect();
         
         Ok(DVector::from_vec(weights))
@@ -379,7 +380,7 @@ impl CoDesignOptimizer {
     }
     
     /// Tournament selection
-    fn tournament_selection(&self, population: &[ParetoSolution]) -> Result<&ParetoSolution> {
+    fn tournament_selection<'a>(&self, population: &'a [ParetoSolution]) -> Result<&'a ParetoSolution> {
         use rand::Rng;
         let mut rng = rand::thread_rng();
         
@@ -428,16 +429,16 @@ impl CoDesignOptimizer {
     /// Mutation operation
     fn mutate(&self, solution: &mut ParetoSolution) -> Result<()> {
         use rand::Rng;
-        use rand_distr::{Normal, Distribution};
+        // use rand_distr::{Normal, Distribution};
         let mut rng = rand::thread_rng();
         
-        let normal = Normal::new(0.0, 0.1).map_err(|_| 
-            PhotonicError::simulation_error("Failed to create normal distribution"))?;
+        // let normal = Normal::new(0.0, 0.1).map_err(|_| 
+        //     PhotonicError::simulation("Failed to create normal distribution"))?;
         
         // Mutate device parameters
         for i in 0..solution.device_params.len() {
             if rng.gen::<f64>() < 0.1 {  // 10% chance per parameter
-                let mutation = normal.sample(&mut rng);
+                let mutation = rng.gen_range(-0.1..0.1);
                 solution.device_params[i] += mutation;
                 
                 // Clip to bounds
@@ -451,7 +452,7 @@ impl CoDesignOptimizer {
         // Mutate network weights
         for weight in solution.network_weights.iter_mut() {
             if rng.gen::<f64>() < 0.01 {  // 1% chance per weight
-                let mutation = normal.sample(&mut rng);
+                let mutation = rng.gen_range(-0.1..0.1);
                 *weight += mutation;
             }
         }
@@ -496,7 +497,7 @@ impl RobustnessAnalyzer {
                                   evaluation_fn: F) -> Result<RobustnessMetrics>
     where F: Fn(&DVector<f64>) -> f64
     {
-        use rand_distr::{Normal, Distribution};
+        // use rand_distr::{Normal, Distribution};
         let mut rng = rand::thread_rng();
         
         let mut performance_samples = Vec::with_capacity(self.num_samples);
@@ -508,8 +509,8 @@ impl RobustnessAnalyzer {
             for (i, param) in varied_params.iter_mut().enumerate() {
                 let param_name = format!("param_{}", i);
                 if let Some(&std_dev) = self.variation_model.parameter_variations.get(&param_name) {
-                    let normal = Normal::new(0.0, std_dev).unwrap();
-                    let variation = normal.sample(&mut rng);
+                    // let normal = Normal::new(0.0, std_dev).unwrap();
+                    let variation = rng.gen_range(-0.1..0.1);
                     *param += variation;
                 }
             }
