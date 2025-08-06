@@ -23,6 +23,13 @@ from .jax_interface import photonic_matmul, photonic_conv2d, create_photonic_pri
 from .devices import PCMDevice, OxideMemristor, MicroringResonator
 from .training import HardwareAwareOptimizer, CoDesignOptimizer
 from .visualization import PhotonicCircuitVisualizer, FieldVisualizer
+from .quantum_planning import (
+    QuantumTaskPlanner, 
+    PhotonicTaskPlannerFactory,
+    TaskAssignment,
+    QuantumPlanningReport,
+    benchmark_quantum_vs_classical
+)
 
 # Utility functions
 from .utils import (
@@ -61,6 +68,13 @@ __all__ = [
     # Visualization
     "PhotonicCircuitVisualizer",
     "FieldVisualizer",
+    
+    # Quantum-Inspired Planning
+    "QuantumTaskPlanner",
+    "PhotonicTaskPlannerFactory", 
+    "TaskAssignment",
+    "QuantumPlanningReport",
+    "benchmark_quantum_vs_classical",
     
     # Utilities
     "create_gaussian_beam",

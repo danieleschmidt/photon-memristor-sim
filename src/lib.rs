@@ -7,6 +7,8 @@ pub mod core;
 pub mod devices;
 pub mod simulation;
 pub mod optimization;
+pub mod performance;
+pub mod testing;
 pub mod utils;
 
 // Python bindings

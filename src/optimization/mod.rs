@@ -1,6 +1,7 @@
 //! Optimization algorithms and gradient computation
 
 pub mod codesign;
+pub mod quantum_inspired;
 
 use crate::core::{Result, PhotonicError};
 use nalgebra::DVector;
@@ -8,6 +9,9 @@ use nalgebra::DVector;
 pub use codesign::{
     CoDesignOptimizer, CoDesignConstraints, ParetoSolution, Objective,
     RobustnessAnalyzer, RobustnessMetrics, VariationModel
+};
+pub use quantum_inspired::{
+    QuantumTaskPlanner, QuantumPlannerFactory, TaskAssignment, QuantumPlanningReport
 };
 
 /// Gradient computation trait
