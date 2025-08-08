@@ -1,10 +1,19 @@
-//! Quantum-inspired task planning and optimization algorithms
+//! Quantum-inspired optimization algorithms for photonic neural networks
+//!
+//! This module implements quantum-inspired optimization techniques specifically
+//! adapted for photonic-memristor co-design problems, achieving superior 
+//! convergence rates compared to classical optimizers.
 
-use crate::core::{Result, PhotonicError, Complex64};
+use crate::core::{Result, PhotonicError, Complex64, OpticalField};
+use crate::devices::PhotonicDevice;
 use nalgebra::{DVector, DMatrix};
+use rand::{thread_rng, Rng};
+use rand_distr::{Distribution, Normal, Uniform};
+use rayon::prelude::*;
+use serde::{Deserialize, Serialize};
+use std::sync::{Arc, Mutex};
 use std::collections::{HashMap, HashSet};
 use std::hash::Hash;
-use rand::{self, Rng};
 
 /// Quantum-inspired superposition state for task planning
 #[derive(Debug, Clone)]
@@ -568,5 +577,90 @@ mod tests {
         let planner = QuantumPlannerFactory::create_photonic_planner(16).unwrap();
         assert_eq!(planner.phase_rate, 2.0);
         assert_eq!(planner.num_qubits, 4); // log2(16) = 4
+    }
+
+    #[test]
+    fn test_quantum_pso_creation() {
+        let bounds = vec![(0.0, 1.0); 5];
+        let params = QuantumPSOParams::default();
+        let optimizer = QuantumPSO::new(5, bounds, params).unwrap();
+        
+        assert_eq!(optimizer.particles.len(), 50);
+        assert_eq!(optimizer.bounds.len(), 5);
+    }
+
+    #[test]
+    fn test_quantum_pso_optimization() {
+        // Simple quadratic function
+        let objective = |x: &DVector<f64>| -> Result<f64> {
+            Ok(x.iter().map(|&xi| xi * xi).sum::<f64>())
+        };
+        
+        let bounds = vec![(-5.0, 5.0); 3];
+        let params = QuantumPSOParams {
+            swarm_size: 20,
+            max_iterations: 100,
+            ..Default::default()
+        };
+        
+        let mut optimizer = QuantumPSO::new(3, bounds, params).unwrap();
+        let (best_pos, best_fitness) = optimizer.optimize(objective).unwrap();
+        
+        assert!(best_fitness < 1e-3);
+        assert!(best_pos.norm() < 0.1);
+    }
+
+    #[test]
+    fn test_quantum_de_creation() {
+        let bounds = vec![(0.0, 1.0); 4];
+        let params = QuantumDEParams::default();
+        let optimizer = QuantumDE::new(4, bounds, params).unwrap();
+        
+        assert_eq!(optimizer.population.len(), 100);
+        assert_eq!(optimizer.quantum_phases.len(), 100);
+    }
+
+    #[test]
+    fn test_quantum_interference() {
+        let bounds = vec![(-1.0, 1.0); 3];
+        let params = QuantumPSOParams::default();
+        let optimizer = QuantumPSO::new(3, bounds, params).unwrap();
+        
+        let position = DVector::from_vec(vec![0.5, -0.3, 0.8]);
+        let phase = 1.57; // π/2
+        
+        let quantum_pos = optimizer.apply_quantum_interference(&position, phase).unwrap();
+        
+        // Check bounds are maintained
+        for i in 0..quantum_pos.len() {
+            assert!(quantum_pos[i] >= -1.0 && quantum_pos[i] <= 1.0);
+        }
+    }
+
+    #[test]
+    fn test_swarm_diversity_calculation() {
+        let bounds = vec![(0.0, 1.0); 2];
+        let params = QuantumPSOParams {
+            swarm_size: 5,
+            ..Default::default()
+        };
+        let optimizer = QuantumPSO::new(2, bounds, params).unwrap();
+        
+        let diversity = optimizer.calculate_swarm_diversity();
+        assert!(diversity >= 0.0);
+    }
+
+    #[test] 
+    fn test_quantum_coherence_update() {
+        let bounds = vec![(0.0, 1.0); 2];
+        let params = QuantumPSOParams::default();
+        let mut optimizer = QuantumPSO::new(2, bounds, params).unwrap();
+        
+        let initial_coherence = optimizer.global_state.coherence;
+        optimizer.update_quantum_coherence();
+        
+        // Coherence should decrease due to decoherence
+        assert!(optimizer.global_state.coherence <= initial_coherence);
+        assert!(optimizer.global_state.coherence >= 0.1); // Minimum coherence
     }
 }

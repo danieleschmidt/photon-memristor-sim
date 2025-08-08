@@ -449,14 +449,14 @@ impl CachingBenchmarks {
 pub async fn run_performance_tests() -> Result<BenchmarkResults> {
     println!("🚀 Running comprehensive performance benchmarks...");
     println!("Target: <200ms per operation for optimal performance");
-    println!("=" * 70);
+    println!("{}", "=".repeat(70));
     
     let mut results = BenchmarkResults::new();
     let overall_start = Instant::now();
     
     // Quantum optimization benchmarks
     println!("\n🌌 Quantum Optimization Benchmarks");
-    println!("-" * 40);
+    println!("{}", "-".repeat(40));
     let quantum_benchmarks = QuantumOptimizationBenchmarks::new();
     let quantum_results = quantum_benchmarks.run_all();
     for result in quantum_results {
@@ -465,7 +465,7 @@ pub async fn run_performance_tests() -> Result<BenchmarkResults> {
     
     // Parallel processing benchmarks
     println!("\n⚡ Parallel Processing Benchmarks");
-    println!("-" * 40);
+    println!("{}", "-".repeat(40));
     let parallel_benchmarks = ParallelProcessingBenchmarks::new();
     let parallel_results = parallel_benchmarks.run_all();
     for result in parallel_results {
@@ -474,7 +474,7 @@ pub async fn run_performance_tests() -> Result<BenchmarkResults> {
     
     // Caching system benchmarks
     println!("\n💾 Caching System Benchmarks");
-    println!("-" * 40);
+    println!("{}", "-".repeat(40));
     let caching_benchmarks = CachingBenchmarks::new();
     let caching_results = caching_benchmarks.run_all();
     for result in caching_results {
@@ -483,7 +483,7 @@ pub async fn run_performance_tests() -> Result<BenchmarkResults> {
     
     // Additional system-level benchmarks
     println!("\n🔬 System-Level Benchmarks");
-    println!("-" * 40);
+    println!("{}", "-".repeat(40));
     let system_results = run_system_benchmarks().await?;
     for result in system_results {
         results.add_result(result);
@@ -493,7 +493,7 @@ pub async fn run_performance_tests() -> Result<BenchmarkResults> {
     
     // Performance summary
     println!("\n📊 Performance Summary");
-    println!("=" * 50);
+    println!("{}", "=".repeat(50));
     println!("{}", results.summary());
     
     let fast_benchmarks = results.benchmarks.iter()
