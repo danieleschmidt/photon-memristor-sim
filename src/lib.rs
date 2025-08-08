@@ -10,6 +10,7 @@ pub mod optimization;
 pub mod performance;
 pub mod testing;
 pub mod utils;
+pub mod cloud;
 
 // Python bindings
 #[cfg(feature = "python")]

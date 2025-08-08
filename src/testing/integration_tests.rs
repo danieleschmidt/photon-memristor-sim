@@ -4,6 +4,7 @@ use super::*;
 use crate::core::*;
 use crate::optimization::quantum_inspired::*;
 use crate::performance::{parallel::*, cache::*};
+use nalgebra::DVector;
 use std::time::{Duration, Instant};
 
 /// Integration test suite for end-to-end functionality
@@ -293,7 +294,7 @@ impl IntegrationTestSuite {
         
         // Create validation parameters from results
         let validation_params = DVector::from_vec(processed_resources[0..5].to_vec());
-        let bounds = vec![(−10.0, 10.0); 5]; // Reasonable bounds for processed results
+        let bounds = vec![(-10.0, 10.0); 5]; // Reasonable bounds for processed results
         
         let validation_report = validator.validate_parameters("end_to_end", &validation_params, &bounds)?;
         

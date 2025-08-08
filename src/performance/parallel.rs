@@ -67,7 +67,7 @@ impl ParallelExecutor {
     /// Create new parallel executor
     pub fn new(config: ParallelConfig) -> Result<Self> {
         let thread_pool = rayon::ThreadPoolBuilder::new()
-            .num_threads(config.num_threads.unwrap_or_else(num_cpus::get))
+            .num_threads(config.num_threads.unwrap_or_else(|| get_num_cpus()))
             .thread_name(|index| format!("photonic-worker-{}", index))
             .build()
             .map_err(|e| PhotonicError::simulation(format!("Failed to create thread pool: {}", e)))?;
@@ -395,7 +395,7 @@ pub mod simd {
 }
 
 /// Utility function to get number of CPU cores
-fn num_cpus::get() -> usize {
+fn get_num_cpus() -> usize {
     // Fallback implementation
     std::thread::available_parallelism()
         .map(|p| p.get())
