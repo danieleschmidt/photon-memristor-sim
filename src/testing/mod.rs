@@ -212,7 +212,14 @@ impl TestSuite {
 /// Test case trait for individual tests  
 pub trait TestCase: Send + Sync {
     fn name(&self) -> &str;
-    fn execute_sync(&self) -> Result<()>; // Change from async to sync for dyn compatibility
+    fn execute_sync(&self) -> Result<()>; // Sync method for dyn compatibility
+    
+    // Default async implementation that calls execute_sync
+    fn execute(&self) -> std::pin::Pin<Box<dyn std::future::Future<Output = Result<()>> + Send + '_>> {
+        let result = self.execute_sync();
+        Box::pin(async move { result })
+    }
+    
     fn timeout(&self) -> Duration {
         Duration::from_secs(10)
     }

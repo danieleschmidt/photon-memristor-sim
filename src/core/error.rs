@@ -39,6 +39,12 @@ pub enum PhotonicError {
         source: std::io::Error,
     },
     
+    #[error("Regular expression error: {source}")]
+    Regex {
+        #[from]
+        source: regex::Error,
+    },
+    
     #[error("Serialization error: {message}")]
     Serialization { message: String },
     

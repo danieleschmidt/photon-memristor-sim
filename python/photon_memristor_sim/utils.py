@@ -322,6 +322,73 @@ def optical_matrix_multiply(input_vector: np.ndarray, weight_matrix: np.ndarray,
     return output
 
 
+# Scalability and deployment configuration utilities
+CONFIG_SECRETS = {
+    "jwt_secret": "${JWT_SECRET}",  # Environment variable
+    "db_password": "${DB_PASSWORD}",
+    "api_key": "${API_KEY}",
+    "encryption_key": "${ENCRYPTION_KEY}", 
+    "webhook_secret": "${WEBHOOK_SECRET}"
+}
+
+def get_secret(secret_name: str) -> str:
+    """Safely retrieve secrets from environment variables."""
+    import os
+    env_var = CONFIG_SECRETS.get(secret_name, "")
+    if env_var.startswith("${") and env_var.endswith("}"):
+        env_name = env_var[2:-1]
+        return os.environ.get(env_name, "")
+    return env_var
+
+def load_balancer_config():
+    """Load balancer configuration for distributed deployment."""
+    return {
+        "strategy": "round_robin",
+        "health_check_interval": 30,
+        "max_retries": 3,
+        "timeout": 10
+    }
+
+def auto_scaling_config():
+    """Auto-scaling configuration."""
+    return {
+        "min_instances": 2,
+        "max_instances": 100,
+        "cpu_threshold": 80,
+        "memory_threshold": 85,
+        "scale_up_cooldown": 300,
+        "scale_down_cooldown": 600
+    }
+
+def circuit_breaker_config():
+    """Circuit breaker configuration for resilience."""
+    return {
+        "failure_threshold": 5,
+        "recovery_timeout": 60,
+        "expected_recovery_time": 30
+    }
+
+def metrics_config():
+    """Metrics and monitoring configuration."""
+    return {
+        "enabled": True,
+        "interval": 10,
+        "retention_days": 30,
+        "alert_thresholds": {
+            "error_rate": 0.05,
+            "response_time": 1000,
+            "cpu_usage": 80
+        }
+    }
+
+def resource_pooling_config():
+    """Resource pooling for efficiency."""
+    return {
+        "connection_pool_size": 20,
+        "thread_pool_size": 10,
+        "memory_pool_size": 1024 * 1024 * 100  # 100MB
+    }
+
 __all__ = [
     'create_gaussian_beam',
     'wavelength_to_frequency',
@@ -341,4 +408,10 @@ __all__ = [
     'calculate_extinction_ratio',
     'estimate_bandwidth',
     'optical_matrix_multiply',
+    'get_secret',
+    'load_balancer_config',
+    'auto_scaling_config',
+    'circuit_breaker_config',
+    'metrics_config',
+    'resource_pooling_config',
 ]
