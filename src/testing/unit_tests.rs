@@ -15,7 +15,7 @@ impl TestCase for QuantumOptimizationTests {
         "QuantumOptimizationTests"
     }
     
-    async fn execute(&self) -> Result<()> {
+    fn execute_sync(&self) -> Result<()> {
         self.test_quantum_superposition()?;
         self.test_task_assignment_creation()?;
         self.test_quantum_interference()?;
@@ -132,7 +132,7 @@ impl TestCase for ParallelProcessingTests {
         "ParallelProcessingTests"
     }
     
-    async fn execute(&self) -> Result<()> {
+    fn execute_sync(&self) -> Result<()> {
         self.test_parallel_executor_creation()?;
         self.test_memory_pool_management()?;
         self.test_load_balancing_strategies()?;
@@ -222,7 +222,7 @@ impl TestCase for CachingTests {
         "CachingTests"
     }
     
-    async fn execute(&self) -> Result<()> {
+    fn execute_sync(&self) -> Result<()> {
         self.test_cache_creation()?;
         self.test_cache_operations()?;
         self.test_eviction_policies()?;
@@ -234,7 +234,7 @@ impl TestCase for CachingTests {
 impl CachingTests {
     fn test_cache_creation(&self) -> Result<()> {
         let config = CacheConfig::default();
-        let cache = PhotonicCache::new(config)?;
+        let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(config);
         
         assert_eq!(cache.size(), 0, "New cache should be empty");
         assert!(cache.capacity() > 0, "Cache should have positive capacity");
@@ -244,21 +244,21 @@ impl CachingTests {
     }
     
     fn test_cache_operations(&self) -> Result<()> {
-        let mut cache = PhotonicCache::new(CacheConfig::default())?;
+        let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(CacheConfig::default());
         
-        let key = CacheKey::new("test", vec![1.0, 2.0, 3.0]);
-        let value = CachedResult::new(vec![4.0, 5.0, 6.0], 0.95);
+        let key = CacheKey::new("test", &[1.0, 2.0, 3.0], b"test_input", 32);
+        let value = vec![4.0, 5.0, 6.0];
         
         // Test put operation
-        cache.put(key.clone(), value.clone())?;
-        assert_eq!(cache.size(), 1, "Cache should contain one item");
+        cache.put(key.clone(), value.clone(), 10.5)?;
+        assert_eq!(cache.len(), 1, "Cache should contain one item");
         
         // Test get operation
-        let retrieved = cache.get(&key)?;
+        let retrieved = cache.get(&key);
         assert!(retrieved.is_some(), "Should retrieve cached value");
         
         let retrieved_value = retrieved.unwrap();
-        assert_eq!(retrieved_value.confidence, value.confidence);
+        assert_eq!(retrieved_value, value);
         
         // Test cache hit/miss statistics
         let stats = cache.stats();
@@ -272,7 +272,7 @@ impl CachingTests {
         let policies = vec![
             EvictionPolicy::LRU,
             EvictionPolicy::LFU,
-            EvictionPolicy::TTL { ttl: Duration::from_secs(60) },
+            EvictionPolicy::TTL(Duration::from_secs(60)),
         ];
         
         for policy in policies {
@@ -282,16 +282,16 @@ impl CachingTests {
                 ..Default::default()
             };
             
-            let mut cache = PhotonicCache::new(config)?;
+            let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(config);
             
             // Fill cache beyond capacity
             for i in 0..15 {
-                let key = CacheKey::new(&format!("key_{}", i), vec![i as f64]);
-                let value = CachedResult::new(vec![i as f64], 1.0);
-                cache.put(key, value)?;
+                let key = CacheKey::new(&format!("key_{}", i), &[i as f64], b"test", 32);
+                let value = vec![i as f64];
+                cache.put(key, value, 1.0)?;
             }
             
-            assert!(cache.size() <= 10, "Eviction should limit cache size");
+            assert!(cache.len() <= 10, "Eviction should limit cache size");
         }
         
         println!("✓ Eviction policy tests passed");
@@ -299,16 +299,16 @@ impl CachingTests {
     }
     
     fn test_cache_statistics(&self) -> Result<()> {
-        let mut cache = PhotonicCache::new(CacheConfig::default())?;
+        let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(CacheConfig::default());
         
         // Perform operations to generate statistics
-        let key1 = CacheKey::new("test1", vec![1.0]);
-        let key2 = CacheKey::new("test2", vec![2.0]);
-        let value = CachedResult::new(vec![1.0], 0.9);
+        let key1 = CacheKey::new("test1", &[1.0], b"data1", 32);
+        let key2 = CacheKey::new("test2", &[2.0], b"data2", 32);
+        let value = vec![1.0];
         
-        cache.put(key1.clone(), value.clone())?;
-        cache.get(&key1)?; // Hit
-        cache.get(&key2)?; // Miss
+        cache.put(key1.clone(), value.clone(), 5.0)?;
+        let _hit = cache.get(&key1); // Hit
+        let _miss = cache.get(&key2); // Miss
         
         let stats = cache.stats();
         assert_eq!(stats.hits, 1, "Should record one hit");
@@ -328,7 +328,7 @@ impl TestCase for CoreTypesTests {
         "CoreTypesTests"
     }
     
-    async fn execute(&self) -> Result<()> {
+    fn execute_sync(&self) -> Result<()> {
         self.test_optical_field_creation()?;
         self.test_waveguide_geometry()?;
         self.test_validation_system()?;

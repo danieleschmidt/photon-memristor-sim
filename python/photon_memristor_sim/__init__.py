@@ -38,6 +38,42 @@ from .utils import (
     db_to_linear,
     linear_to_db,
     effective_area,
+    get_secret,
+    load_balancer_config,
+    auto_scaling_config,
+    circuit_breaker_config,
+    metrics_config,
+    resource_pooling_config,
+)
+
+# Resilience and production utilities
+from .resilience import (
+    ResilientSystem,
+    CircuitBreaker,
+    CircuitBreakerConfig,
+    RetryPolicy,
+    HealthCheck,
+    BulkheadIsolation,
+    CacheManager,
+    MetricsCollector,
+    get_resilient_system,
+    with_circuit_breaker,
+    with_retry,
+    with_metrics,
+)
+
+# Performance optimization utilities  
+from .performance_optimizer import (
+    OptimizedPhotonic,
+    PerformanceProfiler,
+    IntelligentCache,
+    BatchProcessor,
+    AdaptiveScheduler,
+    MemoryOptimizer,
+    JAXOptimizer,
+    get_optimizer,
+    optimized_computation,
+    profile_performance,
 )
 
 __all__ = [
