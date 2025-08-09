@@ -105,7 +105,7 @@ impl IntegrationTestSuite {
     
     async fn test_quantum_parallel_integration(&self) -> Result<()> {
         // Test integration between quantum task planner and parallel executor
-        let mut planner = QuantumTaskPlanner::new(8);
+        let mut planner = QuantumTaskPlanner::new(8)?;
         let config = ParallelConfig::default();
         let executor = ParallelExecutor::new(config)?;
         
@@ -129,7 +129,7 @@ impl IntegrationTestSuite {
             dependencies: vec![0],
         };
         
-        planner.apply_interference(&feedback_assignment);
+        planner.apply_interference(&feedback_assignment)?;
         let final_fidelity = planner.fidelity();
         
         assert!(final_fidelity >= 0.0 && final_fidelity <= 1.0);
@@ -229,7 +229,7 @@ impl IntegrationTestSuite {
         println!("      Running end-to-end photonic simulation...");
         
         // 1. Initialize quantum task planner
-        let mut planner = QuantumTaskPlanner::new(16);
+        let mut planner = QuantumTaskPlanner::new(16)?;
         
         // 2. Create photonic task specifications
         let photonic_tasks = vec![
@@ -251,7 +251,7 @@ impl IntegrationTestSuite {
         
         // 3. Apply quantum optimization
         for task in &photonic_tasks {
-            planner.apply_interference(task);
+            planner.apply_interference(task)?;
         }
         
         // 4. Run quantum annealing optimization
@@ -314,14 +314,14 @@ impl IntegrationTestSuite {
         println!("      Testing error recovery mechanisms...");
         
         // 1. Test quantum planner error recovery
-        let mut planner = QuantumTaskPlanner::new(4);
+        let mut planner = QuantumTaskPlanner::new(4)?;
         
         // Introduce quantum decoherence simulation
-        planner.amplitudes *= Complex64::new(0.1, 0.0); // Severe decoherence
-        planner.coherence_time *= 0.01; // Very short coherence
+        planner.state.amplitudes *= Complex64::new(0.1, 0.0); // Severe decoherence
+        planner.state.coherence_time *= 0.01; // Very short coherence
         
         // Apply error correction
-        planner.error_correction();
+        planner.error_correction()?;
         
         let post_correction_fidelity = planner.fidelity();
         assert!(post_correction_fidelity > 0.1, "Error correction should improve fidelity");

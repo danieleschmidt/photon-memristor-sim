@@ -269,7 +269,7 @@ impl CoverageAnalyzer {
             0.0
         };
         
-        let final_coverage = (base_coverage + coverage_modifier).clamp(0.0, 1.0);
+        let final_coverage: f64 = (base_coverage + coverage_modifier).clamp(0.0, 1.0);
         rand::random::<f64>() < final_coverage
     }
     
@@ -305,7 +305,7 @@ impl CoverageAnalyzer {
             0.0
         };
         
-        let final_coverage = (base_coverage + coverage_modifier).clamp(0.0, 1.0);
+        let final_coverage: f64 = (base_coverage + coverage_modifier).clamp(0.0, 1.0);
         rand::random::<f64>() < final_coverage
     }
     

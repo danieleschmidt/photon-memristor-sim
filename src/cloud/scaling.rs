@@ -693,7 +693,7 @@ impl AutoScaler {
             region: region.to_string(),
             hours_ahead,
             predicted_instances_needed: Some(predicted_instances),
-            confidence: confidence.min(1.0),
+            confidence: confidence.min(1.0_f64),
             key_factors,
             recommended_action: recommended_action.to_string(),
         })

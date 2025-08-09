@@ -592,6 +592,11 @@ impl<T: Clone + Serialize + for<'de> Deserialize<'de> + Send + Sync + 'static> P
     pub fn is_empty(&self) -> bool {
         self.data.read().unwrap().is_empty()
     }
+    
+    /// Get cache capacity in bytes
+    pub fn capacity(&self) -> usize {
+        self.config.max_size_bytes
+    }
 }
 
 #[cfg(test)]
