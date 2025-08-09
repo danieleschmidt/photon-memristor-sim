@@ -42,18 +42,19 @@ class PCMDevice(PhotonicDevice):
     switch between amorphous and crystalline states, changing optical properties.
     """
     
-    def __init__(self, material: str = "GST", dimensions: Tuple[float, float, float] = (200e-9, 50e-9, 10e-9)):
+    def __init__(self, material: str = "GST", dimensions: Tuple[float, float, float] = (200e-9, 50e-9, 10e-9), crystallinity: float = 0.0):
         """
         Initialize PCM device.
         
         Args:
             material: PCM material type ("GST", "GSST")
             dimensions: Device dimensions (length, width, height) in meters
+            crystallinity: Initial crystallinity level (0=amorphous, 1=crystalline)
         """
         super().__init__("pcm", material=material, dimensions=dimensions)
         self.material = material
         self.dimensions = dimensions
-        self.crystallinity = 0.0  # 0 = amorphous, 1 = crystalline
+        self.crystallinity = jnp.clip(crystallinity, 0.0, 1.0)
         self.temperature = 300.0  # Kelvin
         
         # Material properties
@@ -113,6 +114,17 @@ class PCMDevice(PhotonicDevice):
         """Get wavelength-dependent optical constants."""
         # Linear interpolation between amorphous and crystalline
         return (1 - self.crystallinity) * self.amorphous_n + self.crystallinity * self.crystalline_n
+    
+    def get_crystallinity(self) -> float:
+        """Get current crystallinity level."""
+        return self.crystallinity
+    
+    def get_transmission(self, wavelength: float) -> float:
+        """Get transmission coefficient at given wavelength."""
+        n_eff = self.get_optical_constants(wavelength)
+        absorption = jnp.abs(n_eff.imag)
+        thickness = self.dimensions[2]
+        return jnp.exp(-4 * jnp.pi * absorption * thickness / wavelength)
 
 
 class OxideMemristor(PhotonicDevice):
@@ -123,21 +135,22 @@ class OxideMemristor(PhotonicDevice):
     which can modulate optical transmission through the plasma dispersion effect.
     """
     
-    def __init__(self, oxide_type: str = "HfO2", thickness: float = 5e-9, area: float = 100e-18):
+    def __init__(self, oxide: str = "HfO2", thickness: float = 5e-9, area: float = 100e-18, conductance: float = 1e-6):
         """
         Initialize oxide memristor.
         
         Args:
-            oxide_type: Oxide material ("HfO2", "TaOx", "TiO2")
+            oxide: Oxide material ("HfO2", "TaOx", "TiO2")
             thickness: Oxide thickness in meters
             area: Device area in m²
+            conductance: Initial conductance in Siemens
         """
-        super().__init__("oxide", oxide_type=oxide_type, thickness=thickness, area=area)
+        super().__init__("oxide", oxide_type=oxide, thickness=thickness, area=area)
         
-        self.oxide_type = oxide_type
+        self.oxide_type = oxide
         self.thickness = thickness
         self.area = area
-        self.conductance = 1e-6  # Initial conductance (S)
+        self.conductance = conductance
         
         # Material properties
         self.material_props = {
@@ -183,6 +196,10 @@ class OxideMemristor(PhotonicDevice):
     def get_resistance(self) -> float:
         """Get current resistance."""
         return 1.0 / max(self.conductance, 1e-12)
+    
+    def get_conductance(self) -> float:
+        """Get current conductance."""
+        return float(self.conductance)
 
 
 class MicroringResonator(PhotonicDevice):
