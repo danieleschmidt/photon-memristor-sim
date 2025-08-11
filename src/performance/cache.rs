@@ -22,7 +22,7 @@ pub struct CacheKey {
 }
 
 impl CacheKey {
-    /// Create cache key from parameters
+    /// Create cache key from parameters (full version)
     pub fn new(operation: &str, parameters: &[f64], input_data: &[u8], precision: u32) -> Self {
         use std::collections::hash_map::DefaultHasher;
         
@@ -41,6 +41,32 @@ impl CacheKey {
             parameters_hash,
             input_hash,
             precision,
+        }
+    }
+    
+    /// Create cache key from operation and parameters (simplified version)
+    pub fn from_params(operation: &str, parameters: Vec<f64>) -> Self {
+        use std::collections::hash_map::DefaultHasher;
+        
+        let mut param_hasher = DefaultHasher::new();
+        for &param in &parameters {
+            param.to_bits().hash(&mut param_hasher);
+        }
+        let parameters_hash = param_hasher.finish();
+        
+        // Use parameters as input data too
+        let input_data: Vec<u8> = parameters.iter()
+            .flat_map(|&f| f.to_be_bytes().to_vec())
+            .collect();
+        let mut input_hasher = DefaultHasher::new();
+        input_data.hash(&mut input_hasher);
+        let input_hash = input_hasher.finish();
+        
+        Self {
+            operation: operation.to_string(),
+            parameters_hash,
+            input_hash,
+            precision: 32, // default precision
         }
     }
     
@@ -122,6 +148,12 @@ impl<T> CachedResult<T> {
             computation_time_saved: computation_time_ms,
             size_bytes,
         }
+    }
+    
+    /// Create new cached result with size estimation
+    pub fn with_estimated_size(data: T, computation_time_ms: f64) -> Self {
+        let size_bytes = std::mem::size_of::<T>() + std::mem::size_of_val(&data);
+        Self::new(data, computation_time_ms, size_bytes)
     }
     
     /// Access the cached data (updates metadata)
@@ -265,15 +297,23 @@ pub struct PhotonicCache<T> {
 
 impl<T: Clone + Serialize + for<'de> Deserialize<'de> + Send + Sync + 'static> PhotonicCache<T> {
     /// Create new cache
-    pub fn new(config: CacheConfig) -> Self {
-        Self {
+    pub fn new(config: CacheConfig) -> Result<Self> {
+        if config.max_size_bytes == 0 || config.max_entries == 0 {
+            return Err(PhotonicError::InvalidParameter {
+                param: "cache_config".to_string(),
+                value: format!("size: {}, entries: {}", config.max_size_bytes, config.max_entries),
+                constraint: "both size and entries must be greater than zero".to_string(),
+            });
+        }
+        
+        Ok(Self {
             data: Arc::new(RwLock::new(HashMap::new())),
             lru_order: Arc::new(RwLock::new(BTreeMap::new())),
             config,
             stats: Arc::new(RwLock::new(CacheStats::default())),
             logger: Arc::new(Logger::new("photonic_cache")),
             current_size: Arc::new(RwLock::new(0)),
-        }
+        })
     }
     
     /// Get item from cache
@@ -318,7 +358,7 @@ impl<T: Clone + Serialize + for<'de> Deserialize<'de> + Send + Sync + 'static> P
         }
     }
     
-    /// Put item into cache
+    /// Put item into cache with explicit timing
     pub fn put(&self, key: CacheKey, value: T, computation_time_ms: f64) -> Result<()> {
         let size_estimate = self.estimate_size(&value);
         
@@ -326,6 +366,44 @@ impl<T: Clone + Serialize + for<'de> Deserialize<'de> + Send + Sync + 'static> P
         self.ensure_capacity(size_estimate)?;
         
         let cached_result = CachedResult::new(value, computation_time_ms, size_estimate);
+        
+        {
+            let mut data = self.data.write().unwrap();
+            let mut size = self.current_size.write().unwrap();
+            
+            // Remove old entry if exists
+            if let Some(old_result) = data.get(&key) {
+                *size -= old_result.size_bytes;
+            }
+            
+            data.insert(key.clone(), cached_result);
+            *size += size_estimate;
+        }
+        
+        // Update LRU order
+        {
+            let mut lru = self.lru_order.write().unwrap();
+            lru.insert(SystemTime::now(), key.clone());
+        }
+        
+        // Update statistics
+        {
+            let mut stats = self.stats.write().unwrap();
+            stats.entry_count = self.data.read().unwrap().len();
+            stats.total_size_bytes = *self.current_size.read().unwrap();
+        }
+        
+        self.logger.debug(&format!("Cached result for key: {} ({} bytes)", key, size_estimate));
+        
+        Ok(())
+    }
+    
+    /// Put CachedResult directly into cache  
+    pub fn put_cached(&self, key: CacheKey, cached_result: CachedResult<T>) -> Result<()> {
+        let size_estimate = cached_result.size_bytes;
+        
+        // Check if we need to evict entries
+        self.ensure_capacity(size_estimate)?;
         
         {
             let mut data = self.data.write().unwrap();

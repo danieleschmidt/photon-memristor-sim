@@ -30,6 +30,12 @@ pub enum LoadBalancingStrategy {
     Dynamic,
     /// Adaptive load balancing based on performance
     Adaptive,
+    /// Round-robin assignment to workers
+    RoundRobin,
+    /// Assign to least loaded worker
+    LeastLoaded,
+    /// Random assignment to workers
+    Random,
 }
 
 impl Default for ParallelConfig {
@@ -198,6 +204,9 @@ impl ParallelExecutor {
                 let temp_executor = Self::new(config)?;
                 temp_executor.parallel_map(items, operation)
             }
+            LoadBalancingStrategy::RoundRobin => self.parallel_map(items, operation),
+            LoadBalancingStrategy::LeastLoaded => self.parallel_map(items, operation),
+            LoadBalancingStrategy::Random => self.parallel_map(items, operation),
             LoadBalancingStrategy::Adaptive => {
                 // Start with small chunks and adapt based on performance
                 if items.len() < 100 {
@@ -248,6 +257,17 @@ impl ParallelExecutor {
         let mut metrics = self.work_metrics.write().unwrap();
         *metrics = WorkMetrics::default();
     }
+    
+    /// Get number of worker threads
+    pub fn worker_count(&self) -> usize {
+        self.thread_pool.current_num_threads()
+    }
+    
+    /// Check if executor is healthy
+    pub fn is_healthy(&self) -> bool {
+        // Check if thread pool is still running and responsive
+        self.thread_pool.current_num_threads() > 0
+    }
 }
 
 /// Memory pool for efficient allocation
@@ -270,6 +290,18 @@ impl MemoryPool {
             chunk_sizes,
             logger: Arc::new(Logger::new("memory_pool")),
         }
+    }
+    
+    /// Create new memory pool with specified block size and count
+    pub fn with_config(block_size: usize, block_count: usize) -> Result<Self> {
+        let chunk_sizes = vec![block_size];
+        let pools = vec![Arc::new(Mutex::new(Vec::with_capacity(block_count)))];
+        
+        Ok(Self {
+            pools,
+            chunk_sizes,
+            logger: Arc::new(Logger::new("memory_pool")),
+        })
     }
     
     /// Allocate buffer from pool

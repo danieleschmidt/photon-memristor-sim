@@ -114,7 +114,7 @@ impl IntegrationTestSuite {
         
         // Use parallel executor to process the task assignment
         let task_data: Vec<f64> = optimal_assignment.resources.clone();
-        let processed_results = executor.parallel_map(task_data, |x| x * x + 0.1)?;
+        let processed_results = executor.parallel_map(task_data, |x| Ok(x * x + 0.1))?;
         
         // Verify integration results
         assert_eq!(processed_results.len(), optimal_assignment.resources.len());
@@ -147,7 +147,7 @@ impl IntegrationTestSuite {
         
         // Simulate cached computation pattern
         let computation_keys: Vec<CacheKey> = (0..10)
-            .map(|i| CacheKey::new(&format!("computation_{}", i), vec![i as f64]))
+            .map(|i| CacheKey::from_params(&format!("computation_{}", i), vec![i as f64]))
             .collect();
         
         // First pass: populate cache with parallel computation
@@ -158,10 +158,10 @@ impl IntegrationTestSuite {
             if cache.get(key)?.is_none() {
                 // Compute using parallel executor
                 let input_data = vec![i as f64; 100];
-                let results = executor.parallel_map(input_data, |x| x.sin().cos())?;
+                let results = executor.parallel_map(input_data, |x| Ok(x.sin().cos()))?;
                 
-                let cached_result = CachedResult::new(results, 0.95);
-                cache.put(key.clone(), cached_result)?;
+                let cached_result = CachedResult::with_estimated_size(results, 0.95);
+                cache.put_cached(key.clone(), cached_result)?;
             }
         }
         let first_pass_time = start_time.elapsed();
@@ -194,7 +194,7 @@ impl IntegrationTestSuite {
         let amplitude = DMatrix::from_element(5, 5, Complex64::new(1.0, 0.0));
         let x_coords = DVector::from_iterator(5, (0..5).map(|i| i as f64 * 1e-6));
         let y_coords = DVector::from_iterator(5, (0..5).map(|i| i as f64 * 1e-6));
-        let field = OpticalField::new(amplitude, 1550e-9, 1e-3, x_coords, y_coords);
+        let field = OpticalField::new(amplitude, 1550e-9, 1e-3, x_coords.clone(), y_coords.clone());
         
         // Validate field (should pass)
         let validation_report = validator.validate_optical_field(&field)?;
@@ -206,8 +206,8 @@ impl IntegrationTestSuite {
             malicious_amplitude,
             1550e-9,
             1e10, // Extremely high power
-            x_coords.clone(),
-            y_coords.clone()
+            x_coords,
+            y_coords
         );
         
         let malicious_report = validator.validate_optical_field(&malicious_field)?;
@@ -268,7 +268,7 @@ impl IntegrationTestSuite {
                 // Simulate photonic device computation
                 let phase = resource * 2.0 * std::f64::consts::PI;
                 let amplitude = resource.sqrt();
-                amplitude * phase.cos()
+                Ok(amplitude * phase.cos())
             }
         )?;
         
@@ -277,9 +277,9 @@ impl IntegrationTestSuite {
         let mut cache = PhotonicCache::new(cache_config)?;
         
         // 8. Cache results for future use
-        let cache_key = CacheKey::new("end_to_end_result", optimal_solution.resources.clone());
-        let cached_result = CachedResult::new(processed_resources.clone(), 0.92);
-        cache.put(cache_key.clone(), cached_result)?;
+        let cache_key = CacheKey::from_params("end_to_end_result", optimal_solution.resources.clone());
+        let cached_result = CachedResult::with_estimated_size(processed_resources.clone(), 0.92);
+        cache.put_cached(cache_key.clone(), cached_result)?;
         
         // 9. Verify cached retrieval
         let retrieved = cache.get(&cache_key)?;
@@ -339,7 +339,7 @@ impl IntegrationTestSuite {
             .collect::<Vec<_>>();
         
         if !safe_data.is_empty() {
-            let results = executor.parallel_map(safe_data, |x| x * 2.0)?;
+            let results = executor.parallel_map(safe_data, |x| Ok(x * 2.0))?;
             assert!(results.iter().all(|x| x.is_finite()), "Results should be finite");
         }
         
@@ -349,9 +349,9 @@ impl IntegrationTestSuite {
         
         // Add some valid entries
         for i in 0..5 {
-            let key = CacheKey::new(&format!("recovery_test_{}", i), vec![i as f64]);
-            let value = CachedResult::new(vec![i as f64 * 2.0], 0.9);
-            cache.put(key, value)?;
+            let key = CacheKey::from_params(&format!("recovery_test_{}", i), vec![i as f64]);
+            let value = CachedResult::with_estimated_size(vec![i as f64 * 2.0], 0.9);
+            cache.put_cached(key, value)?;
         }
         
         // Simulate cache recovery by clearing and repopulating
@@ -361,9 +361,9 @@ impl IntegrationTestSuite {
         
         // Repopulate cache (simulating recovery)
         for i in 0..3 {
-            let key = CacheKey::new(&format!("recovery_test_{}", i), vec![i as f64]);
-            let value = CachedResult::new(vec![i as f64 * 2.0], 0.9);
-            cache.put(key, value)?;
+            let key = CacheKey::from_params(&format!("recovery_test_{}", i), vec![i as f64]);
+            let value = CachedResult::with_estimated_size(vec![i as f64 * 2.0], 0.9);
+            cache.put_cached(key, value)?;
         }
         
         assert!(cache.size() > 0, "Cache should recover some entries");
