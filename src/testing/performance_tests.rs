@@ -101,7 +101,7 @@ impl BenchmarkRunner {
         let mid = sorted.len() / 2;
         if sorted.len() % 2 == 0 {
             Duration::from_nanos(
-                (sorted[mid - 1].as_nanos() + sorted[mid].as_nanos()) / 2
+                ((sorted[mid - 1].as_nanos() + sorted[mid].as_nanos()) / 2) as u64
             )
         } else {
             sorted[mid]
@@ -162,7 +162,7 @@ impl QuantumOptimizationBenchmarks {
     }
     
     fn benchmark_quantum_evolution(&self) -> BenchmarkResult {
-        let mut planner = QuantumTaskPlanner::new(8);
+        let mut planner = QuantumTaskPlanner::new(8).unwrap();
         
         self.runner.benchmark("quantum_evolution", || {
             planner.evolve(0.01);
@@ -170,7 +170,7 @@ impl QuantumOptimizationBenchmarks {
     }
     
     fn benchmark_interference_application(&self) -> BenchmarkResult {
-        let mut planner = QuantumTaskPlanner::new(8);
+        let mut planner = QuantumTaskPlanner::new(8).unwrap();
         let target = TaskAssignment {
             task_id: 0,
             resources: vec![0.8, 0.6, 0.4, 0.2, 0.1, 0.3, 0.5, 0.7],
@@ -185,7 +185,7 @@ impl QuantumOptimizationBenchmarks {
     }
     
     fn benchmark_measurement_collapse(&self) -> BenchmarkResult {
-        let mut planner = QuantumTaskPlanner::new(8);
+        let mut planner = QuantumTaskPlanner::new(8).unwrap();
         
         self.runner.benchmark("quantum_measurement", || {
             planner.measure()
@@ -193,7 +193,7 @@ impl QuantumOptimizationBenchmarks {
     }
     
     fn benchmark_annealing_optimization(&self) -> BenchmarkResult {
-        let mut planner = QuantumTaskPlanner::new(8);
+        let mut planner = QuantumTaskPlanner::new(8).unwrap();
         
         self.runner.benchmark("quantum_annealing", || {
             planner.quantum_anneal(20, 1.0).unwrap()
@@ -269,7 +269,7 @@ impl ParallelProcessingBenchmarks {
         let data: Vec<f64> = (0..1000).map(|i| i as f64).collect();
         
         self.runner.benchmark("parallel_map", || {
-            executor.parallel_map(data.clone(), |x| x * x + 1.0).unwrap()
+            executor.parallel_map(data.clone(), |x| Ok(x * x + 1.0)).unwrap()
         })
     }
     
@@ -291,7 +291,7 @@ impl ParallelProcessingBenchmarks {
     }
     
     fn benchmark_memory_pool_allocation(&self) -> BenchmarkResult {
-        let pool = MemoryPool::new(1024 * 1024, 8).unwrap(); // 1MB blocks
+        let pool = MemoryPool::with_config(1024 * 1024, 8).unwrap(); // 1MB blocks
         
         self.runner.benchmark("memory_pool_allocation", || {
             let mut blocks = Vec::new();
@@ -375,15 +375,15 @@ impl CachingBenchmarks {
     fn benchmark_cache_put_operation(&self) -> BenchmarkResult {
         let mut cache = PhotonicCache::new(CacheConfig::default()).unwrap();
         let keys: Vec<CacheKey> = (0..100)
-            .map(|i| CacheKey::new(&format!("key_{}", i), vec![i as f64]))
+            .map(|i| CacheKey::from_params(&format!("key_{}", i), vec![i as f64]))
             .collect();
         let values: Vec<CachedResult> = (0..100)
-            .map(|i| CachedResult::new(vec![i as f64], 0.9))
+            .map(|i| CachedResult::with_estimated_size(vec![i as f64], 0.9))
             .collect();
         
         self.runner.benchmark("cache_put", || {
             for (key, value) in keys.iter().zip(values.iter()) {
-                cache.put(key.clone(), value.clone()).unwrap();
+                cache.put_cached(key.clone(), value.clone()).unwrap();
             }
         })
     }
@@ -391,13 +391,13 @@ impl CachingBenchmarks {
     fn benchmark_cache_get_operation(&self) -> BenchmarkResult {
         let mut cache = PhotonicCache::new(CacheConfig::default()).unwrap();
         let keys: Vec<CacheKey> = (0..100)
-            .map(|i| CacheKey::new(&format!("key_{}", i), vec![i as f64]))
+            .map(|i| CacheKey::from_params(&format!("key_{}", i), vec![i as f64]))
             .collect();
         
         // Populate cache
         for (i, key) in keys.iter().enumerate() {
-            let value = CachedResult::new(vec![i as f64], 0.9);
-            cache.put(key.clone(), value).unwrap();
+            let value = CachedResult::with_estimated_size(vec![i as f64], 0.9);
+            cache.put_cached(key.clone(), value).unwrap();
         }
         
         self.runner.benchmark("cache_get", || {
@@ -418,9 +418,9 @@ impl CachingBenchmarks {
         self.runner.benchmark("cache_eviction", || {
             // Add more entries than the cache can hold
             for i in 0..100 {
-                let key = CacheKey::new(&format!("key_{}", i), vec![i as f64]);
-                let value = CachedResult::new(vec![i as f64], 0.9);
-                cache.put(key, value).unwrap();
+                let key = CacheKey::from_params(&format!("key_{}", i), vec![i as f64]);
+                let value = CachedResult::with_estimated_size(vec![i as f64], 0.9);
+                cache.put_cached(key, value).unwrap();
             }
         })
     }
@@ -428,13 +428,13 @@ impl CachingBenchmarks {
     fn benchmark_cache_hit_rate(&self) -> BenchmarkResult {
         let mut cache = PhotonicCache::new(CacheConfig::default()).unwrap();
         let keys: Vec<CacheKey> = (0..100)
-            .map(|i| CacheKey::new(&format!("key_{}", i), vec![i as f64]))
+            .map(|i| CacheKey::from_params(&format!("key_{}", i), vec![i as f64]))
             .collect();
         
         // Populate cache with some keys
         for (i, key) in keys.iter().take(50).enumerate() {
-            let value = CachedResult::new(vec![i as f64], 0.9);
-            cache.put(key.clone(), value).unwrap();
+            let value = CachedResult::with_estimated_size(vec![i as f64], 0.9);
+            cache.put_cached(key.clone(), value).unwrap();
         }
         
         self.runner.benchmark("cache_hit_rate_mixed", || {

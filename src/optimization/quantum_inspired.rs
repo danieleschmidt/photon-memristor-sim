@@ -26,6 +26,39 @@ pub struct QuantumSuperposition {
     pub coherence_time: f64,
 }
 
+impl QuantumSuperposition {
+    /// Create new quantum superposition with uniform amplitude distribution
+    pub fn new(num_states: usize) -> Self {
+        let amplitudes = DVector::from_element(num_states, 
+            Complex64::new(1.0 / (num_states as f64).sqrt(), 0.0));
+        
+        // Create default task assignments
+        let task_assignments = (0..num_states).map(|i| TaskAssignment {
+            task_id: i,
+            resources: vec![1.0 / num_states as f64; 4], // Default equal resource allocation
+            priority: 1.0 / num_states as f64,
+            execution_time: 1.0,
+            dependencies: vec![],
+        }).collect();
+        
+        Self {
+            amplitudes,
+            task_assignments,
+            coherence_time: 1.0, // Default coherence time
+        }
+    }
+    
+    /// Get number of states in superposition
+    pub fn num_states(&self) -> usize {
+        self.amplitudes.len()
+    }
+    
+    /// Calculate fidelity (state purity)
+    pub fn fidelity(&self) -> f64 {
+        self.amplitudes.iter().map(|c| c.norm_sqr()).sum::<f64>()
+    }
+}
+
 /// Task assignment in the quantum-inspired planner
 #[derive(Debug, Clone)]
 pub struct TaskAssignment {

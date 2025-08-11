@@ -28,9 +28,14 @@ try:
         load_balancer_config,
         metrics_config
     )
+    PHOTONIC_AVAILABLE = True
 except ImportError as e:
     print(f"Warning: Photonic simulation modules not available: {e}")
-    # Graceful degradation for deployment environments
+    # Fallback implementations
+    PHOTONIC_AVAILABLE = False
+    def get_secret(key): return f"fallback-{key}"
+    def get_resilient_system(name): return None
+    def get_optimizer(name): return None
 
 # Configure logging
 logging.basicConfig(
@@ -56,10 +61,13 @@ app.config.update(
 )
 
 # Initialize resilient system
-resilient_system = get_resilient_system("photonic_production")
-
-# Configure circuit breakers for critical services
-from photon_memristor_sim import CircuitBreakerConfig
+if PHOTONIC_AVAILABLE:
+    resilient_system = get_resilient_system("photonic_production")
+    from photon_memristor_sim import CircuitBreakerConfig
+else:
+    resilient_system = None
+    class CircuitBreakerConfig:
+        def __init__(self, **kwargs): pass
 
 simulation_cb_config = CircuitBreakerConfig(
     failure_threshold=5,
@@ -75,11 +83,13 @@ optimization_cb_config = CircuitBreakerConfig(
     request_volume_threshold=5
 )
 
-resilient_system.add_circuit_breaker("simulation_service", simulation_cb_config)
-resilient_system.add_circuit_breaker("optimization_service", optimization_cb_config)
-
-# Health checks
-health_check = resilient_system.add_health_check("system_health", check_interval=30)
+if resilient_system:
+    resilient_system.add_circuit_breaker("simulation_service", simulation_cb_config)
+    resilient_system.add_circuit_breaker("optimization_service", optimization_cb_config)
+    # Health checks
+    health_check = resilient_system.add_health_check("system_health", check_interval=30)
+else:
+    health_check = None
 
 def check_memory_usage():
     """Check if memory usage is within acceptable limits"""

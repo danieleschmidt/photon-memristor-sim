@@ -62,7 +62,7 @@ impl QuantumOptimizationTests {
     }
     
     fn test_quantum_interference(&self) -> Result<()> {
-        let mut planner = QuantumTaskPlanner::new(4);
+        let mut planner = QuantumTaskPlanner::new(4)?;
         let initial_fidelity = planner.fidelity();
         
         let target = TaskAssignment {
@@ -85,7 +85,7 @@ impl QuantumOptimizationTests {
     }
     
     fn test_quantum_annealing(&self) -> Result<()> {
-        let mut planner = QuantumTaskPlanner::new(8);
+        let mut planner = QuantumTaskPlanner::new(8)?;
         let start_time = Instant::now();
         
         let result = planner.quantum_anneal(50, 1.0)?;
@@ -102,20 +102,21 @@ impl QuantumOptimizationTests {
     }
     
     fn test_measurement_and_collapse(&self) -> Result<()> {
-        let mut planner = QuantumTaskPlanner::new(4);
+        let mut planner = QuantumTaskPlanner::new(4)?;
         
         // Perform measurement
-        let measurement = planner.measure();
+        let measurement = planner.measure()?;
         
         // Verify measurement properties
         assert!(measurement.resources.len() > 0, "Measurement should have resources");
         assert!(measurement.priority >= 0.0, "Priority should be non-negative");
         
         // Test multiple measurements for consistency
-        let measurements: Vec<_> = (0..10).map(|_| {
-            let mut p = QuantumTaskPlanner::new(4);
+        let measurements: Result<Vec<_>> = (0..10).map(|_| {
+            let mut p = QuantumTaskPlanner::new(4)?;
             p.measure()
         }).collect();
+        let measurements = measurements?;
         
         assert!(measurements.len() == 10, "Should generate 10 measurements");
         
@@ -154,11 +155,11 @@ impl ParallelProcessingTests {
     }
     
     fn test_memory_pool_management(&self) -> Result<()> {
-        let pool = MemoryPool::new(1024 * 1024, 4)?; // 1MB blocks, 4 blocks
+        let pool = MemoryPool::with_config(1024 * 1024, 4)?; // 1MB blocks, 4 blocks
         
         // Test allocation
-        let block = pool.allocate(512)?;
-        assert!(block.size() >= 512, "Block should be large enough");
+        let block = pool.allocate(512);
+        assert!(block.len() >= 512, "Block should be large enough");
         
         // Test deallocation
         pool.deallocate(block)?;
@@ -234,7 +235,7 @@ impl TestCase for CachingTests {
 impl CachingTests {
     fn test_cache_creation(&self) -> Result<()> {
         let config = CacheConfig::default();
-        let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(config);
+        let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(config)?;
         
         assert_eq!(cache.size(), 0, "New cache should be empty");
         assert!(cache.capacity() > 0, "Cache should have positive capacity");
@@ -244,7 +245,7 @@ impl CachingTests {
     }
     
     fn test_cache_operations(&self) -> Result<()> {
-        let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(CacheConfig::default());
+        let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(CacheConfig::default())?;
         
         let key = CacheKey::new("test", &[1.0, 2.0, 3.0], b"test_input", 32);
         let value = vec![4.0, 5.0, 6.0];
@@ -282,7 +283,7 @@ impl CachingTests {
                 ..Default::default()
             };
             
-            let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(config);
+            let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(config)?;
             
             // Fill cache beyond capacity
             for i in 0..15 {
@@ -299,7 +300,7 @@ impl CachingTests {
     }
     
     fn test_cache_statistics(&self) -> Result<()> {
-        let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(CacheConfig::default());
+        let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(CacheConfig::default())?;
         
         // Perform operations to generate statistics
         let key1 = CacheKey::new("test1", &[1.0], b"data1", 32);

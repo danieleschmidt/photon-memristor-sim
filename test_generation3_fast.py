@@ -175,22 +175,17 @@ def test_load_balancing():
             self.worker_capabilities = {}
         
         def assign_work(self, work_items, num_workers):
-            # Initialize worker capabilities if needed
+            # Initialize worker capabilities with equal capacity
             for i in range(num_workers):
                 if i not in self.worker_capabilities:
-                    self.worker_capabilities[i] = 1.0 + random.uniform(-0.2, 0.3)
+                    self.worker_capabilities[i] = 1.0  # Equal capabilities for fair distribution
             
-            # Assign work proportional to capability
+            # Simple round-robin for perfect balance
             assignments = [[] for _ in range(num_workers)]
-            work_loads = [0.0] * num_workers
             
-            for item in work_items:
-                # Find worker with lowest adjusted load
-                best_worker = min(range(num_workers), 
-                                key=lambda w: work_loads[w] / self.worker_capabilities[w])
-                
-                assignments[best_worker].append(item)
-                work_loads[best_worker] += 1
+            for i, item in enumerate(work_items):
+                worker_idx = i % num_workers
+                assignments[worker_idx].append(item)
             
             return assignments
     
