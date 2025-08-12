@@ -242,7 +242,7 @@ impl CoverageAnalyzer {
             .unwrap_or("");
         
         // Higher coverage for core functionality
-        let base_coverage = if file_name.contains("core") || file_name.contains("mod") {
+        let base_coverage: f64 = if file_name.contains("core") || file_name.contains("mod") {
             0.95
         } else if file_name.contains("test") {
             0.98
@@ -255,7 +255,7 @@ impl CoverageAnalyzer {
         };
         
         // Adjust based on line content
-        let coverage_modifier = if line.contains("fn ") && !line.contains("test") {
+        let coverage_modifier: f64 = if line.contains("fn ") && !line.contains("test") {
             0.02 // Functions are usually well tested
         } else if line.contains("assert!") || line.contains("unwrap") {
             0.05 // Test assertions and error handling
@@ -280,7 +280,7 @@ impl CoverageAnalyzer {
             .unwrap_or("");
         
         // Higher coverage for demo and example files
-        let base_coverage = if file_name.contains("demo") || file_name.contains("example") {
+        let base_coverage: f64 = if file_name.contains("demo") || file_name.contains("example") {
             0.92
         } else if file_name.contains("test_") {
             0.96
@@ -291,7 +291,7 @@ impl CoverageAnalyzer {
         };
         
         // Adjust based on line content
-        let coverage_modifier = if line.contains("def ") && !line.contains("__") {
+        let coverage_modifier: f64 = if line.contains("def ") && !line.contains("__") {
             0.05 // Regular functions
         } else if line.contains("class ") {
             0.03 // Class definitions

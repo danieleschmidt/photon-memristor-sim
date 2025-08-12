@@ -38,6 +38,42 @@ pub enum LoadBalancingStrategy {
     Random,
 }
 
+impl LoadBalancingStrategy {
+    /// Assign a worker based on the strategy
+    pub fn assign_worker(&self, loads: &[f64], current_task: usize) -> Result<usize> {
+        let num_workers = loads.len();
+        if num_workers == 0 {
+            return Err(crate::core::PhotonicError::ValidationError("No workers available".to_string()));
+        }
+        
+        let worker_id = match self {
+            LoadBalancingStrategy::Static => current_task % num_workers,
+            LoadBalancingStrategy::Dynamic | LoadBalancingStrategy::Adaptive => {
+                // Find worker with least load
+                loads.iter()
+                    .enumerate()
+                    .min_by(|(_, a), (_, b)| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal))
+                    .map(|(i, _)| i)
+                    .unwrap_or(0)
+            },
+            LoadBalancingStrategy::RoundRobin => current_task % num_workers,
+            LoadBalancingStrategy::LeastLoaded => {
+                loads.iter()
+                    .enumerate()
+                    .min_by(|(_, a), (_, b)| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal))
+                    .map(|(i, _)| i)
+                    .unwrap_or(0)
+            },
+            LoadBalancingStrategy::Random => {
+                use rand::Rng;
+                rand::thread_rng().gen_range(0..num_workers)
+            },
+        };
+        
+        Ok(worker_id)
+    }
+}
+
 impl Default for ParallelConfig {
     fn default() -> Self {
         Self {
@@ -60,7 +96,7 @@ pub struct ParallelExecutor {
 }
 
 /// Work distribution metrics
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Clone)]
 struct WorkMetrics {
     total_tasks: usize,
     completed_tasks: usize,
@@ -163,18 +199,19 @@ impl ParallelExecutor {
     }
     
     /// Execute reduction operation in parallel
-    pub fn parallel_reduce<T, F, R>(&self, items: Vec<T>, identity: R, reduce_op: F) -> Result<R>
+    pub fn parallel_reduce<T, F, G, R>(&self, items: Vec<T>, identity: R, reduce_op: F, combine_op: G) -> Result<R>
     where
         T: Send + Sync,
         R: Send + Sync + Clone,
         F: Fn(R, T) -> R + Send + Sync,
+        G: Fn(R, R) -> R + Send + Sync,
     {
         let start_time = Instant::now();
         
         let result = items
             .into_par_iter()
             .fold(|| identity.clone(), |acc, item| reduce_op(acc, item))
-            .reduce(|| identity.clone(), |a, b| reduce_op(a.into(), b.into()));
+            .reduce(|| identity.clone(), |a, b| combine_op(a, b));
         
         let duration = start_time.elapsed();
         self.logger.info(&format!("Parallel reduction completed in {:.2}ms", duration.as_millis()));
@@ -249,7 +286,8 @@ impl ParallelExecutor {
     
     /// Get current performance metrics
     pub fn get_metrics(&self) -> WorkMetrics {
-        self.work_metrics.read().unwrap().clone()
+        let guard = self.work_metrics.read().unwrap();
+        guard.clone()
     }
     
     /// Reset performance metrics
@@ -275,6 +313,14 @@ pub struct MemoryPool {
     pools: Vec<Arc<Mutex<Vec<Vec<u8>>>>>,
     chunk_sizes: Vec<usize>,
     logger: Arc<Logger>,
+}
+
+/// Memory pool statistics
+#[derive(Debug, Clone)]
+pub struct MemoryPoolStats {
+    pub allocated_blocks: usize,
+    pub total_capacity: usize,
+    pub available_blocks: usize,
 }
 
 impl MemoryPool {
@@ -347,6 +393,19 @@ impl MemoryPool {
             .zip(self.pools.iter())
             .map(|(&size, pool)| (size, pool.lock().unwrap().len()))
             .collect()
+    }
+    
+    /// Get detailed statistics
+    pub fn statistics(&self) -> MemoryPoolStats {
+        let stats = self.get_stats();
+        let available_blocks = stats.iter().map(|(_, count)| count).sum();
+        let total_capacity = stats.iter().map(|(size, count)| size * count).sum();
+        
+        MemoryPoolStats {
+            allocated_blocks: 0, // We don't track allocated blocks, so assume 0 for now
+            total_capacity,
+            available_blocks,
+        }
     }
 }
 

@@ -40,7 +40,7 @@ pub struct ScalingDecision {
 }
 
 /// Type of scaling decision
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum ScalingDecisionType {
     ScaleUp,
     ScaleDown,
@@ -520,8 +520,9 @@ impl AutoScaler {
         decisions.push(decision.clone());
         
         // Keep only last 1000 decisions
-        if decisions.len() > 1000 {
-            decisions.drain(0..decisions.len() - 1000);
+        let len = decisions.len();
+        if len > 1000 {
+            decisions.drain(0..len - 1000);
         }
 
         // Update last scale event time if action will be taken
@@ -668,7 +669,7 @@ impl AutoScaler {
         // Determine scaling needs
         let mut predicted_instances = 1;
         let mut key_factors = Vec::new();
-        let mut confidence = 0.5;
+        let mut confidence = 0.5_f64;
 
         if projected_cpu > self.config.cpu_scale_up_threshold {
             predicted_instances += ((projected_cpu - self.config.cpu_scale_up_threshold) / 20.0).ceil() as usize;

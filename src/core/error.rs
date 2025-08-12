@@ -30,6 +30,9 @@ pub enum PhotonicError {
     #[error("Optimization error: {reason}")]
     Optimization { reason: String },
     
+    #[error("Validation error: {0}")]
+    ValidationError(String),
+    
     #[error("Memory allocation failed: {size} bytes")]
     MemoryAllocation { size: usize },
     
