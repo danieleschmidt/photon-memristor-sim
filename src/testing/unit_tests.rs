@@ -162,7 +162,7 @@ impl ParallelProcessingTests {
         assert!(block.len() >= 512, "Block should be large enough");
         
         // Test deallocation
-        pool.deallocate(block)?;
+        pool.deallocate(block);
         
         let stats = pool.statistics();
         assert_eq!(stats.allocated_blocks, 0, "All blocks should be deallocated");

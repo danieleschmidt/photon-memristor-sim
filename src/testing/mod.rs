@@ -162,36 +162,22 @@ impl TestSuite {
     }
     
     async fn run_parallel_tests(&self) -> Result<TestStats> {
-        use tokio::task::JoinSet;
-        
+        // For trait objects, we'll run tests sequentially but asynchronously
+        // This avoids the lifetime issues with spawning tasks that reference self
         let mut stats = TestStats::new();
         stats.total_tests = self.tests.len();
         
-        let mut join_set = JoinSet::new();
-        
         for test in &self.tests {
             let test_name = test.name().to_string();
-            join_set.spawn(async move {
-                // Note: This is simplified - in practice we'd need to handle trait objects differently
-                (test_name, test.execute().await)
-            });
-        }
-        
-        while let Some(result) = join_set.join_next().await {
-            match result {
-                Ok((test_name, Ok(_))) => {
+            match test.execute().await {
+                Ok(_) => {
                     stats.passed += 1;
                     print!(".");
-                }
-                Ok((test_name, Err(e))) => {
+                },
+                Err(e) => {
                     stats.failed += 1;
                     print!("F");
                     eprintln!("❌ Test '{}' failed: {}", test_name, e);
-                }
-                Err(e) => {
-                    stats.failed += 1;
-                    print!("E");
-                    eprintln!("❌ Test execution error: {}", e);
                 }
             }
         }

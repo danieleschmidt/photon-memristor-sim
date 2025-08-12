@@ -298,9 +298,8 @@ impl ParallelProcessingBenchmarks {
             
             // Allocate blocks
             for _ in 0..10 {
-                if let Ok(block) = pool.allocate(64 * 1024) { // 64KB
-                    blocks.push(block);
-                }
+                let block = pool.allocate(64 * 1024); // 64KB
+                blocks.push(block);
             }
             
             // Deallocate blocks
@@ -368,7 +367,7 @@ impl CachingBenchmarks {
     fn benchmark_cache_creation(&self) -> BenchmarkResult {
         self.runner.benchmark("cache_creation", || {
             let config = CacheConfig::default();
-            PhotonicCache::new(config).unwrap()
+            PhotonicCache::<Vec<f64>>::new(config).unwrap()
         })
     }
     
@@ -377,7 +376,7 @@ impl CachingBenchmarks {
         let keys: Vec<CacheKey> = (0..100)
             .map(|i| CacheKey::from_params(&format!("key_{}", i), vec![i as f64]))
             .collect();
-        let values: Vec<CachedResult> = (0..100)
+        let values: Vec<CachedResult<Vec<f64>>> = (0..100)
             .map(|i| CachedResult::with_estimated_size(vec![i as f64], 0.9))
             .collect();
         
