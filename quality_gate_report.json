@@ -1,0 +1,124 @@
+{
+  "timestamp": 1755124996.1288207,
+  "execution_time_seconds": 1.3818516731262207,
+  "overall_status": "PASS",
+  "gates_passed": 5,
+  "gates_failed": 0,
+  "gate_results": {
+    "Code Quality": {
+      "name": "Code Quality",
+      "description": "Static analysis and code style validation",
+      "passed": true,
+      "message": "Found 439 Python files, 48 Rust files. ",
+      "results": {
+        "python_files_found": 439,
+        "syntax_errors": 0,
+        "rust_files_found": 48,
+        "readme_exists": true
+      },
+      "execution_time_seconds": 1.1171858310699463
+    },
+    "Functional Tests": {
+      "name": "Functional Tests",
+      "description": "Core functionality validation",
+      "passed": true,
+      "message": "Ran 4 functional tests, 0 failures. ",
+      "results": {
+        "numpy_test": "PASS",
+        "basic_simulation_test": "PASS",
+        "error_handling_test": "PASS",
+        "demo_files_test": [
+          "examples/generation1_enhanced_demo.py: EXISTS",
+          "examples/generation2_robust_demo.py: EXISTS",
+          "examples/generation3_scalable_demo.py: EXISTS",
+          "All demo files found"
+        ],
+        "total_tests": 4,
+        "failures": 0,
+        "success_rate": 100.0
+      },
+      "execution_time_seconds": 0.0004987716674804688
+    },
+    "Performance Tests": {
+      "name": "Performance Tests",
+      "description": "Performance and scalability validation",
+      "passed": true,
+      "message": "Performance validation completed. ",
+      "results": {
+        "matrix_performance": {
+          "size_16x16": {
+            "ops_per_sec": 157090.03745318353,
+            "execution_time_ms": 0.6365776062011719
+          },
+          "size_32x32": {
+            "ops_per_sec": 159722.1629855293,
+            "execution_time_ms": 0.6260871887207031
+          },
+          "size_64x64": {
+            "ops_per_sec": 105094.06163868704,
+            "execution_time_ms": 0.9515285491943359
+          }
+        },
+        "memory_test": {
+          "memory_before_mb": 43.078125,
+          "memory_peak_mb": 119.3359375,
+          "memory_after_mb": 50.7421875,
+          "memory_growth_mb": 76.2578125,
+          "memory_cleanup_efficiency": 89.94980022538674
+        }
+      },
+      "execution_time_seconds": 0.18730640411376953
+    },
+    "Security Tests": {
+      "name": "Security Tests",
+      "description": "Security and vulnerability validation",
+      "passed": true,
+      "message": "Security validation completed. ",
+      "results": {
+        "input_validation": "PASS",
+        "file_security": "Checked 439 files, 0 issues found",
+        "dependency_security": "Basic dependency checks passed, 0 issues found",
+        "total_security_issues": 0
+      },
+      "execution_time_seconds": 0.07497024536132812
+    },
+    "Integration Tests": {
+      "name": "Integration Tests",
+      "description": "End-to-end system integration validation",
+      "passed": true,
+      "message": "Integration testing completed. ",
+      "results": {
+        "full_workflow": {
+          "steps_completed": 5,
+          "steps": [
+            "Device created",
+            "Input prepared",
+            "Forward propagation completed",
+            "Output validation passed",
+            "Efficiency calculated: 3.701"
+          ],
+          "efficiency": 3.700894223181734,
+          "status": "PASS"
+        },
+        "error_recovery": {
+          "tests_run": 2,
+          "results": [
+            "Empty input handled",
+            "Dimension mismatch detected"
+          ],
+          "status": "PASS"
+        },
+        "demo_execution": {
+          "demos_checked": 3,
+          "results": [
+            "examples/generation1_enhanced_demo.py: Structure OK",
+            "examples/generation2_robust_demo.py: Structure OK",
+            "examples/generation3_scalable_demo.py: Structure OK"
+          ],
+          "status": "PASS"
+        }
+      },
+      "execution_time_seconds": 0.0006239414215087891
+    }
+  }
+}

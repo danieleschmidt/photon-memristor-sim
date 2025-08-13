@@ -1,0 +1,27 @@
+2025-08-13 22:44:51,130 - ProductionOrchestrator - INFO - [6975] Production orchestrator initialized for photon-memristor-sim v1.0.0
+2025-08-13 22:44:51,131 - ProductionOrchestrator - INFO - [6975] Starting production deployment...
+2025-08-13 22:44:51,131 - ProdDevice.instance_0 - INFO - [6975] Production device instance_0 initialized
+2025-08-13 22:44:51,131 - LoadBalancer - INFO - [6975] Added instance instance_0 to load balancer
+2025-08-13 22:44:51,131 - ProductionOrchestrator - INFO - [6975] Instance instance_0 added to deployment
+2025-08-13 22:44:51,132 - ProdDevice.instance_1 - INFO - [6975] Production device instance_1 initialized
+2025-08-13 22:44:51,132 - LoadBalancer - INFO - [6975] Added instance instance_1 to load balancer
+2025-08-13 22:44:51,132 - ProductionOrchestrator - INFO - [6975] Instance instance_1 added to deployment
+2025-08-13 22:44:51,132 - ProdDevice.instance_0 - ERROR - [6975] Forward propagation error: Input shape mismatch: 8 != 16
+2025-08-13 22:44:51,133 - HealthChecker - INFO - [6975] Health monitoring started
+2025-08-13 22:44:51,133 - ProductionOrchestrator - INFO - [6975] Starting orchestration loop
+2025-08-13 22:44:51,133 - HealthChecker - ERROR - [6975] Health check failed for instance_0: Input shape mismatch: 8 != 16
+2025-08-13 22:44:51,134 - ProdDevice.instance_1 - ERROR - [6975] Forward propagation error: Input shape mismatch: 8 != 16
+2025-08-13 22:44:51,134 - HealthChecker - ERROR - [6975] Health check failed for instance_1: Input shape mismatch: 8 != 16
+2025-08-13 22:44:51,249 - ProductionOrchestrator - INFO - [6975] Status: failed | Instances: 2 | CPU: 0.0% | Memory: 15.0% | Error Rate: 200.00%
+2025-08-13 22:44:54,132 - CircuitBreaker - ERROR - [6975] Circuit breaker OPEN - 5 failures
+2025-08-13 22:44:56,135 - ProdDevice.instance_0 - ERROR - [6975] Forward propagation error: Input shape mismatch: 8 != 16
+2025-08-13 22:44:56,135 - HealthChecker - ERROR - [6975] Health check failed for instance_0: Input shape mismatch: 8 != 16
+2025-08-13 22:44:56,135 - ProdDevice.instance_1 - ERROR - [6975] Forward propagation error: Input shape mismatch: 8 != 16
+2025-08-13 22:44:56,135 - HealthChecker - ERROR - [6975] Health check failed for instance_1: Input shape mismatch: 8 != 16
+2025-08-13 22:44:56,234 - ProductionOrchestrator - INFO - [6975] Initiating graceful shutdown...
+2025-08-13 22:45:01,136 - HealthChecker - INFO - [6975] Health monitoring stopped
+2025-08-13 22:45:01,136 - LoadBalancer - INFO - [6975] Removed instance instance_0 from load balancer
+2025-08-13 22:45:01,136 - ProductionOrchestrator - INFO - [6975] Instance instance_0 removed from deployment
+2025-08-13 22:45:01,136 - LoadBalancer - INFO - [6975] Removed instance instance_1 from load balancer
+2025-08-13 22:45:01,136 - ProductionOrchestrator - INFO - [6975] Instance instance_1 removed from deployment
+2025-08-13 22:45:01,136 - ProductionOrchestrator - INFO - [6975] Shutdown complete
