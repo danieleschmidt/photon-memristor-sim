@@ -60,7 +60,7 @@ pub struct ScalingAction {
 }
 
 /// Types of scaling actions
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum ScalingActionType {
     Increment,
     Decrement,

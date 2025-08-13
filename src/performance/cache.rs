@@ -787,6 +787,7 @@ mod tests {
         let key2 = CacheKey::new("test2", &[2.0], b"input2", 32);
         
         // Generate some cache activity
+        let cache = cache.unwrap();
         cache.get(&key1); // miss
         cache.put(key1.clone(), "result1".to_string(), 100.0).unwrap();
         cache.get(&key1); // hit
