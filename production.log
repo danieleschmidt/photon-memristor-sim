@@ -25,3 +25,30 @@
 2025-08-13 22:45:01,136 - LoadBalancer - INFO - [6975] Removed instance instance_1 from load balancer
 2025-08-13 22:45:01,136 - ProductionOrchestrator - INFO - [6975] Instance instance_1 removed from deployment
 2025-08-13 22:45:01,136 - ProductionOrchestrator - INFO - [6975] Shutdown complete
+2025-08-15 07:23:49,210 - ProductionOrchestrator - INFO - [4263] Production orchestrator initialized for photon-memristor-sim v1.0.0
+2025-08-15 07:23:49,211 - ProductionOrchestrator - INFO - [4263] Starting production deployment...
+2025-08-15 07:23:49,224 - ProdDevice.instance_0 - INFO - [4263] Production device instance_0 initialized
+2025-08-15 07:23:49,225 - LoadBalancer - INFO - [4263] Added instance instance_0 to load balancer
+2025-08-15 07:23:49,225 - ProductionOrchestrator - INFO - [4263] Instance instance_0 added to deployment
+2025-08-15 07:23:49,225 - ProdDevice.instance_1 - INFO - [4263] Production device instance_1 initialized
+2025-08-15 07:23:49,225 - LoadBalancer - INFO - [4263] Added instance instance_1 to load balancer
+2025-08-15 07:23:49,225 - ProductionOrchestrator - INFO - [4263] Instance instance_1 added to deployment
+2025-08-15 07:23:49,225 - HealthChecker - INFO - [4263] Health monitoring started
+2025-08-15 07:23:49,225 - ProductionOrchestrator - INFO - [4263] Starting orchestration loop
+2025-08-15 07:23:49,240 - ProdDevice.instance_0 - ERROR - [4263] Forward propagation error: Input shape mismatch: 8 != 16
+2025-08-15 07:23:49,240 - HealthChecker - ERROR - [4263] Health check failed for instance_0: Input shape mismatch: 8 != 16
+2025-08-15 07:23:49,241 - ProdDevice.instance_1 - ERROR - [4263] Forward propagation error: Input shape mismatch: 8 != 16
+2025-08-15 07:23:49,241 - HealthChecker - ERROR - [4263] Health check failed for instance_1: Input shape mismatch: 8 != 16
+2025-08-15 07:23:49,341 - ProductionOrchestrator - INFO - [4263] Status: failed | Instances: 2 | CPU: 19.0% | Memory: 15.6% | Error Rate: 200.00%
+2025-08-15 07:23:52,212 - CircuitBreaker - ERROR - [4263] Circuit breaker OPEN - 5 failures
+2025-08-15 07:23:54,241 - ProdDevice.instance_0 - ERROR - [4263] Forward propagation error: Input shape mismatch: 8 != 16
+2025-08-15 07:23:54,241 - HealthChecker - ERROR - [4263] Health check failed for instance_0: Input shape mismatch: 8 != 16
+2025-08-15 07:23:54,241 - ProdDevice.instance_1 - ERROR - [4263] Forward propagation error: Input shape mismatch: 8 != 16
+2025-08-15 07:23:54,242 - HealthChecker - ERROR - [4263] Health check failed for instance_1: Input shape mismatch: 8 != 16
+2025-08-15 07:23:54,313 - ProductionOrchestrator - INFO - [4263] Initiating graceful shutdown...
+2025-08-15 07:23:59,242 - HealthChecker - INFO - [4263] Health monitoring stopped
+2025-08-15 07:23:59,243 - LoadBalancer - INFO - [4263] Removed instance instance_0 from load balancer
+2025-08-15 07:23:59,243 - ProductionOrchestrator - INFO - [4263] Instance instance_0 removed from deployment
+2025-08-15 07:23:59,243 - LoadBalancer - INFO - [4263] Removed instance instance_1 from load balancer
+2025-08-15 07:23:59,243 - ProductionOrchestrator - INFO - [4263] Instance instance_1 removed from deployment
+2025-08-15 07:23:59,243 - ProductionOrchestrator - INFO - [4263] Shutdown complete
