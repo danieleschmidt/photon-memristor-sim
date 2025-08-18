@@ -1,6 +1,6 @@
 {
-  "timestamp": 1755124996.1288207,
-  "execution_time_seconds": 1.3818516731262207,
+  "timestamp": 1755481525.5174625,
+  "execution_time_seconds": 0.8365776538848877,
   "overall_status": "PASS",
   "gates_passed": 5,
   "gates_failed": 0,
@@ -9,14 +9,14 @@
       "name": "Code Quality",
       "description": "Static analysis and code style validation",
       "passed": true,
-      "message": "Found 439 Python files, 48 Rust files. ",
+      "message": "Found 45 Python files, 48 Rust files. ",
       "results": {
-        "python_files_found": 439,
+        "python_files_found": 45,
         "syntax_errors": 0,
         "rust_files_found": 48,
         "readme_exists": true
       },
-      "execution_time_seconds": 1.1171858310699463
+      "execution_time_seconds": 0.28278303146362305
     },
     "Functional Tests": {
       "name": "Functional Tests",
@@ -37,7 +37,7 @@
         "failures": 0,
         "success_rate": 100.0
       },
-      "execution_time_seconds": 0.0004987716674804688
+      "execution_time_seconds": 0.013459920883178711
     },
     "Performance Tests": {
       "name": "Performance Tests",
@@ -47,27 +47,27 @@
       "results": {
         "matrix_performance": {
           "size_16x16": {
-            "ops_per_sec": 157090.03745318353,
-            "execution_time_ms": 0.6365776062011719
+            "ops_per_sec": 209715.2,
+            "execution_time_ms": 0.476837158203125
           },
           "size_32x32": {
-            "ops_per_sec": 159722.1629855293,
-            "execution_time_ms": 0.6260871887207031
+            "ops_per_sec": 155575.07418397625,
+            "execution_time_ms": 0.6427764892578125
           },
           "size_64x64": {
-            "ops_per_sec": 105094.06163868704,
-            "execution_time_ms": 0.9515285491943359
+            "ops_per_sec": 96732.10332103321,
+            "execution_time_ms": 1.033782958984375
           }
         },
         "memory_test": {
-          "memory_before_mb": 43.078125,
-          "memory_peak_mb": 119.3359375,
-          "memory_after_mb": 50.7421875,
-          "memory_growth_mb": 76.2578125,
-          "memory_cleanup_efficiency": 89.94980022538674
+          "memory_before_mb": 37.25,
+          "memory_peak_mb": 113.69921875,
+          "memory_after_mb": 45.0078125,
+          "memory_growth_mb": 76.44921875,
+          "memory_cleanup_efficiency": 89.85233253282918
         }
       },
-      "execution_time_seconds": 0.18730640411376953
+      "execution_time_seconds": 0.5129384994506836
     },
     "Security Tests": {
       "name": "Security Tests",
@@ -76,11 +76,11 @@
       "message": "Security validation completed. ",
       "results": {
         "input_validation": "PASS",
-        "file_security": "Checked 439 files, 0 issues found",
+        "file_security": "Checked 45 files, 0 issues found",
         "dependency_security": "Basic dependency checks passed, 0 issues found",
         "total_security_issues": 0
       },
-      "execution_time_seconds": 0.07497024536132812
+      "execution_time_seconds": 0.025032758712768555
     },
     "Integration Tests": {
       "name": "Integration Tests",
@@ -95,9 +95,9 @@
             "Input prepared",
             "Forward propagation completed",
             "Output validation passed",
-            "Efficiency calculated: 3.701"
+            "Efficiency calculated: 3.962"
           ],
-          "efficiency": 3.700894223181734,
+          "efficiency": 3.962163111786943,
           "status": "PASS"
         },
         "error_recovery": {
@@ -118,7 +118,7 @@
           "status": "PASS"
         }
       },
-      "execution_time_seconds": 0.0006239414215087891
+      "execution_time_seconds": 0.0005853176116943359
     }
   }
 }
