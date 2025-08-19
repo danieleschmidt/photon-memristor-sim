@@ -13,7 +13,10 @@ import numpy as np
 from functools import partial
 
 from .jax_interface import photonic_matmul, photonic_conv2d, photonic_attention
-from ._core import PyPhotonicArray
+try:
+    from ._core import PyPhotonicArray
+except ImportError:
+    from .pure_python_fallbacks import PyPhotonicArray
 
 
 class PhotonicLayer:

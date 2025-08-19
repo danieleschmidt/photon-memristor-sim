@@ -7,14 +7,20 @@ JAX integration for differentiable device-algorithm co-design.
 
 __version__ = "0.1.0"
 
-# Import core Rust module
+# Import core Rust module with fallbacks
 try:
     from ._core import *
+    _RUST_CORE_AVAILABLE = True
+    print("🦀 Rust core module loaded successfully!")
 except ImportError as e:
-    raise ImportError(
-        "Failed to import Rust core module. "
-        "Make sure the package was built with 'maturin develop'. "
-        f"Original error: {e}"
+    print(f"⚠️  Rust core module unavailable: {e}")
+    print("🐍 Running in Pure Python mode with fallbacks")
+    _RUST_CORE_AVAILABLE = False
+    # Import fallbacks
+    from .pure_python_fallbacks import (
+        PyOpticalField, PyPhotonicArray, 
+        jax_photonic_matmul, jax_photonic_matmul_vjp,
+        calculate_waveguide_mode, create_device_simulator
     )
 
 # High-level Python APIs

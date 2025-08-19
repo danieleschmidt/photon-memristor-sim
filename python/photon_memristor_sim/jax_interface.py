@@ -12,7 +12,16 @@ from jax.interpreters import xla
 from typing import Tuple, Optional, Dict, Any
 import numpy as np
 
-from ._core import jax_photonic_matmul, jax_photonic_matmul_vjp
+try:
+    from ._core import jax_photonic_matmul, jax_photonic_matmul_vjp
+    _RUST_CORE_AVAILABLE = True
+except ImportError:
+    _RUST_CORE_AVAILABLE = False
+    # Pure Python fallbacks
+    def jax_photonic_matmul(*args, **kwargs):
+        raise NotImplementedError("Rust core not available - using pure Python simulation")
+    def jax_photonic_matmul_vjp(*args, **kwargs):
+        raise NotImplementedError("Rust core not available - using pure Python simulation")
 
 
 @custom_vjp

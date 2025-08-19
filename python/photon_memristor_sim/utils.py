@@ -8,7 +8,10 @@ unit conversions, and visualization support.
 import numpy as np
 import jax.numpy as jnp
 from typing import Tuple, Optional
-from ._core import SPEED_OF_LIGHT
+try:
+    from ._core import SPEED_OF_LIGHT
+except ImportError:
+    SPEED_OF_LIGHT = 299792458.0  # m/s
 
 
 def create_gaussian_beam(

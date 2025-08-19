@@ -10,7 +10,10 @@ from jax import random
 from typing import Dict, Tuple, Optional, Any
 import numpy as np
 
-from ._core import create_device_simulator
+try:
+    from ._core import create_device_simulator
+except ImportError:
+    from .pure_python_fallbacks import create_device_simulator
 
 
 class PhotonicDevice:
