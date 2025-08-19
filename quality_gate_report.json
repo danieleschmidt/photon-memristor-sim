@@ -1,124 +1,108 @@
 {
-  "timestamp": 1755481525.5174625,
-  "execution_time_seconds": 0.8365776538848877,
-  "overall_status": "PASS",
-  "gates_passed": 5,
-  "gates_failed": 0,
-  "gate_results": {
-    "Code Quality": {
-      "name": "Code Quality",
-      "description": "Static analysis and code style validation",
-      "passed": true,
-      "message": "Found 45 Python files, 48 Rust files. ",
-      "results": {
-        "python_files_found": 45,
-        "syntax_errors": 0,
-        "rust_files_found": 48,
-        "readme_exists": true
+  "overall_score": 62.18649849083096,
+  "gates_passed": 0,
+  "gates_failed": 5,
+  "gates_total": 5,
+  "execution_time": 118.79067063331604,
+  "timestamp": 1755633394.0095773,
+  "gate_results": [
+    {
+      "gate_name": "Code Execution",
+      "status": "failed",
+      "score": 60.0,
+      "details": {
+        "rust_compilation": 40,
+        "python_functionality": 100.0,
+        "library_functions": 40.0,
+        "test_count": 15,
+        "passed_tests": 1
       },
-      "execution_time_seconds": 0.28278303146362305
+      "execution_time": 11.854958057403564,
+      "timestamp": 1755633287.0745056,
+      "error_message": "Average score 60.0% below 85% threshold"
     },
-    "Functional Tests": {
-      "name": "Functional Tests",
-      "description": "Core functionality validation",
-      "passed": true,
-      "message": "Ran 4 functional tests, 0 failures. ",
-      "results": {
-        "numpy_test": "PASS",
-        "basic_simulation_test": "PASS",
-        "error_handling_test": "PASS",
-        "demo_files_test": [
-          "examples/generation1_enhanced_demo.py: EXISTS",
-          "examples/generation2_robust_demo.py: EXISTS",
-          "examples/generation3_scalable_demo.py: EXISTS",
-          "All demo files found"
-        ],
-        "total_tests": 4,
-        "failures": 0,
-        "success_rate": 100.0
-      },
-      "execution_time_seconds": 0.013459920883178711
-    },
-    "Performance Tests": {
-      "name": "Performance Tests",
-      "description": "Performance and scalability validation",
-      "passed": true,
-      "message": "Performance validation completed. ",
-      "results": {
-        "matrix_performance": {
-          "size_16x16": {
-            "ops_per_sec": 209715.2,
-            "execution_time_ms": 0.476837158203125
-          },
-          "size_32x32": {
-            "ops_per_sec": 155575.07418397625,
-            "execution_time_ms": 0.6427764892578125
-          },
-          "size_64x64": {
-            "ops_per_sec": 96732.10332103321,
-            "execution_time_ms": 1.033782958984375
-          }
-        },
-        "memory_test": {
-          "memory_before_mb": 37.25,
-          "memory_peak_mb": 113.69921875,
-          "memory_after_mb": 45.0078125,
-          "memory_growth_mb": 76.44921875,
-          "memory_cleanup_efficiency": 89.85233253282918
+    {
+      "gate_name": "Test Coverage",
+      "status": "failed",
+      "score": 83.94999999999999,
+      "details": {
+        "line_coverage": 88.5,
+        "test_pass_rate": 73.33333333333333,
+        "total_tests": 15,
+        "passed_tests": 11,
+        "generated_tests": 10,
+        "coverage_details": {
+          "line_coverage": 88.5,
+          "branch_coverage": 82.0,
+          "function_coverage": 95.0,
+          "file_coverage": 90.0
         }
       },
-      "execution_time_seconds": 0.5129384994506836
+      "execution_time": 74.73993730545044,
+      "timestamp": 1755633361.814567,
+      "error_message": "Coverage 83.9% below 85% threshold"
     },
-    "Security Tests": {
-      "name": "Security Tests",
-      "description": "Security and vulnerability validation",
-      "passed": true,
-      "message": "Security validation completed. ",
-      "results": {
-        "input_validation": "PASS",
-        "file_security": "Checked 45 files, 0 issues found",
-        "dependency_security": "Basic dependency checks passed, 0 issues found",
-        "total_security_issues": 0
+    {
+      "gate_name": "Security Scan",
+      "status": "failed",
+      "score": 76.0,
+      "details": {
+        "code_security_score": 85.0,
+        "dependencies_score": 90.0,
+        "secrets_scan_score": 50.0,
+        "critical_issues": 0,
+        "high_issues": 0,
+        "medium_issues": 1,
+        "low_issues": 2
       },
-      "execution_time_seconds": 0.025032758712768555
+      "execution_time": 0.2851240634918213,
+      "timestamp": 1755633362.100259,
+      "error_message": "Security score 76.0% below 85% threshold"
     },
-    "Integration Tests": {
-      "name": "Integration Tests",
-      "description": "End-to-end system integration validation",
-      "passed": true,
-      "message": "Integration testing completed. ",
-      "results": {
-        "full_workflow": {
-          "steps_completed": 5,
-          "steps": [
-            "Device created",
-            "Input prepared",
-            "Forward propagation completed",
-            "Output validation passed",
-            "Efficiency calculated: 3.962"
-          ],
-          "efficiency": 3.962163111786943,
-          "status": "PASS"
+    {
+      "gate_name": "Performance Benchmark",
+      "status": "failed",
+      "score": 14.768631068016159,
+      "details": {
+        "benchmark_results": {
+          "avg_response_time": 1.5952446222305299,
+          "p95_response_time": 1.708202600479126,
+          "throughput": 0.6268631068016159,
+          "memory_efficiency": 85.0,
+          "successful_runs": 20,
+          "total_attempts": 20
         },
-        "error_recovery": {
-          "tests_run": 2,
-          "results": [
-            "Empty input handled",
-            "Dimension mismatch detected"
-          ],
-          "status": "PASS"
-        },
-        "demo_execution": {
-          "demos_checked": 3,
-          "results": [
-            "examples/generation1_enhanced_demo.py: Structure OK",
-            "examples/generation2_robust_demo.py: Structure OK",
-            "examples/generation3_scalable_demo.py: Structure OK"
-          ],
-          "status": "PASS"
-        }
+        "avg_response_time_ms": 1595.2446222305298,
+        "p95_response_time_ms": 1708.202600479126,
+        "throughput_ops_sec": 0.6268631068016159,
+        "memory_efficiency": 85.0
       },
-      "execution_time_seconds": 0.0005853176116943359
+      "execution_time": 31.90518808364868,
+      "timestamp": 1755633394.0054965,
+      "error_message": "Performance score 14.8% below 85% threshold"
+    },
+    {
+      "gate_name": "Documentation",
+      "status": "failed",
+      "score": 76.21386138613862,
+      "details": {
+        "documentation_completeness": 100.0,
+        "code_documentation_score": 46.53465346534654,
+        "readme_quality_score": 88.0,
+        "documented_functions": 45,
+        "total_functions": 50,
+        "documentation_coverage": 90.0
+      },
+      "execution_time": 0.0038483142852783203,
+      "timestamp": 1755633394.009435,
+      "error_message": "Documentation score 76.2% below 85% threshold"
     }
-  }
+  ],
+  "recommendations": [
+    "Fix compilation errors and ensure all code paths are executable",
+    "Increase test coverage by adding unit tests for untested functions",
+    "Address security vulnerabilities and review code for unsafe patterns",
+    "Optimize performance bottlenecks to meet <200ms response time target",
+    "Improve documentation coverage and add missing API documentation"
+  ]
 }
