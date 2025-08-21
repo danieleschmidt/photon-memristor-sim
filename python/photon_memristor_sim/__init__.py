@@ -26,7 +26,7 @@ except ImportError as e:
 # High-level Python APIs
 from .neural_networks import PhotonicNeuralNetwork, PhotonicLayer
 from .jax_interface import photonic_matmul, photonic_conv2d, create_photonic_primitive
-from .devices import PCMDevice, OxideMemristor, MicroringResonator
+from .devices import PCMDevice, MolecularMemristor, OxideMemristor, MicroringResonator
 from .training import HardwareAwareOptimizer, CoDesignOptimizer
 from .visualization import PhotonicCircuitVisualizer, FieldVisualizer
 from .quantum_planning import (
@@ -35,6 +35,36 @@ from .quantum_planning import (
     TaskAssignment,
     QuantumPlanningReport,
     benchmark_quantum_vs_classical
+)
+
+# 2025 Breakthrough Enhancement Modules
+from .quantum_hybrid import (
+    QuantumPhotonicProcessor,
+    QuantumState,
+    PhotonicQuantumConfig,
+    create_quantum_photonic_processor,
+    quantum_accelerated_gradient_descent
+)
+from .gpu_accelerated import (
+    CUDAOptimizedFDTD,
+    ParallelPhotonicArray,
+    RealTimeVisualizer,
+    create_gpu_photonic_simulator,
+    create_parallel_photonic_array
+)
+from .edge_computing import (
+    EdgeAI,
+    EdgeNode,
+    EdgeComputingConfig,
+    create_edge_ai_system
+)
+from .ai_optimization import (
+    NeuralArchitectureSearch,
+    BioInspiredOptimization,
+    AdaptivePerformanceOptimizer,
+    create_neural_architecture_search,
+    create_bio_inspired_optimizer,
+    create_adaptive_optimizer
 )
 
 # Utility functions
@@ -100,6 +130,7 @@ __all__ = [
     
     # Device models
     "PCMDevice",
+    "MolecularMemristor",
     "OxideMemristor", 
     "MicroringResonator",
     
@@ -117,6 +148,35 @@ __all__ = [
     "TaskAssignment",
     "QuantumPlanningReport",
     "benchmark_quantum_vs_classical",
+    
+    # 2025 Breakthrough Enhancement Classes
+    # Quantum-Photonic Hybrid
+    "QuantumPhotonicProcessor",
+    "QuantumState",
+    "PhotonicQuantumConfig",
+    "create_quantum_photonic_processor",
+    "quantum_accelerated_gradient_descent",
+    
+    # GPU-Accelerated Computing
+    "CUDAOptimizedFDTD",
+    "ParallelPhotonicArray",
+    "RealTimeVisualizer",
+    "create_gpu_photonic_simulator",
+    "create_parallel_photonic_array",
+    
+    # Edge Computing
+    "EdgeAI",
+    "EdgeNode",
+    "EdgeComputingConfig",
+    "create_edge_ai_system",
+    
+    # AI-Driven Optimization
+    "NeuralArchitectureSearch",
+    "BioInspiredOptimization",
+    "AdaptivePerformanceOptimizer",
+    "create_neural_architecture_search",
+    "create_bio_inspired_optimizer",
+    "create_adaptive_optimizer",
     
     # Utilities
     "create_gaussian_beam",
