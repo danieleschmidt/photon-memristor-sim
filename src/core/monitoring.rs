@@ -1,7 +1,6 @@
 //! Real-time monitoring and metrics collection for photonic simulation
 
-use crate::core::{Result, PhotonicError};
-use crate::core::logging::{Logger, PerformanceData, LogLevel};
+use crate::core::logging::Logger;
 use std::collections::{HashMap, VecDeque};
 use std::sync::{Arc, Mutex, RwLock};
 use std::time::{Duration, Instant, SystemTime};

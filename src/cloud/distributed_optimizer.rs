@@ -1,6 +1,6 @@
 //! Distributed optimization for cloud-scale photonic neural networks
 
-use crate::core::{Result, PhotonicError};
+use crate::core::Result;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 

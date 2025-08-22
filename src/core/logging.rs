@@ -1,7 +1,7 @@
 //! Comprehensive logging and monitoring system for photonic simulation
 
 use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
+use std::sync::{Arc, Mutex, OnceLock};
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 use std::fmt;
 use serde::{Serialize, Deserialize};
@@ -385,19 +385,13 @@ impl LoggerRegistry {
     }
 }
 
+
 /// Global logger registry instance
-static mut GLOBAL_REGISTRY: Option<LoggerRegistry> = None;
-static mut REGISTRY_INITIALIZED: bool = false;
+static GLOBAL_REGISTRY: OnceLock<LoggerRegistry> = OnceLock::new();
 
 /// Get global logger registry
 pub fn get_global_registry() -> &'static LoggerRegistry {
-    unsafe {
-        if !REGISTRY_INITIALIZED {
-            GLOBAL_REGISTRY = Some(LoggerRegistry::new());
-            REGISTRY_INITIALIZED = true;
-        }
-        GLOBAL_REGISTRY.as_ref().unwrap()
-    }
+    GLOBAL_REGISTRY.get_or_init(|| LoggerRegistry::new())
 }
 
 /// Get logger for module (convenience function)

@@ -4,16 +4,10 @@
 //! adapted for photonic-memristor co-design problems, achieving superior 
 //! convergence rates compared to classical optimizers.
 
-use crate::core::{Result, PhotonicError, Complex64, OpticalField};
-use crate::devices::PhotonicDevice;
+use crate::core::{Result, PhotonicError, Complex64};
 use nalgebra::{DVector, DMatrix};
-use rand::{thread_rng, Rng};
-use rand_distr::{Distribution, Normal, Uniform};
-use rayon::prelude::*;
-use serde::{Deserialize, Serialize};
-use std::sync::{Arc, Mutex};
-use std::collections::{HashMap, HashSet};
-use std::hash::Hash;
+use rand::Rng;
+use std::collections::HashMap;
 
 /// Quantum-inspired superposition state for task planning
 #[derive(Debug, Clone)]

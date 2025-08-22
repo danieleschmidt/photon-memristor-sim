@@ -1,6 +1,6 @@
 //! Optical coupling calculations and mode overlap integrals
 
-use crate::core::{PhotonicError, Result, Complex64, WaveguideMode, OpticalField};
+use crate::core::{PhotonicError, Result, Complex64, WaveguideMode};
 use nalgebra::{DMatrix, DVector};
 use std::f64::consts::PI;
 
@@ -166,8 +166,8 @@ impl RingCouplingCalculator {
     /// Calculate field coupling coefficient
     pub fn field_coupling_coefficient(
         &self,
-        bus_mode: &WaveguideMode,
-        ring_mode: &WaveguideMode,
+        _bus_mode: &WaveguideMode,
+        _ring_mode: &WaveguideMode,
     ) -> Result<Complex64> {
         // Simplified coupling calculation for ring resonator
         let overlap_area = self.coupling_length * (-self.gap / 100e-9).exp(); // Exponential decay
@@ -228,7 +228,7 @@ impl RingCouplingCalculator {
         ring_mode: &WaveguideMode,
         total_loss: f64,
     ) -> f64 {
-        let k0 = 2.0 * PI / resonance_wavelength;
+        let _k0 = 2.0 * PI / resonance_wavelength;
         let n_g = ring_mode.effective_index.re; // Simplified group index
         let circumference = 2.0 * PI * self.radius;
         
@@ -269,10 +269,10 @@ impl GratingCoupler {
         &self,
         wavelength: f64,
         waveguide_mode: &WaveguideMode,
-        fiber_mode_field_diameter: f64,
+        _fiber_mode_field_diameter: f64,
     ) -> Result<f64> {
         // Simplified Bragg condition check
-        let k0 = 2.0 * PI / wavelength;
+        let _k0 = 2.0 * PI / wavelength;
         let n_eff = waveguide_mode.effective_index.re;
         let fiber_angle = 8.0_f64.to_radians(); // Typical fiber angle
         
