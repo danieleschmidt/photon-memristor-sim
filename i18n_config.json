@@ -1,0 +1,13 @@
+{
+  "supported_languages": [
+    "en",
+    "es",
+    "fr",
+    "de",
+    "ja",
+    "zh"
+  ],
+  "default_language": "en",
+  "translation_service": "AWS Translate",
+  "content_delivery": "CloudFront with regional caching"
+}

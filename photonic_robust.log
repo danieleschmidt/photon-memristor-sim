@@ -1,0 +1,14 @@
+2025-08-22 13:13:10,268 - PhotonicSystem - INFO - Simulating PCM device with parameters: {'material': 'GST', 'temperature': 300, 'wavelength': 1.55e-06}
+2025-08-22 13:13:10,268 - root - WARNING - Attempt 1 failed for device_simulation: [VALIDATION_ERROR] PCM device requires 'material' parameter
+Suggestions: Add material parameter (e.g., 'GST', 'GSST')
+2025-08-22 13:13:10,268 - root - WARNING - Attempt 2 failed for device_simulation: [VALIDATION_ERROR] PCM device requires 'material' parameter
+Suggestions: Add material parameter (e.g., 'GST', 'GSST')
+2025-08-22 13:13:10,268 - root - WARNING - Attempt 3 failed for device_simulation: [VALIDATION_ERROR] PCM device requires 'material' parameter
+Suggestions: Add material parameter (e.g., 'GST', 'GSST')
+2025-08-22 13:13:10,294 - jax._src.xla_bridge - INFO - Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2025-08-22 13:13:10,595 - root - WARNING - Attempt 1 failed for neural_forward: [VALIDATION_ERROR] Expected 1D input array, got 2D
+Suggestions: Reshape input to 1D array
+2025-08-22 13:13:10,595 - root - WARNING - Attempt 2 failed for neural_forward: [VALIDATION_ERROR] Expected 1D input array, got 2D
+Suggestions: Reshape input to 1D array
+2025-08-22 13:13:10,595 - root - WARNING - Attempt 3 failed for neural_forward: [VALIDATION_ERROR] Expected 1D input array, got 2D
+Suggestions: Reshape input to 1D array

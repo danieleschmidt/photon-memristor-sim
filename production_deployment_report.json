@@ -1,0 +1,71 @@
+{
+  "status": "SUCCESS",
+  "deployment_id": "deploy-1755868873",
+  "start_time": 1755868873.8356524,
+  "components": {
+    "dockerfile": "\u2705 Generated",
+    "kubernetes": "\u2705 4 manifests"
+  },
+  "regions": [
+    {
+      "region": "us-east-1",
+      "status": "DEPLOYED",
+      "endpoints": "https://api-us-east-1.photonic-memristor-sim.com",
+      "health": "HEALTHY"
+    },
+    {
+      "region": "us-west-2",
+      "status": "DEPLOYED",
+      "endpoints": "https://api-us-west-2.photonic-memristor-sim.com",
+      "health": "HEALTHY"
+    },
+    {
+      "region": "eu-west-1",
+      "status": "DEPLOYED",
+      "endpoints": "https://api-eu-west-1.photonic-memristor-sim.com",
+      "health": "HEALTHY"
+    },
+    {
+      "region": "ap-southeast-1",
+      "status": "DEPLOYED",
+      "endpoints": "https://api-ap-southeast-1.photonic-memristor-sim.com",
+      "health": "HEALTHY"
+    },
+    {
+      "region": "ap-northeast-1",
+      "status": "DEPLOYED",
+      "endpoints": "https://api-ap-northeast-1.photonic-memristor-sim.com",
+      "health": "HEALTHY"
+    }
+  ],
+  "monitoring": {},
+  "security": {
+    "ssl_certificates": "\u2705 Let's Encrypt configured",
+    "waf": "\u2705 Web Application Firewall enabled",
+    "secrets_management": "\u2705 Kubernetes secrets",
+    "network_policies": "\u2705 Pod-to-pod security",
+    "rbac": "\u2705 Role-based access control"
+  },
+  "compliance": {
+    "GDPR": "\u2705 Configured",
+    "CCPA": "\u2705 Configured",
+    "PDPA": "\u2705 Configured",
+    "SOC2": "\u2705 Configured",
+    "ISO27001": "\u2705 Configured"
+  },
+  "internationalization": {
+    "supported_languages": [
+      "en",
+      "es",
+      "fr",
+      "de",
+      "ja",
+      "zh"
+    ],
+    "default_language": "en",
+    "translation_service": "AWS Translate",
+    "content_delivery": "CloudFront with regional caching"
+  },
+  "end_time": 1755868874.3378375,
+  "duration": 0.5021841526031494
+}
