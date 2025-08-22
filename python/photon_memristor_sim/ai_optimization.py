@@ -10,7 +10,7 @@ Implements breakthrough 2025 AI-driven optimization capabilities:
 
 import jax.numpy as jnp
 from jax import random, jit, vmap, grad, hessian, lax
-from jax.experimental import optimizers
+import optax as optimizers
 import jax
 from typing import Dict, Tuple, List, Optional, Any, Callable, Union
 import numpy as np
