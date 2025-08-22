@@ -1,7 +1,7 @@
 //! Simplified caching system for photonic simulation data
 
 use std::collections::HashMap;
-use std::hash::{Hash, Hasher};
+use std::hash::Hash;
 use std::time::{Duration, SystemTime};
 use serde::{Serialize, Deserialize};
 

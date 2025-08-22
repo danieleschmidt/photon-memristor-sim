@@ -140,7 +140,7 @@ impl IntegrationTestSuite {
     async fn test_cache_performance_integration(&self) -> Result<()> {
         // Test integration between caching system and performance optimization
         let cache_config = CacheConfig::default();
-        let mut cache = PhotonicCache::new(cache_config)?;
+        let cache = PhotonicCache::new(cache_config)?;
         
         let parallel_config = ParallelConfig::default();
         let executor = ParallelExecutor::new(parallel_config)?;
@@ -274,7 +274,7 @@ impl IntegrationTestSuite {
         
         // 7. Set up caching for repeated computations
         let cache_config = CacheConfig::default();
-        let mut cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(cache_config)?;
+        let cache: PhotonicCache<Vec<f64>> = PhotonicCache::new(cache_config)?;
         
         // 8. Cache results for future use
         let cache_key = CacheKey::from_params("end_to_end_result", optimal_solution.resources.clone());
@@ -345,7 +345,7 @@ impl IntegrationTestSuite {
         
         // 3. Test cache recovery from corruption
         let cache_config = CacheConfig::default();
-        let mut cache = PhotonicCache::new(cache_config)?;
+        let cache = PhotonicCache::new(cache_config)?;
         
         // Add some valid entries
         for i in 0..5 {
@@ -355,7 +355,7 @@ impl IntegrationTestSuite {
         }
         
         // Simulate cache recovery by clearing and repopulating
-        let initial_size = cache.size();
+        let _initial_size = cache.size();
         cache.clear();
         assert_eq!(cache.size(), 0, "Cache should be empty after clear");
         

@@ -1,0 +1,15 @@
+2025-08-22 13:37:39,507 - GlobalDeploy - INFO - Starting deployment to region: us-east-1
+2025-08-22 13:37:39,507 - GlobalDeploy - INFO - Language set to: en
+2025-08-22 13:37:39,599 - GlobalDeploy - INFO - Deployment to us-east-1 completed in 0.09s
+2025-08-22 13:37:39,599 - GlobalDeploy - INFO - Language set to: en
+2025-08-22 13:37:39,599 - GlobalDeploy - INFO - Language set to: es
+2025-08-22 13:37:39,599 - GlobalDeploy - INFO - Language set to: ja
+2025-08-22 13:37:39,599 - GlobalDeploy - INFO - Starting deployment to region: us-east-1
+2025-08-22 13:37:39,600 - GlobalDeploy - INFO - Language set to: en
+2025-08-22 13:37:39,600 - GlobalDeploy - INFO - Deployment to us-east-1 completed in 0.00s
+2025-08-22 13:37:39,600 - GlobalDeploy - INFO - Starting deployment to region: eu-west-1
+2025-08-22 13:37:39,600 - GlobalDeploy - INFO - Language set to: en
+2025-08-22 13:37:39,600 - GlobalDeploy - INFO - Deployment to eu-west-1 completed in 0.00s
+2025-08-22 13:37:39,600 - GlobalDeploy - INFO - Starting deployment to region: ap-southeast-1
+2025-08-22 13:37:39,600 - GlobalDeploy - INFO - Language set to: en
+2025-08-22 13:37:39,600 - GlobalDeploy - INFO - Deployment to ap-southeast-1 completed in 0.00s

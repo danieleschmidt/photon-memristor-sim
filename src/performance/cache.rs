@@ -2,7 +2,7 @@
 
 use crate::core::{Result, PhotonicError, Logger, OpticalField};
 use std::collections::{HashMap, BTreeMap};
-use std::sync::{Arc, RwLock, Mutex};
+use std::sync::{Arc, RwLock};
 use std::time::{Instant, Duration, SystemTime};
 use std::hash::{Hash, Hasher};
 use serde::{Serialize, Deserialize};

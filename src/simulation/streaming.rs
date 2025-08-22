@@ -1,6 +1,5 @@
 //! Streaming processing for large-scale photonic simulations
 
-use crate::simulation::cache::{CacheKey, SimulationCacheManager};
 use std::marker::PhantomData;
 
 /// Configuration for streaming processing
@@ -160,7 +159,6 @@ impl<T, R> BatchProcessor<T, R> {
 
 /// Utility functions for chunk processing
 pub mod chunk_utils {
-    use super::*;
 
     pub fn split_data<T: Clone>(data: &[T], num_chunks: usize) -> Vec<Vec<T>> {
         let chunk_size = (data.len() + num_chunks - 1) / num_chunks;

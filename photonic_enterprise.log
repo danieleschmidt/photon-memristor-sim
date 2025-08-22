@@ -33,3 +33,88 @@
 2025-08-16 15:26:29,845 - __main__ - WARNING - [MainThread] - 🚨 Error detected: network_error (severity: low)
 2025-08-16 15:26:29,845 - __main__ - INFO - [MainThread] - 🔄 Attempting network error recovery...
 2025-08-16 15:26:30,845 - __main__ - INFO - [MainThread] - ✅ Successfully recovered from network_error
+2025-08-22 13:28:50,583 - PhotonicEnterprise - INFO - RobustPhotonicProcessor initialized with enterprise security
+2025-08-22 13:28:50,584 - PhotonicEnterprise - INFO - Operation c5559274 completed successfully in 0.08ms
+2025-08-22 13:28:50,584 - PhotonicEnterprise - ERROR - SECURITY VIOLATION: Channel power 20.00mW exceeds limit 5.00mW
+2025-08-22 13:28:50,584 - PhotonicEnterprise - ERROR - Operation 34408361 failed: Input validation failed - operation blocked
+2025-08-22 13:28:50,584 - PhotonicEnterprise - ERROR - DIMENSION_MISMATCH: Weight matrix (10, 15) incompatible with input 20
+2025-08-22 13:28:50,585 - PhotonicEnterprise - ERROR - Operation 7ca88a30 failed: Input validation failed - operation blocked
+2025-08-22 13:28:50,585 - PhotonicEnterprise - INFO - RobustPhotonicProcessor initialized with enterprise security
+2025-08-22 13:28:50,585 - PhotonicEnterprise - INFO - RobustPhotonicProcessor initialized with enterprise security
+2025-08-22 13:28:50,585 - PhotonicEnterprise - INFO - RobustPhotonicProcessor initialized with enterprise security
+2025-08-22 13:28:50,585 - PhotonicEnterprise - INFO - Operation 8b2b52db completed successfully in 0.03ms
+2025-08-22 13:28:50,585 - PhotonicEnterprise - INFO - Operation c6e89e4d completed successfully in 0.02ms
+2025-08-22 13:28:50,586 - PhotonicEnterprise - INFO - Operation a7a166c0 completed successfully in 0.02ms
+2025-08-22 13:28:50,586 - PhotonicEnterprise - INFO - Operation 1bb1a8e1 completed successfully in 0.02ms
+2025-08-22 13:28:50,586 - PhotonicEnterprise - INFO - Operation d427f388 completed successfully in 0.02ms
+2025-08-22 13:28:50,586 - PhotonicEnterprise - INFO - Operation affa80fb completed successfully in 0.02ms
+2025-08-22 13:28:50,587 - PhotonicEnterprise - INFO - Operation fe7983cc completed successfully in 0.02ms
+2025-08-22 13:28:50,587 - PhotonicEnterprise - INFO - Operation df1ff6e7 completed successfully in 0.02ms
+2025-08-22 13:28:50,587 - PhotonicEnterprise - INFO - Operation c326108a completed successfully in 0.02ms
+2025-08-22 13:28:50,587 - PhotonicEnterprise - INFO - Operation 89192c81 completed successfully in 0.02ms
+2025-08-22 13:28:50,588 - PhotonicEnterprise - INFO - Operation 32b2cbb4 completed successfully in 0.02ms
+2025-08-22 13:28:50,588 - PhotonicEnterprise - INFO - Operation 65218d92 completed successfully in 0.03ms
+2025-08-22 13:28:50,588 - PhotonicEnterprise - INFO - Operation aa6676c3 completed successfully in 0.02ms
+2025-08-22 13:28:50,589 - PhotonicEnterprise - INFO - Operation 25129c86 completed successfully in 0.02ms
+2025-08-22 13:28:50,589 - PhotonicEnterprise - INFO - Operation 24f4f51f completed successfully in 0.01ms
+2025-08-22 13:28:50,589 - PhotonicEnterprise - INFO - Operation 6f716f2f completed successfully in 0.02ms
+2025-08-22 13:28:50,589 - PhotonicEnterprise - INFO - Operation f5a1b6e4 completed successfully in 0.02ms
+2025-08-22 13:28:50,590 - PhotonicEnterprise - INFO - Operation 1278d661 completed successfully in 0.02ms
+2025-08-22 13:28:50,590 - PhotonicEnterprise - INFO - Operation 7e92d014 completed successfully in 0.02ms
+2025-08-22 13:28:50,590 - PhotonicEnterprise - INFO - Operation 1737ffca completed successfully in 0.02ms
+2025-08-22 13:28:50,590 - PhotonicEnterprise - INFO - Operation bcf2cea1 completed successfully in 0.02ms
+2025-08-22 13:28:50,590 - PhotonicEnterprise - INFO - Operation e91892e9 completed successfully in 0.02ms
+2025-08-22 13:28:50,591 - PhotonicEnterprise - INFO - Operation c439c70f completed successfully in 0.02ms
+2025-08-22 13:28:50,591 - PhotonicEnterprise - INFO - Operation 54abd8b7 completed successfully in 0.03ms
+2025-08-22 13:28:50,591 - PhotonicEnterprise - INFO - Operation e37a48e5 completed successfully in 0.02ms
+2025-08-22 13:28:50,591 - PhotonicEnterprise - INFO - Operation 1af63665 completed successfully in 0.02ms
+2025-08-22 13:28:50,592 - PhotonicEnterprise - INFO - Operation b578c0fd completed successfully in 0.01ms
+2025-08-22 13:28:50,592 - PhotonicEnterprise - INFO - Operation ae08471b completed successfully in 0.02ms
+2025-08-22 13:28:50,592 - PhotonicEnterprise - INFO - Operation bbe7fb5c completed successfully in 0.01ms
+2025-08-22 13:28:50,592 - PhotonicEnterprise - INFO - Operation fa9dd471 completed successfully in 0.02ms
+2025-08-22 13:28:50,592 - PhotonicEnterprise - INFO - Operation 6c71e58c completed successfully in 0.02ms
+2025-08-22 13:28:50,593 - PhotonicEnterprise - INFO - Operation ed942865 completed successfully in 0.02ms
+2025-08-22 13:28:50,593 - PhotonicEnterprise - INFO - Operation 9cc037be completed successfully in 0.02ms
+2025-08-22 13:28:50,593 - PhotonicEnterprise - INFO - Operation ded99617 completed successfully in 0.01ms
+2025-08-22 13:28:50,593 - PhotonicEnterprise - INFO - Operation 42f89246 completed successfully in 0.02ms
+2025-08-22 13:28:50,593 - PhotonicEnterprise - INFO - Operation c0f58407 completed successfully in 0.01ms
+2025-08-22 13:28:50,594 - PhotonicEnterprise - INFO - Operation e6087b51 completed successfully in 0.03ms
+2025-08-22 13:28:50,594 - PhotonicEnterprise - INFO - Operation 1ad4c87f completed successfully in 0.02ms
+2025-08-22 13:28:50,594 - PhotonicEnterprise - INFO - Operation 2b2f46b7 completed successfully in 0.01ms
+2025-08-22 13:28:50,594 - PhotonicEnterprise - INFO - Operation 348f61d4 completed successfully in 0.01ms
+2025-08-22 13:28:50,595 - PhotonicEnterprise - INFO - Operation 5bdaf55d completed successfully in 0.02ms
+2025-08-22 13:28:50,595 - PhotonicEnterprise - INFO - Operation 9c819795 completed successfully in 0.02ms
+2025-08-22 13:28:50,595 - PhotonicEnterprise - INFO - Operation d2af3245 completed successfully in 0.02ms
+2025-08-22 13:28:50,595 - PhotonicEnterprise - INFO - Operation 18669ff4 completed successfully in 0.02ms
+2025-08-22 13:28:50,595 - PhotonicEnterprise - INFO - Operation 3498b8a8 completed successfully in 0.02ms
+2025-08-22 13:28:50,596 - PhotonicEnterprise - INFO - Operation d0653336 completed successfully in 0.02ms
+2025-08-22 13:28:50,596 - PhotonicEnterprise - INFO - Operation 4fdf5204 completed successfully in 0.02ms
+2025-08-22 13:28:50,596 - PhotonicEnterprise - INFO - Operation 1c96abf9 completed successfully in 0.01ms
+2025-08-22 13:28:50,596 - PhotonicEnterprise - INFO - Operation c9d0ebbf completed successfully in 0.02ms
+2025-08-22 13:28:50,597 - PhotonicEnterprise - INFO - Operation 679f81b2 completed successfully in 0.02ms
+2025-08-22 13:30:45,181 - PhotonicScale - INFO - Scalable processor initialized with 2 workers
+2025-08-22 13:30:45,184 - PhotonicScale - INFO - Processing batch of 20 tasks
+2025-08-22 13:30:45,189 - PhotonicScale - INFO - Batch processing: 20 tasks, 2 workers, 3813.2 tasks/sec
+2025-08-22 13:30:45,190 - PhotonicScale - INFO - Batch completed: 3202.5 ops/sec, 20 results
+2025-08-22 13:30:45,191 - PhotonicScale - INFO - Scalable processor initialized with 2 workers
+2025-08-22 13:30:45,191 - PhotonicScale - INFO - Large-scale processing: [32, 64, 128, 256, 512] sizes, 50 ops each
+2025-08-22 13:30:45,207 - PhotonicScale - INFO - Size 32: 50 ops, 3259.6 ops/sec
+2025-08-22 13:30:45,219 - PhotonicScale - INFO - Size 64: 50 ops, 4155.7 ops/sec
+2025-08-22 13:30:45,235 - PhotonicScale - INFO - Size 128: 50 ops, 3182.6 ops/sec
+2025-08-22 13:30:45,293 - PhotonicScale - INFO - Size 256: 50 ops, 872.8 ops/sec
+2025-08-22 13:30:45,490 - PhotonicScale - INFO - Size 512: 50 ops, 253.9 ops/sec
+2025-08-22 13:30:45,491 - PhotonicScale - INFO - Scalable processor initialized with 2 workers
+2025-08-22 13:30:45,492 - PhotonicScale - ERROR - Adaptive performance test failed: property 'average_ops_per_sec' of 'PerformanceMetrics' object has no setter
+2025-08-22 13:31:05,326 - PhotonicScale - INFO - Scalable processor initialized with 2 workers
+2025-08-22 13:31:05,328 - PhotonicScale - INFO - Processing batch of 20 tasks
+2025-08-22 13:31:05,332 - PhotonicScale - INFO - Batch processing: 20 tasks, 2 workers, 5375.2 tasks/sec
+2025-08-22 13:31:05,333 - PhotonicScale - INFO - Batch completed: 4804.7 ops/sec, 20 results
+2025-08-22 13:31:05,333 - PhotonicScale - INFO - Scalable processor initialized with 2 workers
+2025-08-22 13:31:05,333 - PhotonicScale - INFO - Large-scale processing: [32, 64, 128, 256, 512] sizes, 50 ops each
+2025-08-22 13:31:05,348 - PhotonicScale - INFO - Size 32: 50 ops, 3617.3 ops/sec
+2025-08-22 13:31:05,360 - PhotonicScale - INFO - Size 64: 50 ops, 4218.0 ops/sec
+2025-08-22 13:31:05,377 - PhotonicScale - INFO - Size 128: 50 ops, 2899.5 ops/sec
+2025-08-22 13:31:05,418 - PhotonicScale - INFO - Size 256: 50 ops, 1222.3 ops/sec
+2025-08-22 13:31:05,599 - PhotonicScale - INFO - Size 512: 50 ops, 277.5 ops/sec
+2025-08-22 13:31:05,600 - PhotonicScale - INFO - Scalable processor initialized with 2 workers
+2025-08-22 13:31:05,601 - PhotonicScale - ERROR - Adaptive performance test failed: 'current_workers'

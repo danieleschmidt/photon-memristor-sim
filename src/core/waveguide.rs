@@ -1,7 +1,7 @@
 //! Waveguide modeling and mode analysis
 
-use crate::core::{PhotonicError, Result, Complex64, WaveguideGeometry, OpticalField};
-use nalgebra::{DMatrix, DVector};
+use crate::core::{PhotonicError, Result, Complex64, WaveguideGeometry};
+use nalgebra::DMatrix;
 use std::f64::consts::PI;
 
 /// Waveguide mode structure
@@ -49,7 +49,7 @@ impl WaveguideMode {
     }
     
     /// Calculate group velocity
-    pub fn group_velocity(&self, wavelength: f64, d_wavelength: f64) -> f64 {
+    pub fn group_velocity(&self, _wavelength: f64, _d_wavelength: f64) -> f64 {
         // Simplified calculation - would need dispersion data for accuracy
         let c = 299792458.0; // Speed of light
         let n_g = self.effective_index.re; // Group index approximation
@@ -144,7 +144,7 @@ impl EffectiveIndexCalculator {
     /// Generate mode profile using Gaussian approximation
     pub fn generate_mode_profile(
         &self,
-        effective_index: Complex64,
+        _effective_index: Complex64,
         nx: usize,
         ny: usize,
     ) -> Result<DMatrix<Complex64>> {
@@ -157,7 +157,7 @@ impl EffectiveIndexCalculator {
         let mut profile = DMatrix::zeros(ny, nx);
         
         // Mode width approximation
-        let k0 = 2.0 * PI / self.wavelength;
+        let _k0 = 2.0 * PI / self.wavelength;
         let n_core = self.geometry.core_index.re;
         let n_clad = self.geometry.cladding_index.re;
         let delta = (n_core * n_core - n_clad * n_clad) / (2.0 * n_core * n_core);

@@ -64,7 +64,7 @@ impl BenchmarkRunner {
             measurements.push(iter_duration);
         }
         
-        let total_time = start_time.elapsed();
+        let _total_time = start_time.elapsed();
         
         // Calculate statistics
         let execution_time = self.calculate_median(&measurements);
@@ -165,7 +165,7 @@ impl QuantumOptimizationBenchmarks {
         let mut planner = QuantumTaskPlanner::new(8).unwrap();
         
         self.runner.benchmark("quantum_evolution", || {
-            planner.evolve(0.01);
+            let _ = planner.evolve(0.01);
         })
     }
     
@@ -180,7 +180,7 @@ impl QuantumOptimizationBenchmarks {
         };
         
         self.runner.benchmark("quantum_interference", || {
-            planner.apply_interference(&target);
+            let _ = planner.apply_interference(&target);
         })
     }
     
@@ -372,7 +372,7 @@ impl CachingBenchmarks {
     }
     
     fn benchmark_cache_put_operation(&self) -> BenchmarkResult {
-        let mut cache = PhotonicCache::new(CacheConfig::default()).unwrap();
+        let cache = PhotonicCache::new(CacheConfig::default()).unwrap();
         let keys: Vec<CacheKey> = (0..100)
             .map(|i| CacheKey::from_params(&format!("key_{}", i), vec![i as f64]))
             .collect();
@@ -388,7 +388,7 @@ impl CachingBenchmarks {
     }
     
     fn benchmark_cache_get_operation(&self) -> BenchmarkResult {
-        let mut cache = PhotonicCache::new(CacheConfig::default()).unwrap();
+        let cache = PhotonicCache::new(CacheConfig::default()).unwrap();
         let keys: Vec<CacheKey> = (0..100)
             .map(|i| CacheKey::from_params(&format!("key_{}", i), vec![i as f64]))
             .collect();
@@ -412,7 +412,7 @@ impl CachingBenchmarks {
             eviction_policy: EvictionPolicy::LRU,
             ..Default::default()
         };
-        let mut cache = PhotonicCache::new(config).unwrap();
+        let cache = PhotonicCache::new(config).unwrap();
         
         self.runner.benchmark("cache_eviction", || {
             // Add more entries than the cache can hold
@@ -425,7 +425,7 @@ impl CachingBenchmarks {
     }
     
     fn benchmark_cache_hit_rate(&self) -> BenchmarkResult {
-        let mut cache = PhotonicCache::new(CacheConfig::default()).unwrap();
+        let cache = PhotonicCache::new(CacheConfig::default()).unwrap();
         let keys: Vec<CacheKey> = (0..100)
             .map(|i| CacheKey::from_params(&format!("key_{}", i), vec![i as f64]))
             .collect();

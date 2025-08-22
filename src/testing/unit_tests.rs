@@ -63,7 +63,7 @@ impl QuantumOptimizationTests {
     
     fn test_quantum_interference(&self) -> Result<()> {
         let mut planner = QuantumTaskPlanner::new(4)?;
-        let initial_fidelity = planner.fidelity();
+        let _initial_fidelity = planner.fidelity();
         
         let target = TaskAssignment {
             task_id: 0,
@@ -73,7 +73,7 @@ impl QuantumOptimizationTests {
             dependencies: vec![],
         };
         
-        planner.apply_interference(&target);
+        let _ = planner.apply_interference(&target);
         
         // Interference should maintain or improve fidelity
         let post_interference_fidelity = planner.fidelity();

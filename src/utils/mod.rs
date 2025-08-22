@@ -2,7 +2,6 @@
 
 use crate::core::{Complex64, OpticalField};
 use nalgebra::{DMatrix, DVector};
-use std::f64::consts::PI;
 
 /// Constants and unit conversions
 pub mod constants {
@@ -104,7 +103,7 @@ pub fn effective_area(field: &OpticalField) -> f64 {
 pub fn generate_phase_screen(
     nx: usize,
     ny: usize,
-    coherence_length: f64,
+    _coherence_length: f64,
     phase_variance: f64,
 ) -> DMatrix<f64> {
     let mut phase_screen = DMatrix::zeros(ny, nx);

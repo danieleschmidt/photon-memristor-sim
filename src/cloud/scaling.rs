@@ -1,7 +1,7 @@
 //! Auto-scaling module for dynamically adapting cloud deployments
 
-use crate::cloud::{AutoScalingConfig, DeploymentMetrics, CustomScalingMetric};
-use crate::core::{Result, PhotonicError};
+use crate::cloud::{AutoScalingConfig, DeploymentMetrics};
+use crate::core::Result;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
@@ -477,7 +477,16 @@ impl AutoScaler {
         // 5. No change
 
         match (&photonic_decision.decision_type, &standard_decision.decision_type) {
-            // Photonic scale-up takes highest priority
+            // Both scale in same direction - choose the more aggressive one
+            (ScalingDecisionType::ScaleUp, ScalingDecisionType::ScaleUp) => {
+                if photonic_decision.target_instances > standard_decision.target_instances {
+                    Ok(photonic_decision)
+                } else {
+                    Ok(standard_decision)
+                }
+            },
+            
+            // Photonic scale-up with other decisions
             (ScalingDecisionType::ScaleUp, _) => Ok(photonic_decision),
             
             // Standard scale-up if no photonic scaling needed
@@ -491,16 +500,6 @@ impl AutoScaler {
             
             // Conflicting scale decisions - prefer scale-up for safety
             (ScalingDecisionType::ScaleDown, ScalingDecisionType::ScaleUp) => Ok(standard_decision),
-            (ScalingDecisionType::ScaleUp, ScalingDecisionType::ScaleDown) => Ok(photonic_decision),
-            
-            // Both scale in same direction - choose the more aggressive one
-            (ScalingDecisionType::ScaleUp, ScalingDecisionType::ScaleUp) => {
-                if photonic_decision.target_instances > standard_decision.target_instances {
-                    Ok(photonic_decision)
-                } else {
-                    Ok(standard_decision)
-                }
-            },
             (ScalingDecisionType::ScaleDown, ScalingDecisionType::ScaleDown) => {
                 if photonic_decision.target_instances < standard_decision.target_instances {
                     Ok(photonic_decision)

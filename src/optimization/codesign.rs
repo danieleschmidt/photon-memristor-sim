@@ -1,8 +1,6 @@
 //! Co-design optimization for simultaneous device and algorithm optimization
 
-use crate::core::{Result, PhotonicError, OpticalField};
-use crate::devices::traits::PhotonicDevice;
-use crate::simulation::PhotonicArray;
+use crate::core::{Result, PhotonicError};
 use nalgebra::{DVector, DMatrix};
 use std::collections::HashMap;
 use rand::{self, Rng};
@@ -508,7 +506,7 @@ impl RobustnessAnalyzer {
             
             for (i, param) in varied_params.iter_mut().enumerate() {
                 let param_name = format!("param_{}", i);
-                if let Some(&std_dev) = self.variation_model.parameter_variations.get(&param_name) {
+                if let Some(&_std_dev) = self.variation_model.parameter_variations.get(&param_name) {
                     // let normal = Normal::new(0.0, std_dev).unwrap();
                     let variation = rng.gen_range(-0.1..0.1);
                     *param += variation;

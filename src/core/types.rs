@@ -1,6 +1,6 @@
 //! Common types and data structures for photonic simulation
 
-use nalgebra::{Complex, DMatrix, DVector};
+use nalgebra::{DMatrix, DVector};
 use num_complex::Complex64 as NumComplex64;
 
 

@@ -1,6 +1,6 @@
 //! Parallel processing and concurrency for photonic simulations
 
-use crate::core::{Result, PhotonicError, OpticalField, Logger, Monitor};
+use crate::core::{Result, PhotonicError, Logger, Monitor};
 use rayon::prelude::*;
 use std::sync::{Arc, Mutex, RwLock};
 use std::collections::HashMap;
@@ -97,7 +97,7 @@ pub struct ParallelExecutor {
 
 /// Work distribution metrics
 #[derive(Debug, Default, Clone)]
-struct WorkMetrics {
+pub struct WorkMetrics {
     total_tasks: usize,
     completed_tasks: usize,
     failed_tasks: usize,
@@ -272,7 +272,7 @@ impl ParallelExecutor {
                     config.chunk_size = optimal_chunk_size;
                     let adaptive_executor = Self::new(config)?;
                     
-                    let mut remaining_results = adaptive_executor.parallel_map(items, operation)?;
+                    let remaining_results = adaptive_executor.parallel_map(items, operation)?;
                     
                     // Combine sample and remaining results
                     let mut all_results = sample_results;

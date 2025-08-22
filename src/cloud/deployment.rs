@@ -1,11 +1,11 @@
 //! Cloud deployment infrastructure and orchestration
 
-use crate::cloud::{CloudConfig, DeploymentStatus, DeploymentMetrics, RegionStatus};
+use crate::cloud::{CloudConfig, DeploymentStatus};
 use crate::core::{Result, PhotonicError};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
-use tokio::time::{sleep, Duration, Instant};
+use tokio::time::{sleep, Duration};
 
 /// Container orchestration platform
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -530,7 +530,7 @@ impl DeploymentOrchestrator {
                     deployment.last_health_check = chrono::Utc::now();
                     
                     // Update metrics
-                    for (region_id, containers) in &mut deployment.containers {
+                    for (_region_id, containers) in &mut deployment.containers {
                         for container in containers {
                             // Simulate metric updates
                             container.metrics.cpu_utilization_percent = 20.0 + rand::random::<f64>() * 60.0;
