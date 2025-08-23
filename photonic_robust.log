@@ -12,3 +12,886 @@ Suggestions: Reshape input to 1D array
 Suggestions: Reshape input to 1D array
 2025-08-22 13:13:10,595 - root - WARNING - Attempt 3 failed for neural_forward: [VALIDATION_ERROR] Expected 1D input array, got 2D
 Suggestions: Reshape input to 1D array
+2025-08-23 18:44:25,994 - __main__ - INFO - Created device: array_1755974665994_dev_0_0 (waveguide)
+2025-08-23 18:44:25,995 - __main__ - INFO - Created memristor: array_1755974665994_mem_0_0
+2025-08-23 18:44:25,995 - __main__ - INFO - Created device: array_1755974665994_dev_0_1 (waveguide)
+2025-08-23 18:44:25,995 - __main__ - INFO - Created memristor: array_1755974665994_mem_0_1
+2025-08-23 18:44:25,995 - __main__ - INFO - Created device: array_1755974665994_dev_0_2 (waveguide)
+2025-08-23 18:44:25,995 - __main__ - INFO - Created memristor: array_1755974665994_mem_0_2
+2025-08-23 18:44:25,995 - __main__ - INFO - Created device: array_1755974665994_dev_1_0 (waveguide)
+2025-08-23 18:44:25,995 - __main__ - INFO - Created memristor: array_1755974665994_mem_1_0
+2025-08-23 18:44:25,995 - __main__ - INFO - Created device: array_1755974665994_dev_1_1 (waveguide)
+2025-08-23 18:44:25,995 - __main__ - INFO - Created memristor: array_1755974665994_mem_1_1
+2025-08-23 18:44:25,995 - __main__ - INFO - Created device: array_1755974665994_dev_1_2 (waveguide)
+2025-08-23 18:44:25,995 - __main__ - INFO - Created memristor: array_1755974665994_mem_1_2
+2025-08-23 18:44:25,996 - __main__ - INFO - Created device: array_1755974665994_dev_2_0 (waveguide)
+2025-08-23 18:44:25,996 - __main__ - INFO - Created memristor: array_1755974665994_mem_2_0
+2025-08-23 18:44:25,996 - __main__ - INFO - Created device: array_1755974665994_dev_2_1 (waveguide)
+2025-08-23 18:44:25,996 - __main__ - INFO - Created memristor: array_1755974665994_mem_2_1
+2025-08-23 18:44:25,996 - __main__ - INFO - Created device: array_1755974665994_dev_2_2 (waveguide)
+2025-08-23 18:44:25,996 - __main__ - INFO - Created memristor: array_1755974665994_mem_2_2
+2025-08-23 18:44:25,996 - __main__ - INFO - Created photonic array: array_1755974665994 (3x3)
+2025-08-23 18:44:25,996 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974665994
+2025-08-23 18:44:25,997 - __main__ - ERROR - Operation failed: matrix_multiply_array_1755974665994 - Input vector length 2 != 3
+2025-08-23 18:44:25,997 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974665994
+2025-08-23 18:44:25,997 - __main__ - INFO - Starting operation: propagate_array_1755974665994_dev_0_0
+2025-08-23 18:44:25,997 - __main__ - INFO - Completed operation: propagate_array_1755974665994_dev_0_0 in 0.000s
+2025-08-23 18:44:25,997 - __main__ - INFO - Starting operation: optical_modulation_array_1755974665994_mem_0_0
+2025-08-23 18:44:25,997 - __main__ - INFO - Completed operation: optical_modulation_array_1755974665994_mem_0_0 in 0.000s
+2025-08-23 18:44:25,997 - __main__ - INFO - Starting operation: propagate_array_1755974665994_dev_0_1
+2025-08-23 18:44:25,998 - __main__ - INFO - Completed operation: propagate_array_1755974665994_dev_0_1 in 0.000s
+2025-08-23 18:44:25,998 - __main__ - INFO - Starting operation: optical_modulation_array_1755974665994_mem_0_1
+2025-08-23 18:44:25,998 - __main__ - INFO - Completed operation: optical_modulation_array_1755974665994_mem_0_1 in 0.000s
+2025-08-23 18:44:25,998 - __main__ - INFO - Starting operation: propagate_array_1755974665994_dev_0_2
+2025-08-23 18:44:25,998 - __main__ - INFO - Completed operation: propagate_array_1755974665994_dev_0_2 in 0.000s
+2025-08-23 18:44:25,998 - __main__ - INFO - Starting operation: optical_modulation_array_1755974665994_mem_0_2
+2025-08-23 18:44:25,998 - __main__ - INFO - Completed operation: optical_modulation_array_1755974665994_mem_0_2 in 0.000s
+2025-08-23 18:44:25,998 - __main__ - INFO - Starting operation: propagate_array_1755974665994_dev_1_0
+2025-08-23 18:44:25,998 - __main__ - INFO - Completed operation: propagate_array_1755974665994_dev_1_0 in 0.000s
+2025-08-23 18:44:25,998 - __main__ - INFO - Starting operation: optical_modulation_array_1755974665994_mem_1_0
+2025-08-23 18:44:25,998 - __main__ - INFO - Completed operation: optical_modulation_array_1755974665994_mem_1_0 in 0.000s
+2025-08-23 18:44:25,998 - __main__ - INFO - Starting operation: propagate_array_1755974665994_dev_1_1
+2025-08-23 18:44:25,998 - __main__ - INFO - Completed operation: propagate_array_1755974665994_dev_1_1 in 0.000s
+2025-08-23 18:44:25,998 - __main__ - INFO - Starting operation: optical_modulation_array_1755974665994_mem_1_1
+2025-08-23 18:44:25,998 - __main__ - INFO - Completed operation: optical_modulation_array_1755974665994_mem_1_1 in 0.000s
+2025-08-23 18:44:25,998 - __main__ - INFO - Starting operation: propagate_array_1755974665994_dev_1_2
+2025-08-23 18:44:25,999 - __main__ - INFO - Completed operation: propagate_array_1755974665994_dev_1_2 in 0.000s
+2025-08-23 18:44:25,999 - __main__ - INFO - Starting operation: optical_modulation_array_1755974665994_mem_1_2
+2025-08-23 18:44:25,999 - __main__ - INFO - Completed operation: optical_modulation_array_1755974665994_mem_1_2 in 0.000s
+2025-08-23 18:44:25,999 - __main__ - INFO - Starting operation: propagate_array_1755974665994_dev_2_0
+2025-08-23 18:44:25,999 - __main__ - INFO - Completed operation: propagate_array_1755974665994_dev_2_0 in 0.000s
+2025-08-23 18:44:25,999 - __main__ - INFO - Starting operation: optical_modulation_array_1755974665994_mem_2_0
+2025-08-23 18:44:25,999 - __main__ - INFO - Completed operation: optical_modulation_array_1755974665994_mem_2_0 in 0.000s
+2025-08-23 18:44:25,999 - __main__ - INFO - Starting operation: propagate_array_1755974665994_dev_2_1
+2025-08-23 18:44:25,999 - __main__ - INFO - Completed operation: propagate_array_1755974665994_dev_2_1 in 0.000s
+2025-08-23 18:44:25,999 - __main__ - INFO - Starting operation: optical_modulation_array_1755974665994_mem_2_1
+2025-08-23 18:44:25,999 - __main__ - INFO - Completed operation: optical_modulation_array_1755974665994_mem_2_1 in 0.000s
+2025-08-23 18:44:25,999 - __main__ - INFO - Starting operation: propagate_array_1755974665994_dev_2_2
+2025-08-23 18:44:25,999 - __main__ - INFO - Completed operation: propagate_array_1755974665994_dev_2_2 in 0.000s
+2025-08-23 18:44:25,999 - __main__ - INFO - Starting operation: optical_modulation_array_1755974665994_mem_2_2
+2025-08-23 18:44:25,999 - __main__ - INFO - Completed operation: optical_modulation_array_1755974665994_mem_2_2 in 0.000s
+2025-08-23 18:44:25,999 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974665994 in 0.002s
+2025-08-23 18:44:26,000 - __main__ - INFO - Created device: waveguide_1755974666000 (waveguide)
+2025-08-23 18:44:26,000 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.162e-02, got 1.000e+00
+2025-08-23 18:44:26,000 - __main__ - INFO - Starting operation: propagate_waveguide_1755974666000
+2025-08-23 18:44:26,000 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.000e-02, got 9.487e-01
+2025-08-23 18:44:26,000 - __main__ - INFO - Completed operation: propagate_waveguide_1755974666000 in 0.000s
+2025-08-23 18:44:26,000 - __main__ - INFO - Starting operation: propagate_waveguide_1755974666000
+2025-08-23 18:44:26,000 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.000e-02, got 9.487e-01
+2025-08-23 18:44:26,000 - __main__ - INFO - Completed operation: propagate_waveguide_1755974666000 in 0.000s
+2025-08-23 18:44:26,000 - __main__ - INFO - Starting operation: propagate_waveguide_1755974666000
+2025-08-23 18:44:26,000 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.000e-02, got 9.487e-01
+2025-08-23 18:44:26,000 - __main__ - INFO - Completed operation: propagate_waveguide_1755974666000 in 0.000s
+2025-08-23 18:44:26,000 - __main__ - INFO - Starting operation: propagate_waveguide_1755974666000
+2025-08-23 18:44:26,000 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.000e-02, got 9.487e-01
+2025-08-23 18:44:26,001 - __main__ - INFO - Completed operation: propagate_waveguide_1755974666000 in 0.000s
+2025-08-23 18:44:26,001 - __main__ - INFO - Starting operation: propagate_waveguide_1755974666000
+2025-08-23 18:44:26,001 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.000e-02, got 9.487e-01
+2025-08-23 18:44:26,001 - __main__ - INFO - Completed operation: propagate_waveguide_1755974666000 in 0.000s
+2025-08-23 18:44:26,001 - __main__ - INFO - Starting operation: propagate_waveguide_1755974666000
+2025-08-23 18:44:26,001 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.000e-02, got 9.487e-01
+2025-08-23 18:44:26,001 - __main__ - INFO - Completed operation: propagate_waveguide_1755974666000 in 0.000s
+2025-08-23 18:44:26,001 - __main__ - INFO - Starting operation: propagate_waveguide_1755974666000
+2025-08-23 18:44:26,001 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.000e-02, got 9.487e-01
+2025-08-23 18:44:26,001 - __main__ - INFO - Completed operation: propagate_waveguide_1755974666000 in 0.000s
+2025-08-23 18:44:26,001 - __main__ - INFO - Starting operation: propagate_waveguide_1755974666000
+2025-08-23 18:44:26,001 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.000e-02, got 9.487e-01
+2025-08-23 18:44:26,001 - __main__ - INFO - Completed operation: propagate_waveguide_1755974666000 in 0.000s
+2025-08-23 18:44:26,001 - __main__ - INFO - Starting operation: propagate_waveguide_1755974666000
+2025-08-23 18:44:26,001 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.000e-02, got 9.487e-01
+2025-08-23 18:44:26,002 - __main__ - INFO - Completed operation: propagate_waveguide_1755974666000 in 0.000s
+2025-08-23 18:44:26,002 - __main__ - INFO - Starting operation: propagate_waveguide_1755974666000
+2025-08-23 18:44:26,002 - __main__ - WARNING - Amplitude-power inconsistency: expected 3.000e-02, got 9.487e-01
+2025-08-23 18:44:26,002 - __main__ - INFO - Completed operation: propagate_waveguide_1755974666000 in 0.000s
+2025-08-23 18:44:26,002 - __main__ - INFO - Created device: array_1755974666002_dev_0_0 (waveguide)
+2025-08-23 18:44:26,002 - __main__ - INFO - Created memristor: array_1755974666002_mem_0_0
+2025-08-23 18:44:26,002 - __main__ - INFO - Created device: array_1755974666002_dev_0_1 (waveguide)
+2025-08-23 18:44:26,002 - __main__ - INFO - Created memristor: array_1755974666002_mem_0_1
+2025-08-23 18:44:26,002 - __main__ - INFO - Created device: array_1755974666002_dev_0_2 (waveguide)
+2025-08-23 18:44:26,002 - __main__ - INFO - Created memristor: array_1755974666002_mem_0_2
+2025-08-23 18:44:26,002 - __main__ - INFO - Created device: array_1755974666002_dev_0_3 (waveguide)
+2025-08-23 18:44:26,002 - __main__ - INFO - Created memristor: array_1755974666002_mem_0_3
+2025-08-23 18:44:26,003 - __main__ - INFO - Created device: array_1755974666002_dev_1_0 (waveguide)
+2025-08-23 18:44:26,003 - __main__ - INFO - Created memristor: array_1755974666002_mem_1_0
+2025-08-23 18:44:26,003 - __main__ - INFO - Created device: array_1755974666002_dev_1_1 (waveguide)
+2025-08-23 18:44:26,003 - __main__ - INFO - Created memristor: array_1755974666002_mem_1_1
+2025-08-23 18:44:26,003 - __main__ - INFO - Created device: array_1755974666002_dev_1_2 (waveguide)
+2025-08-23 18:44:26,003 - __main__ - INFO - Created memristor: array_1755974666002_mem_1_2
+2025-08-23 18:44:26,003 - __main__ - INFO - Created device: array_1755974666002_dev_1_3 (waveguide)
+2025-08-23 18:44:26,003 - __main__ - INFO - Created memristor: array_1755974666002_mem_1_3
+2025-08-23 18:44:26,003 - __main__ - INFO - Created device: array_1755974666002_dev_2_0 (waveguide)
+2025-08-23 18:44:26,003 - __main__ - INFO - Created memristor: array_1755974666002_mem_2_0
+2025-08-23 18:44:26,003 - __main__ - INFO - Created device: array_1755974666002_dev_2_1 (waveguide)
+2025-08-23 18:44:26,004 - __main__ - INFO - Created memristor: array_1755974666002_mem_2_1
+2025-08-23 18:44:26,004 - __main__ - INFO - Created device: array_1755974666002_dev_2_2 (waveguide)
+2025-08-23 18:44:26,004 - __main__ - INFO - Created memristor: array_1755974666002_mem_2_2
+2025-08-23 18:44:26,004 - __main__ - INFO - Created device: array_1755974666002_dev_2_3 (waveguide)
+2025-08-23 18:44:26,004 - __main__ - INFO - Created memristor: array_1755974666002_mem_2_3
+2025-08-23 18:44:26,004 - __main__ - INFO - Created device: array_1755974666002_dev_3_0 (waveguide)
+2025-08-23 18:44:26,004 - __main__ - INFO - Created memristor: array_1755974666002_mem_3_0
+2025-08-23 18:44:26,004 - __main__ - INFO - Created device: array_1755974666002_dev_3_1 (waveguide)
+2025-08-23 18:44:26,004 - __main__ - INFO - Created memristor: array_1755974666002_mem_3_1
+2025-08-23 18:44:26,004 - __main__ - INFO - Created device: array_1755974666002_dev_3_2 (waveguide)
+2025-08-23 18:44:26,004 - __main__ - INFO - Created memristor: array_1755974666002_mem_3_2
+2025-08-23 18:44:26,004 - __main__ - INFO - Created device: array_1755974666002_dev_3_3 (waveguide)
+2025-08-23 18:44:26,004 - __main__ - INFO - Created memristor: array_1755974666002_mem_3_3
+2025-08-23 18:44:26,005 - __main__ - INFO - Created photonic array: array_1755974666002 (4x4)
+2025-08-23 18:44:26,010 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666002
+2025-08-23 18:44:26,010 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_0
+2025-08-23 18:44:26,011 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_0 in 0.000s
+2025-08-23 18:44:26,011 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_0
+2025-08-23 18:44:26,011 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_0 in 0.000s
+2025-08-23 18:44:26,011 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666002
+2025-08-23 18:44:26,011 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_1
+2025-08-23 18:44:26,011 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666002
+2025-08-23 18:44:26,012 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_1 in 0.001s
+2025-08-23 18:44:26,012 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666002
+2025-08-23 18:44:26,012 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_1
+2025-08-23 18:44:26,012 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_1 in 0.000s
+2025-08-23 18:44:26,013 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_2
+2025-08-23 18:44:26,013 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_2 in 0.000s
+2025-08-23 18:44:26,013 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_2
+2025-08-23 18:44:26,013 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_2 in 0.000s
+2025-08-23 18:44:26,013 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_3
+2025-08-23 18:44:26,013 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_3 in 0.000s
+2025-08-23 18:44:26,013 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_3
+2025-08-23 18:44:26,013 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_3 in 0.000s
+2025-08-23 18:44:26,013 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_0
+2025-08-23 18:44:26,013 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_0 in 0.000s
+2025-08-23 18:44:26,013 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_0
+2025-08-23 18:44:26,014 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_0 in 0.000s
+2025-08-23 18:44:26,014 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_1
+2025-08-23 18:44:26,014 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_1 in 0.000s
+2025-08-23 18:44:26,014 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_1
+2025-08-23 18:44:26,014 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_1 in 0.000s
+2025-08-23 18:44:26,014 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_2
+2025-08-23 18:44:26,014 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_2 in 0.000s
+2025-08-23 18:44:26,014 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_2
+2025-08-23 18:44:26,014 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_2 in 0.000s
+2025-08-23 18:44:26,014 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_3
+2025-08-23 18:44:26,014 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_3 in 0.000s
+2025-08-23 18:44:26,014 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_3
+2025-08-23 18:44:26,014 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_3 in 0.000s
+2025-08-23 18:44:26,015 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_0
+2025-08-23 18:44:26,015 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_0 in 0.000s
+2025-08-23 18:44:26,015 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_0
+2025-08-23 18:44:26,015 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_0 in 0.000s
+2025-08-23 18:44:26,015 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_1
+2025-08-23 18:44:26,015 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_1 in 0.000s
+2025-08-23 18:44:26,015 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_1
+2025-08-23 18:44:26,015 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_1 in 0.000s
+2025-08-23 18:44:26,015 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_2
+2025-08-23 18:44:26,015 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_2 in 0.000s
+2025-08-23 18:44:26,015 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_2
+2025-08-23 18:44:26,016 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_2 in 0.000s
+2025-08-23 18:44:26,016 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_3
+2025-08-23 18:44:26,016 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_3 in 0.000s
+2025-08-23 18:44:26,016 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_3
+2025-08-23 18:44:26,016 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_3 in 0.000s
+2025-08-23 18:44:26,016 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_0
+2025-08-23 18:44:26,016 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_0 in 0.000s
+2025-08-23 18:44:26,016 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_0
+2025-08-23 18:44:26,016 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_0 in 0.000s
+2025-08-23 18:44:26,016 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_1
+2025-08-23 18:44:26,016 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_1 in 0.000s
+2025-08-23 18:44:26,016 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_1
+2025-08-23 18:44:26,017 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_1 in 0.000s
+2025-08-23 18:44:26,017 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_2
+2025-08-23 18:44:26,017 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_2 in 0.000s
+2025-08-23 18:44:26,017 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_2
+2025-08-23 18:44:26,017 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_2 in 0.000s
+2025-08-23 18:44:26,017 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_3
+2025-08-23 18:44:26,017 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_3 in 0.000s
+2025-08-23 18:44:26,017 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_3
+2025-08-23 18:44:26,017 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_3 in 0.000s
+2025-08-23 18:44:26,018 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666002 in 0.008s
+2025-08-23 18:44:26,018 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_0
+2025-08-23 18:44:26,018 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666002
+2025-08-23 18:44:26,018 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_0 in 0.000s
+2025-08-23 18:44:26,018 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_0
+2025-08-23 18:44:26,019 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_0 in 0.000s
+2025-08-23 18:44:26,019 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_1
+2025-08-23 18:44:26,019 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_1 in 0.000s
+2025-08-23 18:44:26,019 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_1
+2025-08-23 18:44:26,019 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_1 in 0.000s
+2025-08-23 18:44:26,019 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_2
+2025-08-23 18:44:26,019 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_2 in 0.000s
+2025-08-23 18:44:26,019 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_2
+2025-08-23 18:44:26,019 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_2 in 0.000s
+2025-08-23 18:44:26,020 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_3
+2025-08-23 18:44:26,020 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_3 in 0.000s
+2025-08-23 18:44:26,020 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_3
+2025-08-23 18:44:26,020 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_3 in 0.000s
+2025-08-23 18:44:26,020 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_0
+2025-08-23 18:44:26,020 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_0 in 0.000s
+2025-08-23 18:44:26,020 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_0
+2025-08-23 18:44:26,020 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_0 in 0.000s
+2025-08-23 18:44:26,020 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_1
+2025-08-23 18:44:26,021 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_1 in 0.000s
+2025-08-23 18:44:26,021 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_1
+2025-08-23 18:44:26,021 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_1 in 0.000s
+2025-08-23 18:44:26,021 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_2
+2025-08-23 18:44:26,021 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_2 in 0.000s
+2025-08-23 18:44:26,021 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_2
+2025-08-23 18:44:26,021 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_2 in 0.000s
+2025-08-23 18:44:26,021 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_3
+2025-08-23 18:44:26,021 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_3 in 0.000s
+2025-08-23 18:44:26,021 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_3
+2025-08-23 18:44:26,021 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_3 in 0.000s
+2025-08-23 18:44:26,022 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_0
+2025-08-23 18:44:26,022 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_0 in 0.000s
+2025-08-23 18:44:26,022 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_0
+2025-08-23 18:44:26,022 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_0 in 0.000s
+2025-08-23 18:44:26,022 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_1
+2025-08-23 18:44:26,022 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_1 in 0.000s
+2025-08-23 18:44:26,022 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_1
+2025-08-23 18:44:26,022 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_1 in 0.000s
+2025-08-23 18:44:26,022 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_2
+2025-08-23 18:44:26,022 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_2 in 0.000s
+2025-08-23 18:44:26,022 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_2
+2025-08-23 18:44:26,022 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_2 in 0.000s
+2025-08-23 18:44:26,022 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_3
+2025-08-23 18:44:26,022 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_3 in 0.000s
+2025-08-23 18:44:26,023 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_3
+2025-08-23 18:44:26,023 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_3 in 0.000s
+2025-08-23 18:44:26,023 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_0
+2025-08-23 18:44:26,023 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_0 in 0.000s
+2025-08-23 18:44:26,023 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_0
+2025-08-23 18:44:26,023 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_0 in 0.000s
+2025-08-23 18:44:26,023 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_1
+2025-08-23 18:44:26,023 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_1 in 0.000s
+2025-08-23 18:44:26,023 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_1
+2025-08-23 18:44:26,023 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_1 in 0.000s
+2025-08-23 18:44:26,023 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_2
+2025-08-23 18:44:26,023 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_2 in 0.000s
+2025-08-23 18:44:26,024 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_2
+2025-08-23 18:44:26,024 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_2 in 0.000s
+2025-08-23 18:44:26,024 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_3
+2025-08-23 18:44:26,024 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_3 in 0.000s
+2025-08-23 18:44:26,024 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_3
+2025-08-23 18:44:26,024 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_3 in 0.000s
+2025-08-23 18:44:26,024 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666002 in 0.013s
+2025-08-23 18:44:26,024 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666002
+2025-08-23 18:44:26,024 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_0
+2025-08-23 18:44:26,025 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_0 in 0.000s
+2025-08-23 18:44:26,025 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_0
+2025-08-23 18:44:26,025 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_0 in 0.000s
+2025-08-23 18:44:26,025 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_1
+2025-08-23 18:44:26,025 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_1 in 0.000s
+2025-08-23 18:44:26,025 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_1
+2025-08-23 18:44:26,025 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_1 in 0.000s
+2025-08-23 18:44:26,026 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_2
+2025-08-23 18:44:26,026 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_2 in 0.000s
+2025-08-23 18:44:26,026 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_2
+2025-08-23 18:44:26,026 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_2 in 0.000s
+2025-08-23 18:44:26,026 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_3
+2025-08-23 18:44:26,026 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_3 in 0.000s
+2025-08-23 18:44:26,026 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_3
+2025-08-23 18:44:26,026 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_3 in 0.000s
+2025-08-23 18:44:26,027 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_0
+2025-08-23 18:44:26,027 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_0 in 0.000s
+2025-08-23 18:44:26,027 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_0
+2025-08-23 18:44:26,027 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_0 in 0.000s
+2025-08-23 18:44:26,027 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_1
+2025-08-23 18:44:26,027 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_1 in 0.000s
+2025-08-23 18:44:26,027 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_1
+2025-08-23 18:44:26,027 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_1 in 0.000s
+2025-08-23 18:44:26,027 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_2
+2025-08-23 18:44:26,027 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_2 in 0.000s
+2025-08-23 18:44:26,028 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_2
+2025-08-23 18:44:26,028 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_2 in 0.000s
+2025-08-23 18:44:26,028 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_3
+2025-08-23 18:44:26,028 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_3 in 0.000s
+2025-08-23 18:44:26,028 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_3
+2025-08-23 18:44:26,028 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_3 in 0.000s
+2025-08-23 18:44:26,028 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_0
+2025-08-23 18:44:26,028 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_0 in 0.000s
+2025-08-23 18:44:26,028 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_0
+2025-08-23 18:44:26,028 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_0 in 0.000s
+2025-08-23 18:44:26,028 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_1
+2025-08-23 18:44:26,029 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_1 in 0.000s
+2025-08-23 18:44:26,029 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_1
+2025-08-23 18:44:26,029 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_1 in 0.000s
+2025-08-23 18:44:26,029 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_2
+2025-08-23 18:44:26,029 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_2 in 0.000s
+2025-08-23 18:44:26,029 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_2
+2025-08-23 18:44:26,029 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_2 in 0.000s
+2025-08-23 18:44:26,029 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_3
+2025-08-23 18:44:26,029 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_3 in 0.000s
+2025-08-23 18:44:26,029 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_3
+2025-08-23 18:44:26,029 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_3 in 0.000s
+2025-08-23 18:44:26,029 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_0
+2025-08-23 18:44:26,030 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_0 in 0.000s
+2025-08-23 18:44:26,030 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_0
+2025-08-23 18:44:26,030 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_0 in 0.000s
+2025-08-23 18:44:26,030 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_1
+2025-08-23 18:44:26,030 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_1 in 0.000s
+2025-08-23 18:44:26,030 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_1
+2025-08-23 18:44:26,030 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_1 in 0.000s
+2025-08-23 18:44:26,030 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_2
+2025-08-23 18:44:26,030 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_2 in 0.000s
+2025-08-23 18:44:26,030 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_2
+2025-08-23 18:44:26,030 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_2 in 0.000s
+2025-08-23 18:44:26,030 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_3
+2025-08-23 18:44:26,030 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_3 in 0.000s
+2025-08-23 18:44:26,030 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_3
+2025-08-23 18:44:26,031 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_3 in 0.000s
+2025-08-23 18:44:26,031 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666002 in 0.019s
+2025-08-23 18:44:26,031 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_0
+2025-08-23 18:44:26,031 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666002
+2025-08-23 18:44:26,031 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_0 in 0.000s
+2025-08-23 18:44:26,031 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_0
+2025-08-23 18:44:26,032 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_0 in 0.000s
+2025-08-23 18:44:26,032 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_1
+2025-08-23 18:44:26,032 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_1 in 0.000s
+2025-08-23 18:44:26,032 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_1
+2025-08-23 18:44:26,032 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_1 in 0.000s
+2025-08-23 18:44:26,032 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_2
+2025-08-23 18:44:26,032 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_2 in 0.000s
+2025-08-23 18:44:26,032 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_2
+2025-08-23 18:44:26,032 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_2 in 0.000s
+2025-08-23 18:44:26,032 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_3
+2025-08-23 18:44:26,032 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_3 in 0.000s
+2025-08-23 18:44:26,032 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_3
+2025-08-23 18:44:26,032 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_3 in 0.000s
+2025-08-23 18:44:26,033 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_0
+2025-08-23 18:44:26,033 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_0 in 0.000s
+2025-08-23 18:44:26,033 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_0
+2025-08-23 18:44:26,033 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_0 in 0.000s
+2025-08-23 18:44:26,033 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_1
+2025-08-23 18:44:26,033 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_1 in 0.000s
+2025-08-23 18:44:26,033 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_1
+2025-08-23 18:44:26,033 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_1 in 0.000s
+2025-08-23 18:44:26,033 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_2
+2025-08-23 18:44:26,033 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_2 in 0.000s
+2025-08-23 18:44:26,033 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_2
+2025-08-23 18:44:26,034 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_2 in 0.000s
+2025-08-23 18:44:26,034 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_3
+2025-08-23 18:44:26,034 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_3 in 0.000s
+2025-08-23 18:44:26,034 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_3
+2025-08-23 18:44:26,034 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_3 in 0.000s
+2025-08-23 18:44:26,034 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_0
+2025-08-23 18:44:26,034 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_0 in 0.000s
+2025-08-23 18:44:26,034 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_0
+2025-08-23 18:44:26,034 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_0 in 0.000s
+2025-08-23 18:44:26,034 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_1
+2025-08-23 18:44:26,034 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_1 in 0.000s
+2025-08-23 18:44:26,034 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_1
+2025-08-23 18:44:26,034 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_1 in 0.000s
+2025-08-23 18:44:26,035 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_2
+2025-08-23 18:44:26,035 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_2 in 0.000s
+2025-08-23 18:44:26,035 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_2
+2025-08-23 18:44:26,035 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_2 in 0.000s
+2025-08-23 18:44:26,035 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_3
+2025-08-23 18:44:26,035 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_3 in 0.000s
+2025-08-23 18:44:26,035 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_3
+2025-08-23 18:44:26,035 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_3 in 0.000s
+2025-08-23 18:44:26,035 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_0
+2025-08-23 18:44:26,035 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_0 in 0.000s
+2025-08-23 18:44:26,035 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_0
+2025-08-23 18:44:26,035 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_0 in 0.000s
+2025-08-23 18:44:26,035 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_1
+2025-08-23 18:44:26,035 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_1 in 0.000s
+2025-08-23 18:44:26,036 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_1
+2025-08-23 18:44:26,036 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_1 in 0.000s
+2025-08-23 18:44:26,036 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_2
+2025-08-23 18:44:26,036 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_2 in 0.000s
+2025-08-23 18:44:26,036 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_2
+2025-08-23 18:44:26,036 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_2 in 0.000s
+2025-08-23 18:44:26,036 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_3
+2025-08-23 18:44:26,036 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_3 in 0.000s
+2025-08-23 18:44:26,036 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_3
+2025-08-23 18:44:26,036 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_3 in 0.000s
+2025-08-23 18:44:26,036 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666002 in 0.024s
+2025-08-23 18:44:26,036 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_0
+2025-08-23 18:44:26,036 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666002
+2025-08-23 18:44:26,037 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_0 in 0.000s
+2025-08-23 18:44:26,037 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_0
+2025-08-23 18:44:26,037 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_0 in 0.000s
+2025-08-23 18:44:26,037 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_1
+2025-08-23 18:44:26,037 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_1 in 0.000s
+2025-08-23 18:44:26,037 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_1
+2025-08-23 18:44:26,037 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_1 in 0.000s
+2025-08-23 18:44:26,037 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_2
+2025-08-23 18:44:26,037 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_2 in 0.000s
+2025-08-23 18:44:26,037 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_2
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_2 in 0.000s
+2025-08-23 18:44:26,038 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_3
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_3 in 0.000s
+2025-08-23 18:44:26,038 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_3
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_3 in 0.000s
+2025-08-23 18:44:26,038 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_0
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_0 in 0.000s
+2025-08-23 18:44:26,038 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_0
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_0 in 0.000s
+2025-08-23 18:44:26,038 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_1
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_1 in 0.000s
+2025-08-23 18:44:26,038 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_1
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_1 in 0.000s
+2025-08-23 18:44:26,038 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_2
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_2 in 0.000s
+2025-08-23 18:44:26,038 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_2
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_2 in 0.000s
+2025-08-23 18:44:26,038 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_3
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_3 in 0.000s
+2025-08-23 18:44:26,038 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_3
+2025-08-23 18:44:26,038 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_3 in 0.000s
+2025-08-23 18:44:26,039 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_0
+2025-08-23 18:44:26,039 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_0 in 0.000s
+2025-08-23 18:44:26,039 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_0
+2025-08-23 18:44:26,039 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_0 in 0.000s
+2025-08-23 18:44:26,039 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_1
+2025-08-23 18:44:26,039 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_1 in 0.000s
+2025-08-23 18:44:26,039 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_1
+2025-08-23 18:44:26,039 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_1 in 0.000s
+2025-08-23 18:44:26,039 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_2
+2025-08-23 18:44:26,039 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_2 in 0.000s
+2025-08-23 18:44:26,039 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_2
+2025-08-23 18:44:26,039 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_2 in 0.000s
+2025-08-23 18:44:26,039 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_3
+2025-08-23 18:44:26,039 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_3 in 0.000s
+2025-08-23 18:44:26,039 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_3
+2025-08-23 18:44:26,039 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_3 in 0.000s
+2025-08-23 18:44:26,039 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_0
+2025-08-23 18:44:26,039 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_0 in 0.000s
+2025-08-23 18:44:26,039 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_0
+2025-08-23 18:44:26,040 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_0 in 0.000s
+2025-08-23 18:44:26,040 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_1
+2025-08-23 18:44:26,040 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_1 in 0.000s
+2025-08-23 18:44:26,040 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_1
+2025-08-23 18:44:26,040 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_1 in 0.000s
+2025-08-23 18:44:26,040 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_2
+2025-08-23 18:44:26,040 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_2 in 0.000s
+2025-08-23 18:44:26,040 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_2
+2025-08-23 18:44:26,040 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_2 in 0.000s
+2025-08-23 18:44:26,040 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_3
+2025-08-23 18:44:26,040 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_3 in 0.000s
+2025-08-23 18:44:26,040 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_3
+2025-08-23 18:44:26,040 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_3 in 0.000s
+2025-08-23 18:44:26,040 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666002 in 0.023s
+2025-08-23 18:44:26,041 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666002
+2025-08-23 18:44:26,041 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_0
+2025-08-23 18:44:26,041 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_0 in 0.000s
+2025-08-23 18:44:26,041 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_0
+2025-08-23 18:44:26,041 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_0 in 0.000s
+2025-08-23 18:44:26,041 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_1
+2025-08-23 18:44:26,041 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_1 in 0.000s
+2025-08-23 18:44:26,041 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_1
+2025-08-23 18:44:26,041 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_1 in 0.000s
+2025-08-23 18:44:26,041 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_2
+2025-08-23 18:44:26,041 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_2 in 0.000s
+2025-08-23 18:44:26,041 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_2
+2025-08-23 18:44:26,041 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_2 in 0.000s
+2025-08-23 18:44:26,041 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_3
+2025-08-23 18:44:26,042 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_3 in 0.000s
+2025-08-23 18:44:26,042 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_3
+2025-08-23 18:44:26,042 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_3 in 0.000s
+2025-08-23 18:44:26,042 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_0
+2025-08-23 18:44:26,042 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_0 in 0.000s
+2025-08-23 18:44:26,042 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_0
+2025-08-23 18:44:26,042 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_0 in 0.000s
+2025-08-23 18:44:26,042 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_1
+2025-08-23 18:44:26,042 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_1 in 0.000s
+2025-08-23 18:44:26,042 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_1
+2025-08-23 18:44:26,042 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_1 in 0.000s
+2025-08-23 18:44:26,042 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_2
+2025-08-23 18:44:26,042 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_2 in 0.000s
+2025-08-23 18:44:26,042 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_2
+2025-08-23 18:44:26,042 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_2 in 0.000s
+2025-08-23 18:44:26,042 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_3
+2025-08-23 18:44:26,042 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_3 in 0.000s
+2025-08-23 18:44:26,043 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_3
+2025-08-23 18:44:26,043 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_3 in 0.000s
+2025-08-23 18:44:26,043 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_0
+2025-08-23 18:44:26,043 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_0 in 0.000s
+2025-08-23 18:44:26,043 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_0
+2025-08-23 18:44:26,043 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_0 in 0.000s
+2025-08-23 18:44:26,043 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_1
+2025-08-23 18:44:26,043 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_1 in 0.000s
+2025-08-23 18:44:26,043 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_1
+2025-08-23 18:44:26,043 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_1 in 0.000s
+2025-08-23 18:44:26,043 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_2
+2025-08-23 18:44:26,043 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_2 in 0.000s
+2025-08-23 18:44:26,043 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_2
+2025-08-23 18:44:26,043 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_2 in 0.000s
+2025-08-23 18:44:26,043 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_3
+2025-08-23 18:44:26,044 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_3 in 0.000s
+2025-08-23 18:44:26,044 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_3
+2025-08-23 18:44:26,044 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_3 in 0.000s
+2025-08-23 18:44:26,044 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_0
+2025-08-23 18:44:26,044 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_0 in 0.000s
+2025-08-23 18:44:26,044 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_0
+2025-08-23 18:44:26,044 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_0 in 0.000s
+2025-08-23 18:44:26,044 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_1
+2025-08-23 18:44:26,044 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_1 in 0.000s
+2025-08-23 18:44:26,044 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_1
+2025-08-23 18:44:26,044 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_1 in 0.000s
+2025-08-23 18:44:26,044 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_2
+2025-08-23 18:44:26,044 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_2 in 0.000s
+2025-08-23 18:44:26,044 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_2
+2025-08-23 18:44:26,044 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_2 in 0.000s
+2025-08-23 18:44:26,044 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_3
+2025-08-23 18:44:26,044 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_3 in 0.000s
+2025-08-23 18:44:26,045 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_3
+2025-08-23 18:44:26,045 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_3 in 0.000s
+2025-08-23 18:44:26,045 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666002 in 0.020s
+2025-08-23 18:44:26,045 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666002
+2025-08-23 18:44:26,045 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_0
+2025-08-23 18:44:26,045 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_0 in 0.000s
+2025-08-23 18:44:26,045 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_0
+2025-08-23 18:44:26,045 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_0 in 0.000s
+2025-08-23 18:44:26,045 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_1
+2025-08-23 18:44:26,045 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_1 in 0.000s
+2025-08-23 18:44:26,045 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_1
+2025-08-23 18:44:26,045 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_1 in 0.000s
+2025-08-23 18:44:26,045 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_2
+2025-08-23 18:44:26,045 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_2 in 0.000s
+2025-08-23 18:44:26,045 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_2
+2025-08-23 18:44:26,045 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_2 in 0.000s
+2025-08-23 18:44:26,045 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_3
+2025-08-23 18:44:26,045 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_3 in 0.000s
+2025-08-23 18:44:26,046 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_3
+2025-08-23 18:44:26,046 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_3 in 0.000s
+2025-08-23 18:44:26,046 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_0
+2025-08-23 18:44:26,046 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_0 in 0.000s
+2025-08-23 18:44:26,046 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_0
+2025-08-23 18:44:26,046 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_0 in 0.000s
+2025-08-23 18:44:26,046 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_1
+2025-08-23 18:44:26,046 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_1 in 0.000s
+2025-08-23 18:44:26,046 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_1
+2025-08-23 18:44:26,046 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_1 in 0.000s
+2025-08-23 18:44:26,046 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_2
+2025-08-23 18:44:26,046 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_2 in 0.000s
+2025-08-23 18:44:26,046 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_2
+2025-08-23 18:44:26,046 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_2 in 0.000s
+2025-08-23 18:44:26,046 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_3
+2025-08-23 18:44:26,046 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_3 in 0.000s
+2025-08-23 18:44:26,046 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_3
+2025-08-23 18:44:26,047 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_3 in 0.000s
+2025-08-23 18:44:26,047 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_0
+2025-08-23 18:44:26,047 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_0 in 0.000s
+2025-08-23 18:44:26,047 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_0
+2025-08-23 18:44:26,047 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_0 in 0.000s
+2025-08-23 18:44:26,047 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_1
+2025-08-23 18:44:26,047 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_1 in 0.000s
+2025-08-23 18:44:26,047 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_1
+2025-08-23 18:44:26,047 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_1 in 0.000s
+2025-08-23 18:44:26,047 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_2
+2025-08-23 18:44:26,047 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_2 in 0.000s
+2025-08-23 18:44:26,047 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_2
+2025-08-23 18:44:26,047 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_2 in 0.000s
+2025-08-23 18:44:26,047 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_3
+2025-08-23 18:44:26,048 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_3 in 0.000s
+2025-08-23 18:44:26,048 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_3
+2025-08-23 18:44:26,048 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_3 in 0.000s
+2025-08-23 18:44:26,048 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_0
+2025-08-23 18:44:26,048 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_0 in 0.000s
+2025-08-23 18:44:26,048 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_0
+2025-08-23 18:44:26,048 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_0 in 0.000s
+2025-08-23 18:44:26,048 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_1
+2025-08-23 18:44:26,048 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_1 in 0.000s
+2025-08-23 18:44:26,048 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_1
+2025-08-23 18:44:26,048 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_1 in 0.000s
+2025-08-23 18:44:26,048 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_2
+2025-08-23 18:44:26,048 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_2 in 0.000s
+2025-08-23 18:44:26,048 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_2
+2025-08-23 18:44:26,048 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_2 in 0.000s
+2025-08-23 18:44:26,048 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_3
+2025-08-23 18:44:26,048 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_3 in 0.000s
+2025-08-23 18:44:26,048 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_3
+2025-08-23 18:44:26,048 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_3 in 0.000s
+2025-08-23 18:44:26,049 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666002 in 0.004s
+2025-08-23 18:44:26,049 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_0
+2025-08-23 18:44:26,049 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_0 in 0.000s
+2025-08-23 18:44:26,049 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_0
+2025-08-23 18:44:26,049 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_0 in 0.000s
+2025-08-23 18:44:26,049 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_1
+2025-08-23 18:44:26,049 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_1 in 0.000s
+2025-08-23 18:44:26,049 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_1
+2025-08-23 18:44:26,049 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_1 in 0.000s
+2025-08-23 18:44:26,049 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_2
+2025-08-23 18:44:26,049 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_2 in 0.000s
+2025-08-23 18:44:26,049 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_2
+2025-08-23 18:44:26,050 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_2 in 0.000s
+2025-08-23 18:44:26,050 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_3
+2025-08-23 18:44:26,050 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_3 in 0.000s
+2025-08-23 18:44:26,050 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_3
+2025-08-23 18:44:26,050 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_3 in 0.000s
+2025-08-23 18:44:26,050 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_0
+2025-08-23 18:44:26,050 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_0 in 0.000s
+2025-08-23 18:44:26,050 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_0
+2025-08-23 18:44:26,050 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_0 in 0.000s
+2025-08-23 18:44:26,050 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_1
+2025-08-23 18:44:26,050 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_1 in 0.000s
+2025-08-23 18:44:26,050 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_1
+2025-08-23 18:44:26,050 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_1 in 0.000s
+2025-08-23 18:44:26,050 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_2
+2025-08-23 18:44:26,050 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_2 in 0.000s
+2025-08-23 18:44:26,051 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_2
+2025-08-23 18:44:26,051 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_2 in 0.000s
+2025-08-23 18:44:26,051 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_3
+2025-08-23 18:44:26,051 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_3 in 0.000s
+2025-08-23 18:44:26,051 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_3
+2025-08-23 18:44:26,051 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_3 in 0.000s
+2025-08-23 18:44:26,051 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_0
+2025-08-23 18:44:26,051 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_0 in 0.000s
+2025-08-23 18:44:26,051 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_0
+2025-08-23 18:44:26,051 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_0 in 0.000s
+2025-08-23 18:44:26,051 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_1
+2025-08-23 18:44:26,051 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_1 in 0.000s
+2025-08-23 18:44:26,051 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_1
+2025-08-23 18:44:26,051 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_1 in 0.000s
+2025-08-23 18:44:26,052 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_2
+2025-08-23 18:44:26,052 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_2 in 0.000s
+2025-08-23 18:44:26,052 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_2
+2025-08-23 18:44:26,052 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_2 in 0.000s
+2025-08-23 18:44:26,052 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_3
+2025-08-23 18:44:26,052 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_3 in 0.000s
+2025-08-23 18:44:26,052 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_3
+2025-08-23 18:44:26,052 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_3 in 0.000s
+2025-08-23 18:44:26,052 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_0
+2025-08-23 18:44:26,052 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_0 in 0.000s
+2025-08-23 18:44:26,052 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_0
+2025-08-23 18:44:26,052 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_0 in 0.000s
+2025-08-23 18:44:26,052 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_1
+2025-08-23 18:44:26,052 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_1 in 0.000s
+2025-08-23 18:44:26,052 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_1
+2025-08-23 18:44:26,052 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_1 in 0.000s
+2025-08-23 18:44:26,052 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_2
+2025-08-23 18:44:26,053 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_2 in 0.000s
+2025-08-23 18:44:26,053 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_2
+2025-08-23 18:44:26,053 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_2 in 0.000s
+2025-08-23 18:44:26,053 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_3
+2025-08-23 18:44:26,053 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_3 in 0.000s
+2025-08-23 18:44:26,053 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_3
+2025-08-23 18:44:26,053 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_3 in 0.000s
+2025-08-23 18:44:26,053 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666002 in 0.017s
+2025-08-23 18:44:26,053 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_0
+2025-08-23 18:44:26,053 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_0 in 0.000s
+2025-08-23 18:44:26,053 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_0
+2025-08-23 18:44:26,053 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_0 in 0.000s
+2025-08-23 18:44:26,053 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_1
+2025-08-23 18:44:26,054 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_1 in 0.000s
+2025-08-23 18:44:26,054 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_1
+2025-08-23 18:44:26,054 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_1 in 0.000s
+2025-08-23 18:44:26,054 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_2
+2025-08-23 18:44:26,054 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_2 in 0.000s
+2025-08-23 18:44:26,054 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_2
+2025-08-23 18:44:26,054 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_2 in 0.000s
+2025-08-23 18:44:26,054 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_3
+2025-08-23 18:44:26,054 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_3 in 0.000s
+2025-08-23 18:44:26,054 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_3
+2025-08-23 18:44:26,054 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_3 in 0.000s
+2025-08-23 18:44:26,054 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_0
+2025-08-23 18:44:26,054 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_0 in 0.000s
+2025-08-23 18:44:26,054 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_0
+2025-08-23 18:44:26,054 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_0 in 0.000s
+2025-08-23 18:44:26,054 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_1
+2025-08-23 18:44:26,055 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_1 in 0.000s
+2025-08-23 18:44:26,055 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_1
+2025-08-23 18:44:26,055 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_1 in 0.000s
+2025-08-23 18:44:26,055 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_2
+2025-08-23 18:44:26,055 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_2 in 0.000s
+2025-08-23 18:44:26,055 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_2
+2025-08-23 18:44:26,055 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_2 in 0.000s
+2025-08-23 18:44:26,055 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_3
+2025-08-23 18:44:26,055 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_3 in 0.000s
+2025-08-23 18:44:26,055 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_3
+2025-08-23 18:44:26,055 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_3 in 0.000s
+2025-08-23 18:44:26,055 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_0
+2025-08-23 18:44:26,055 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_0 in 0.000s
+2025-08-23 18:44:26,055 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_0
+2025-08-23 18:44:26,055 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_0 in 0.000s
+2025-08-23 18:44:26,055 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_1
+2025-08-23 18:44:26,055 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_1 in 0.000s
+2025-08-23 18:44:26,056 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_1
+2025-08-23 18:44:26,056 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_1 in 0.000s
+2025-08-23 18:44:26,056 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_2
+2025-08-23 18:44:26,056 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_2 in 0.000s
+2025-08-23 18:44:26,056 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_2
+2025-08-23 18:44:26,056 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_2 in 0.000s
+2025-08-23 18:44:26,056 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_3
+2025-08-23 18:44:26,056 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_3 in 0.000s
+2025-08-23 18:44:26,056 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_3
+2025-08-23 18:44:26,056 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_3 in 0.000s
+2025-08-23 18:44:26,056 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_0
+2025-08-23 18:44:26,056 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_0 in 0.000s
+2025-08-23 18:44:26,056 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_0
+2025-08-23 18:44:26,057 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_0 in 0.000s
+2025-08-23 18:44:26,057 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_1
+2025-08-23 18:44:26,057 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_1 in 0.000s
+2025-08-23 18:44:26,057 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_1
+2025-08-23 18:44:26,057 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_1 in 0.000s
+2025-08-23 18:44:26,057 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_2
+2025-08-23 18:44:26,057 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_2 in 0.000s
+2025-08-23 18:44:26,057 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_2
+2025-08-23 18:44:26,057 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_2 in 0.000s
+2025-08-23 18:44:26,057 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_3
+2025-08-23 18:44:26,057 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_3 in 0.000s
+2025-08-23 18:44:26,057 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_3
+2025-08-23 18:44:26,057 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_3 in 0.000s
+2025-08-23 18:44:26,057 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666002 in 0.017s
+2025-08-23 18:44:26,058 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_0
+2025-08-23 18:44:26,058 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_0 in 0.000s
+2025-08-23 18:44:26,058 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_0
+2025-08-23 18:44:26,058 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_0 in 0.000s
+2025-08-23 18:44:26,058 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_1
+2025-08-23 18:44:26,058 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_1 in 0.000s
+2025-08-23 18:44:26,058 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_1
+2025-08-23 18:44:26,058 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_1 in 0.000s
+2025-08-23 18:44:26,058 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_2
+2025-08-23 18:44:26,058 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_2 in 0.000s
+2025-08-23 18:44:26,058 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_2
+2025-08-23 18:44:26,058 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_2 in 0.000s
+2025-08-23 18:44:26,058 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_0_3
+2025-08-23 18:44:26,058 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_0_3 in 0.000s
+2025-08-23 18:44:26,059 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_0_3
+2025-08-23 18:44:26,059 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_0_3 in 0.000s
+2025-08-23 18:44:26,059 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_0
+2025-08-23 18:44:26,059 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_0 in 0.000s
+2025-08-23 18:44:26,059 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_0
+2025-08-23 18:44:26,059 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_0 in 0.000s
+2025-08-23 18:44:26,059 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_1
+2025-08-23 18:44:26,059 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_1 in 0.000s
+2025-08-23 18:44:26,059 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_1
+2025-08-23 18:44:26,059 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_1 in 0.000s
+2025-08-23 18:44:26,059 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_2
+2025-08-23 18:44:26,059 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_2 in 0.000s
+2025-08-23 18:44:26,059 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_2
+2025-08-23 18:44:26,059 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_2 in 0.000s
+2025-08-23 18:44:26,059 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_1_3
+2025-08-23 18:44:26,060 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_1_3 in 0.000s
+2025-08-23 18:44:26,060 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_1_3
+2025-08-23 18:44:26,060 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_1_3 in 0.000s
+2025-08-23 18:44:26,060 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_0
+2025-08-23 18:44:26,060 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_0 in 0.000s
+2025-08-23 18:44:26,060 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_0
+2025-08-23 18:44:26,060 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_0 in 0.000s
+2025-08-23 18:44:26,060 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_1
+2025-08-23 18:44:26,060 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_1 in 0.000s
+2025-08-23 18:44:26,060 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_1
+2025-08-23 18:44:26,060 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_1 in 0.000s
+2025-08-23 18:44:26,060 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_2
+2025-08-23 18:44:26,061 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_2 in 0.000s
+2025-08-23 18:44:26,061 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_2
+2025-08-23 18:44:26,061 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_2 in 0.000s
+2025-08-23 18:44:26,061 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_2_3
+2025-08-23 18:44:26,061 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_2_3 in 0.000s
+2025-08-23 18:44:26,061 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_2_3
+2025-08-23 18:44:26,061 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_2_3 in 0.000s
+2025-08-23 18:44:26,061 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_0
+2025-08-23 18:44:26,061 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_0 in 0.000s
+2025-08-23 18:44:26,061 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_0
+2025-08-23 18:44:26,061 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_0 in 0.000s
+2025-08-23 18:44:26,061 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_1
+2025-08-23 18:44:26,062 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_1 in 0.000s
+2025-08-23 18:44:26,062 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_1
+2025-08-23 18:44:26,062 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_1 in 0.000s
+2025-08-23 18:44:26,062 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_2
+2025-08-23 18:44:26,062 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_2 in 0.000s
+2025-08-23 18:44:26,062 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_2
+2025-08-23 18:44:26,062 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_2 in 0.000s
+2025-08-23 18:44:26,062 - __main__ - INFO - Starting operation: propagate_array_1755974666002_dev_3_3
+2025-08-23 18:44:26,062 - __main__ - INFO - Completed operation: propagate_array_1755974666002_dev_3_3 in 0.000s
+2025-08-23 18:44:26,062 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666002_mem_3_3
+2025-08-23 18:44:26,062 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666002_mem_3_3 in 0.000s
+2025-08-23 18:44:26,062 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666002 in 0.031s
+2025-08-23 18:44:26,063 - __main__ - INFO - Created device: array_1755974666063_dev_0_0 (waveguide)
+2025-08-23 18:44:26,063 - __main__ - INFO - Created memristor: array_1755974666063_mem_0_0
+2025-08-23 18:44:26,063 - __main__ - INFO - Created device: array_1755974666063_dev_0_1 (waveguide)
+2025-08-23 18:44:26,063 - __main__ - INFO - Created memristor: array_1755974666063_mem_0_1
+2025-08-23 18:44:26,063 - __main__ - INFO - Created device: array_1755974666063_dev_1_0 (waveguide)
+2025-08-23 18:44:26,063 - __main__ - INFO - Created memristor: array_1755974666063_mem_1_0
+2025-08-23 18:44:26,064 - __main__ - INFO - Created device: array_1755974666063_dev_1_1 (waveguide)
+2025-08-23 18:44:26,064 - __main__ - INFO - Created memristor: array_1755974666063_mem_1_1
+2025-08-23 18:44:26,064 - __main__ - INFO - Created photonic array: array_1755974666063 (2x2)
+2025-08-23 18:44:26,064 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666063
+2025-08-23 18:44:26,064 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_0_0
+2025-08-23 18:44:26,064 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_0_0 in 0.000s
+2025-08-23 18:44:26,064 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_0_0
+2025-08-23 18:44:26,064 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_0_0 in 0.000s
+2025-08-23 18:44:26,064 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_0_1
+2025-08-23 18:44:26,064 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_0_1 in 0.000s
+2025-08-23 18:44:26,064 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_0_1
+2025-08-23 18:44:26,064 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_0_1 in 0.000s
+2025-08-23 18:44:26,065 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_1_0
+2025-08-23 18:44:26,065 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_1_0 in 0.000s
+2025-08-23 18:44:26,065 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_0
+2025-08-23 18:44:26,065 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_0 in 0.000s
+2025-08-23 18:44:26,065 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_1_1
+2025-08-23 18:44:26,065 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_1_1 in 0.000s
+2025-08-23 18:44:26,065 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_1
+2025-08-23 18:44:26,065 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_1 in 0.000s
+2025-08-23 18:44:26,065 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666063 in 0.001s
+2025-08-23 18:44:26,065 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666063
+2025-08-23 18:44:26,065 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_0_0
+2025-08-23 18:44:26,065 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_0_0 in 0.000s
+2025-08-23 18:44:26,066 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_0_0
+2025-08-23 18:44:26,066 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_0_0 in 0.000s
+2025-08-23 18:44:26,066 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_0_1
+2025-08-23 18:44:26,066 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_0_1 in 0.000s
+2025-08-23 18:44:26,066 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_0_1
+2025-08-23 18:44:26,066 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_0_1 in 0.000s
+2025-08-23 18:44:26,066 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_1_0
+2025-08-23 18:44:26,066 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_1_0 in 0.000s
+2025-08-23 18:44:26,066 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_0
+2025-08-23 18:44:26,066 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_0 in 0.000s
+2025-08-23 18:44:26,066 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_1_1
+2025-08-23 18:44:26,066 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_1_1 in 0.000s
+2025-08-23 18:44:26,066 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_1
+2025-08-23 18:44:26,066 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_1 in 0.000s
+2025-08-23 18:44:26,067 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666063 in 0.001s
+2025-08-23 18:44:26,067 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666063
+2025-08-23 18:44:26,067 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_0_0
+2025-08-23 18:44:26,067 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_0_0 in 0.000s
+2025-08-23 18:44:26,067 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_0_0
+2025-08-23 18:44:26,067 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_0_0 in 0.000s
+2025-08-23 18:44:26,067 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_0_1
+2025-08-23 18:44:26,067 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_0_1 in 0.000s
+2025-08-23 18:44:26,067 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_0_1
+2025-08-23 18:44:26,067 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_0_1 in 0.000s
+2025-08-23 18:44:26,067 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_1_0
+2025-08-23 18:44:26,067 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_1_0 in 0.000s
+2025-08-23 18:44:26,068 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_0
+2025-08-23 18:44:26,068 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_0 in 0.000s
+2025-08-23 18:44:26,068 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_1_1
+2025-08-23 18:44:26,068 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_1_1 in 0.000s
+2025-08-23 18:44:26,068 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_1
+2025-08-23 18:44:26,068 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_1 in 0.000s
+2025-08-23 18:44:26,068 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666063 in 0.001s
+2025-08-23 18:44:26,068 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666063
+2025-08-23 18:44:26,068 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_0_0
+2025-08-23 18:44:26,068 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_0_0 in 0.000s
+2025-08-23 18:44:26,068 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_0_0
+2025-08-23 18:44:26,068 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_0_0 in 0.000s
+2025-08-23 18:44:26,068 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_0_1
+2025-08-23 18:44:26,069 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_0_1 in 0.000s
+2025-08-23 18:44:26,069 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_0_1
+2025-08-23 18:44:26,069 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_0_1 in 0.000s
+2025-08-23 18:44:26,069 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_1_0
+2025-08-23 18:44:26,069 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_1_0 in 0.000s
+2025-08-23 18:44:26,069 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_0
+2025-08-23 18:44:26,069 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_0 in 0.000s
+2025-08-23 18:44:26,069 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_1_1
+2025-08-23 18:44:26,069 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_1_1 in 0.000s
+2025-08-23 18:44:26,069 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_1
+2025-08-23 18:44:26,069 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_1 in 0.000s
+2025-08-23 18:44:26,069 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666063 in 0.001s
+2025-08-23 18:44:26,069 - __main__ - INFO - Starting operation: matrix_multiply_array_1755974666063
+2025-08-23 18:44:26,069 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_0_0
+2025-08-23 18:44:26,070 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_0_0 in 0.000s
+2025-08-23 18:44:26,070 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_0_0
+2025-08-23 18:44:26,070 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_0_0 in 0.000s
+2025-08-23 18:44:26,070 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_0_1
+2025-08-23 18:44:26,070 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_0_1 in 0.000s
+2025-08-23 18:44:26,070 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_0_1
+2025-08-23 18:44:26,070 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_0_1 in 0.000s
+2025-08-23 18:44:26,070 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_1_0
+2025-08-23 18:44:26,070 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_1_0 in 0.000s
+2025-08-23 18:44:26,070 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_0
+2025-08-23 18:44:26,070 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_0 in 0.000s
+2025-08-23 18:44:26,070 - __main__ - INFO - Starting operation: propagate_array_1755974666063_dev_1_1
+2025-08-23 18:44:26,070 - __main__ - INFO - Completed operation: propagate_array_1755974666063_dev_1_1 in 0.000s
+2025-08-23 18:44:26,070 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_1
+2025-08-23 18:44:26,071 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_1 in 0.000s
+2025-08-23 18:44:26,071 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666063 in 0.001s
