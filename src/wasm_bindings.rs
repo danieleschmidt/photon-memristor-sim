@@ -3,34 +3,43 @@
 //! This module provides WASM-compatible bindings for running photonic
 //! neural network simulations in web browsers and JavaScript environments.
 
-use crate::core::{Result, PhotonicError, OpticalField, WaveguideGeometry};
-use crate::devices::{MachZehnderInterferometer, MicroringResonator};
+use crate::core::{PhotonicError};
 use crate::simulation::PhotonicArray;
 use wasm_bindgen::prelude::*;
 use serde::{Serialize, Deserialize};
 
 /// WASM-compatible configuration for photonic simulations
-#[wasm_bindgen]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct WasmPhotonicConfig {
     /// Simulation wavelength in nanometers
-    pub wavelength_nm: f64,
+    wavelength_nm: f64,
     /// Number of simulation steps
-    pub num_steps: usize,
+    num_steps: usize,
     /// Simulation precision level
-    pub precision: String,
+    precision: String,
+}
+
+#[wasm_bindgen]
+impl WasmPhotonicConfig {
+    #[wasm_bindgen(constructor)]
+    pub fn new(wavelength_nm: f64, num_steps: usize, precision: String) -> WasmPhotonicConfig {
+        WasmPhotonicConfig {
+            wavelength_nm,
+            num_steps,
+            precision,
+        }
+    }
 }
 
 /// WASM-compatible photonic simulation result
-#[wasm_bindgen]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct WasmSimulationResult {
     /// Final optical power values
-    pub power_values: Vec<f64>,
+    power_values: Vec<f64>,
     /// Simulation success status
-    pub success: bool,
+    success: bool,
     /// Error message if simulation failed
-    pub error_message: Option<String>,
+    error_message: Option<String>,
 }
 
 /// WASM-compatible photonic array wrapper
@@ -42,16 +51,6 @@ pub struct WasmPhotonicArray {
 
 #[wasm_bindgen]
 impl WasmPhotonicConfig {
-    /// Create new WASM photonic configuration
-    #[wasm_bindgen(constructor)]
-    pub fn new(wavelength_nm: f64, num_steps: usize, precision: String) -> WasmPhotonicConfig {
-        WasmPhotonicConfig {
-            wavelength_nm,
-            num_steps,
-            precision,
-        }
-    }
-
     /// Get wavelength in nanometers
     #[wasm_bindgen(getter)]
     pub fn wavelength_nm(&self) -> f64 {
@@ -102,11 +101,13 @@ impl WasmSimulationResult {
 impl WasmPhotonicArray {
     /// Create new WASM photonic array
     #[wasm_bindgen(constructor)]
-    pub fn new(rows: usize, cols: usize) -> Result<WasmPhotonicArray, JsValue> {
-        let array = PhotonicArray::new(rows, cols)
-            .map_err(|e| JsValue::from_str(&format!("Failed to create photonic array: {}", e)))?;
+    pub fn new(rows: usize, cols: usize) -> WasmPhotonicArray {
+        use crate::simulation::ArrayTopology;
         
-        Ok(WasmPhotonicArray { array })
+        let topology = ArrayTopology::Crossbar { rows, cols };
+        let array = PhotonicArray::new(topology);
+        
+        WasmPhotonicArray { array }
     }
 
     /// Run simulation with given configuration
@@ -127,23 +128,24 @@ impl WasmPhotonicArray {
     }
 
     /// Set input optical field
-    pub fn set_input(&mut self, power_values: Vec<f64>) -> Result<(), JsValue> {
+    pub fn set_input(&mut self, _power_values: Vec<f64>) {
         // Stub implementation for WASM input setting
         // Would create optical fields from power values in actual implementation
-        Ok(())
     }
 
     /// Get array dimensions
     pub fn get_dimensions(&self) -> Vec<usize> {
-        vec![self.array.rows, self.array.cols]
+        let (rows, cols) = self.array.dimensions();
+        vec![rows, cols]
     }
 }
 
 impl WasmPhotonicArray {
     /// Internal simulation runner
-    fn run_simulation_internal(&mut self, config: &WasmPhotonicConfig) -> Result<Vec<f64>> {
+    fn run_simulation_internal(&mut self, _config: &WasmPhotonicConfig) -> crate::core::Result<Vec<f64>> {
         // Stub implementation - would run actual simulation
-        let num_outputs = self.array.rows * self.array.cols;
+        let (rows, cols) = self.array.dimensions();
+        let num_outputs = rows * cols;
         let power_values = vec![1.0; num_outputs]; // Placeholder values
         Ok(power_values)
     }
