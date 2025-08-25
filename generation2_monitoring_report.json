@@ -1,0 +1,51 @@
+{
+  "summary": {
+    "report_time": 1756095019.5112033,
+    "monitoring_duration": 11.03005051612854,
+    "total_metrics_collected": 10,
+    "security_events": 10
+  },
+  "performance": {
+    "avg_cpu_usage": 0.9800000000000001,
+    "avg_memory_usage": 13.6,
+    "avg_throughput": 78.624,
+    "avg_response_time": 63.6,
+    "avg_error_rate": 1.25
+  },
+  "health": {
+    "status": "healthy",
+    "timestamp": 1756095019.511229,
+    "uptime": 11.030076026916504,
+    "checks": {
+      "cpu": {
+        "status": "healthy",
+        "usage": 1.5,
+        "threshold": 80.0
+      },
+      "memory": {
+        "status": "healthy",
+        "usage": 13.6,
+        "available_gb": 3.3264541625976562,
+        "threshold": 85.0
+      },
+      "disk": {
+        "status": "healthy",
+        "usage": 25.7,
+        "available_gb": 17.389511108398438,
+        "threshold": 90.0
+      },
+      "simulation": {
+        "status": "healthy",
+        "error_rate": 0.5,
+        "response_time_p95": 63.6,
+        "throughput": 86.4
+      }
+    }
+  },
+  "security": {
+    "total_events": 10,
+    "recent_events": 10,
+    "critical_events": 0,
+    "high_events": 10
+  }
+}

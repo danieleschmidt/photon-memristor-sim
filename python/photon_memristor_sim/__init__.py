@@ -115,7 +115,8 @@ from .performance_optimizer import (
 __all__ = [
     # Core classes from Rust
     "PyOpticalField",
-    "PyPhotonicArray", 
+    "PyPhotonicArray",
+    "PhotonicArray",  # Convenience constructor
     "jax_photonic_matmul",
     "jax_photonic_matmul_vjp",
     "calculate_waveguide_mode",
@@ -185,6 +186,14 @@ __all__ = [
     "linear_to_db",
     "effective_area",
 ]
+
+# Convenience constructors
+def PhotonicArray(rows, cols, topology="crossbar"):
+    """Create a photonic array with simplified interface"""
+    if _RUST_CORE_AVAILABLE:
+        return PyPhotonicArray(topology, rows, cols)
+    else:
+        return PyPhotonicArray(rows, cols)
 
 # Version and metadata
 VERSION = __version__

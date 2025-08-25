@@ -2,6 +2,9 @@
 
 use thiserror::Error;
 
+#[cfg(feature = "wasm")]
+use wasm_bindgen::prelude::*;
+
 /// Result type alias for photonic operations
 pub type Result<T> = std::result::Result<T, PhotonicError>;
 
@@ -53,6 +56,13 @@ pub enum PhotonicError {
     
     #[error("WASM interface error: {details}")]
     WasmInterface { details: String },
+}
+
+#[cfg(feature = "wasm")]
+impl From<PhotonicError> for JsValue {
+    fn from(error: PhotonicError) -> Self {
+        JsValue::from_str(&error.to_string())
+    }
 }
 
 impl PhotonicError {
