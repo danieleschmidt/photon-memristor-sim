@@ -240,6 +240,20 @@ class PhotonicNeuralNetwork:
             activation: Activation function type
             device_constraints: Hardware constraints for optimization
         """
+        # Generation 2: Enhanced error handling
+        if not layers or len(layers) < 2:
+            raise ValueError("Network must have at least 2 layers (input and output)")
+        
+        if any(size <= 0 for size in layers):
+            raise ValueError("All layer sizes must be positive integers")
+            
+        if len(layers) > 100:
+            raise ValueError("Network cannot have more than 100 layers")
+            
+        for i, size in enumerate(layers):
+            if size > 10000:
+                raise ValueError(f"Layer {i} size {size} exceeds maximum allowed size of 10000")
+        
         self.layer_sizes = layers
         self.activation = activation
         self.device_constraints = device_constraints or {}

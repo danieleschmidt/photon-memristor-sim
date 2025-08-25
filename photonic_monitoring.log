@@ -1,0 +1,13 @@
+2025-08-25 04:10:08,481 - root - INFO - 📊 Photonic Monitoring System initialized
+2025-08-25 04:10:08,481 - root - INFO - 🔒 Photonic Security Manager initialized
+2025-08-25 04:10:08,582 - root - ERROR - SECURITY [HIGH] INVALID_INPUT: system - {'input_type': 'array_dimensions', 'dimensions': [-1, 50], 'reason': 'Suspicious array dimensions'}
+2025-08-25 04:10:09,685 - root - ERROR - SECURITY [HIGH] INVALID_INPUT: system - {'input_type': 'array_dimensions', 'dimensions': [-1, 50], 'reason': 'Suspicious array dimensions'}
+2025-08-25 04:10:10,787 - root - ERROR - SECURITY [HIGH] INVALID_INPUT: system - {'input_type': 'array_dimensions', 'dimensions': [-1, 50], 'reason': 'Suspicious array dimensions'}
+2025-08-25 04:10:11,890 - root - ERROR - SECURITY [HIGH] INVALID_INPUT: system - {'input_type': 'array_dimensions', 'dimensions': [-1, 50], 'reason': 'Suspicious array dimensions'}
+2025-08-25 04:10:12,992 - root - ERROR - SECURITY [HIGH] INVALID_INPUT: system - {'input_type': 'array_dimensions', 'dimensions': [-1, 50], 'reason': 'Suspicious array dimensions'}
+2025-08-25 04:10:14,096 - root - ERROR - SECURITY [HIGH] INVALID_INPUT: system - {'input_type': 'array_dimensions', 'dimensions': [-1, 50], 'reason': 'Suspicious array dimensions'}
+2025-08-25 04:10:15,199 - root - ERROR - SECURITY [HIGH] INVALID_INPUT: system - {'input_type': 'array_dimensions', 'dimensions': [-1, 50], 'reason': 'Suspicious array dimensions'}
+2025-08-25 04:10:16,302 - root - WARNING - 🚨 High error rate: 8.0%
+2025-08-25 04:10:16,302 - root - ERROR - SECURITY [HIGH] INVALID_INPUT: system - {'input_type': 'array_dimensions', 'dimensions': [-1, 50], 'reason': 'Suspicious array dimensions'}
+2025-08-25 04:10:17,406 - root - ERROR - SECURITY [HIGH] INVALID_INPUT: system - {'input_type': 'array_dimensions', 'dimensions': [-1, 50], 'reason': 'Suspicious array dimensions'}
+2025-08-25 04:10:18,509 - root - ERROR - SECURITY [HIGH] INVALID_INPUT: system - {'input_type': 'array_dimensions', 'dimensions': [-1, 50], 'reason': 'Suspicious array dimensions'}
