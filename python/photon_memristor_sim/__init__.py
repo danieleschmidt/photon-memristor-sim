@@ -24,6 +24,7 @@ except ImportError as e:
     )
 
 # High-level Python APIs
+from .advanced_memristor_interface import AdvancedMemristorDevice, MemristorArray, MemristorConfig, create_standard_memristor_configs
 from .neural_networks import PhotonicNeuralNetwork, PhotonicLayer
 from .jax_interface import photonic_matmul, photonic_conv2d, create_photonic_primitive
 from .devices import PCMDevice, MolecularMemristor, OxideMemristor, MicroringResonator
@@ -121,6 +122,12 @@ __all__ = [
     "jax_photonic_matmul_vjp",
     "calculate_waveguide_mode",
     "create_device_simulator",
+    
+    # Advanced Memristor Models  
+    "AdvancedMemristorDevice",
+    "MemristorArray",
+    "MemristorConfig", 
+    "create_standard_memristor_configs",
     
     # High-level Python APIs
     "PhotonicNeuralNetwork",
