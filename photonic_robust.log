@@ -895,3 +895,249 @@ Suggestions: Reshape input to 1D array
 2025-08-23 18:44:26,070 - __main__ - INFO - Starting operation: optical_modulation_array_1755974666063_mem_1_1
 2025-08-23 18:44:26,071 - __main__ - INFO - Completed operation: optical_modulation_array_1755974666063_mem_1_1 in 0.000s
 2025-08-23 18:44:26,071 - __main__ - INFO - Completed operation: matrix_multiply_array_1755974666063 in 0.001s
+2025-08-27 22:54:34,318 - __main__ - INFO - Waveguide simulation completed successfully in 0.052s
+2025-08-27 22:54:34,361 - __main__ - INFO - Waveguide simulation completed successfully in 0.043s
+2025-08-27 22:54:34,416 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "139ed3d1",
+  "severity": "high",
+  "component": "core_simulator",
+  "recoverable": true,
+  "processing_time": 0.0544590950012207,
+  "context": {}
+}
+2025-08-27 22:54:34,416 - __main__ - INFO - Error 139ed3d1 recovered successfully
+2025-08-27 22:54:34,454 - __main__ - INFO - Waveguide simulation completed successfully in 0.037s
+2025-08-27 22:54:34,475 - __main__ - INFO - Waveguide simulation completed successfully in 0.021s
+2025-08-27 22:54:34,476 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "01fac6f7",
+  "severity": "high",
+  "component": "input_validator",
+  "recoverable": true,
+  "processing_time": 5.555152893066406e-05,
+  "context": {}
+}
+2025-08-27 22:54:34,476 - __main__ - INFO - Error 01fac6f7 recovered successfully
+2025-08-27 22:54:34,476 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "f4794f26",
+  "severity": "medium",
+  "component": "physics_validator",
+  "recoverable": true,
+  "processing_time": 1.811981201171875e-05,
+  "context": {}
+}
+2025-08-27 22:54:34,577 - __main__ - INFO - Error f4794f26 recovered successfully
+2025-08-27 22:54:34,577 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "b94f0bdc",
+  "severity": "critical",
+  "component": "safety_validator",
+  "recoverable": true,
+  "processing_time": 5.1975250244140625e-05,
+  "context": {}
+}
+2025-08-27 22:54:34,577 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "0213b608",
+  "severity": "high",
+  "component": "input_validator",
+  "recoverable": true,
+  "processing_time": 1.6689300537109375e-05,
+  "context": {}
+}
+2025-08-27 22:54:34,577 - __main__ - INFO - Error 0213b608 recovered successfully
+2025-08-27 22:54:34,577 - __main__ - INFO - Starting stress test: 10.0s duration, 5.0 req/s
+2025-08-27 22:54:34,635 - __main__ - INFO - Waveguide simulation completed successfully in 0.057s
+2025-08-27 22:54:34,798 - __main__ - INFO - Waveguide simulation completed successfully in 0.020s
+2025-08-27 22:54:35,009 - __main__ - INFO - Waveguide simulation completed successfully in 0.031s
+2025-08-27 22:54:35,229 - __main__ - INFO - Waveguide simulation completed successfully in 0.050s
+2025-08-27 22:54:35,420 - __main__ - INFO - Waveguide simulation completed successfully in 0.041s
+2025-08-27 22:54:35,616 - __main__ - INFO - Waveguide simulation completed successfully in 0.037s
+2025-08-27 22:54:35,813 - __main__ - INFO - Waveguide simulation completed successfully in 0.034s
+2025-08-27 22:54:35,993 - __main__ - INFO - Waveguide simulation completed successfully in 0.013s
+2025-08-27 22:54:36,205 - __main__ - INFO - Waveguide simulation completed successfully in 0.025s
+2025-08-27 22:54:36,402 - __main__ - INFO - Waveguide simulation completed successfully in 0.022s
+2025-08-27 22:54:36,595 - __main__ - INFO - Waveguide simulation completed successfully in 0.014s
+2025-08-27 22:54:36,824 - __main__ - INFO - Waveguide simulation completed successfully in 0.043s
+2025-08-27 22:54:37,007 - __main__ - INFO - Waveguide simulation completed successfully in 0.026s
+2025-08-27 22:54:37,211 - __main__ - INFO - Waveguide simulation completed successfully in 0.030s
+2025-08-27 22:54:37,436 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "aaf41ab9",
+  "severity": "high",
+  "component": "core_simulator",
+  "recoverable": true,
+  "processing_time": 0.054236412048339844,
+  "context": {}
+}
+2025-08-27 22:54:37,436 - __main__ - INFO - Error aaf41ab9 recovered successfully
+2025-08-27 22:54:37,607 - __main__ - INFO - Waveguide simulation completed successfully in 0.025s
+2025-08-27 22:54:37,801 - __main__ - INFO - Waveguide simulation completed successfully in 0.019s
+2025-08-27 22:54:38,008 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "4d391494",
+  "severity": "high",
+  "component": "core_simulator",
+  "recoverable": true,
+  "processing_time": 0.02530217170715332,
+  "context": {}
+}
+2025-08-27 22:54:38,008 - __main__ - INFO - Error 4d391494 recovered successfully
+2025-08-27 22:54:38,239 - __main__ - INFO - Waveguide simulation completed successfully in 0.057s
+2025-08-27 22:54:38,418 - __main__ - INFO - Waveguide simulation completed successfully in 0.035s
+2025-08-27 22:54:38,606 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "1860751e",
+  "severity": "high",
+  "component": "core_simulator",
+  "recoverable": true,
+  "processing_time": 0.02268195152282715,
+  "context": {}
+}
+2025-08-27 22:54:38,606 - __main__ - INFO - Error 1860751e recovered successfully
+2025-08-27 22:54:38,796 - __main__ - INFO - Waveguide simulation completed successfully in 0.013s
+2025-08-27 22:54:39,014 - __main__ - INFO - Waveguide simulation completed successfully in 0.031s
+2025-08-27 22:54:39,240 - __main__ - INFO - Waveguide simulation completed successfully in 0.056s
+2025-08-27 22:54:39,420 - __main__ - INFO - Waveguide simulation completed successfully in 0.036s
+2025-08-27 22:54:39,640 - __main__ - INFO - Waveguide simulation completed successfully in 0.057s
+2025-08-27 22:54:39,797 - __main__ - INFO - Waveguide simulation completed successfully in 0.012s
+2025-08-27 22:54:40,014 - __main__ - INFO - Waveguide simulation completed successfully in 0.030s
+2025-08-27 22:54:40,209 - __main__ - INFO - Waveguide simulation completed successfully in 0.025s
+2025-08-27 22:54:40,406 - __main__ - INFO - Waveguide simulation completed successfully in 0.022s
+2025-08-27 22:54:40,616 - __main__ - INFO - Waveguide simulation completed successfully in 0.031s
+2025-08-27 22:54:40,799 - __main__ - INFO - Waveguide simulation completed successfully in 0.014s
+2025-08-27 22:54:41,016 - __main__ - INFO - Waveguide simulation completed successfully in 0.030s
+2025-08-27 22:54:41,201 - __main__ - INFO - Waveguide simulation completed successfully in 0.014s
+2025-08-27 22:54:41,445 - __main__ - INFO - Waveguide simulation completed successfully in 0.058s
+2025-08-27 22:54:41,600 - __main__ - INFO - Waveguide simulation completed successfully in 0.014s
+2025-08-27 22:54:41,813 - __main__ - INFO - Waveguide simulation completed successfully in 0.026s
+2025-08-27 22:54:42,045 - __main__ - INFO - Waveguide simulation completed successfully in 0.058s
+2025-08-27 22:54:42,214 - __main__ - INFO - Waveguide simulation completed successfully in 0.027s
+2025-08-27 22:54:42,434 - __main__ - INFO - Waveguide simulation completed successfully in 0.047s
+2025-08-27 22:54:42,639 - root - ERROR - Circuit breaker opened after 5 failures
+2025-08-27 22:54:42,639 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "fa45e0f9",
+  "severity": "high",
+  "component": "core_simulator",
+  "recoverable": true,
+  "processing_time": 0.050856590270996094,
+  "context": {}
+}
+2025-08-27 22:54:42,639 - __main__ - INFO - Error fa45e0f9 recovered successfully
+2025-08-27 22:54:42,788 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "69ea858d",
+  "severity": "high",
+  "component": "circuit_breaker",
+  "recoverable": true,
+  "processing_time": 0.00010061264038085938,
+  "context": {}
+}
+2025-08-27 22:54:42,789 - __main__ - INFO - Error 69ea858d recovered successfully
+2025-08-27 22:54:42,989 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "9b11cc8a",
+  "severity": "high",
+  "component": "circuit_breaker",
+  "recoverable": true,
+  "processing_time": 9.679794311523438e-05,
+  "context": {}
+}
+2025-08-27 22:54:42,989 - __main__ - INFO - Error 9b11cc8a recovered successfully
+2025-08-27 22:54:43,189 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "257ea3aa",
+  "severity": "high",
+  "component": "circuit_breaker",
+  "recoverable": true,
+  "processing_time": 0.00011563301086425781,
+  "context": {}
+}
+2025-08-27 22:54:43,189 - __main__ - INFO - Error 257ea3aa recovered successfully
+2025-08-27 22:54:43,389 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "ac72dbe8",
+  "severity": "high",
+  "component": "circuit_breaker",
+  "recoverable": true,
+  "processing_time": 0.0001728534698486328,
+  "context": {}
+}
+2025-08-27 22:54:43,389 - __main__ - INFO - Error ac72dbe8 recovered successfully
+2025-08-27 22:54:43,589 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "df1751a7",
+  "severity": "high",
+  "component": "circuit_breaker",
+  "recoverable": true,
+  "processing_time": 0.00012159347534179688,
+  "context": {}
+}
+2025-08-27 22:54:43,590 - __main__ - INFO - Error df1751a7 recovered successfully
+2025-08-27 22:54:43,790 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "4ee47faf",
+  "severity": "high",
+  "component": "circuit_breaker",
+  "recoverable": true,
+  "processing_time": 9.703636169433594e-05,
+  "context": {}
+}
+2025-08-27 22:54:43,790 - __main__ - INFO - Error 4ee47faf recovered successfully
+2025-08-27 22:54:43,990 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "205f7265",
+  "severity": "high",
+  "component": "circuit_breaker",
+  "recoverable": true,
+  "processing_time": 9.369850158691406e-05,
+  "context": {}
+}
+2025-08-27 22:54:43,990 - __main__ - INFO - Error 205f7265 recovered successfully
+2025-08-27 22:54:44,190 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "90ea55fc",
+  "severity": "high",
+  "component": "circuit_breaker",
+  "recoverable": true,
+  "processing_time": 9.34600830078125e-05,
+  "context": {}
+}
+2025-08-27 22:54:44,190 - __main__ - INFO - Error 90ea55fc recovered successfully
+2025-08-27 22:54:44,390 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "ff80e98c",
+  "severity": "high",
+  "component": "circuit_breaker",
+  "recoverable": true,
+  "processing_time": 8.916854858398438e-05,
+  "context": {}
+}
+2025-08-27 22:54:44,391 - __main__ - INFO - Error ff80e98c recovered successfully
+2025-08-27 22:54:44,591 - __main__ - INFO - Stress test completed: 74.00% success rate
+2025-08-27 23:04:46,977 - __main__ - INFO - Waveguide simulation completed successfully in 0.014s
+2025-08-27 23:04:47,008 - __main__ - INFO - Waveguide simulation completed successfully in 0.031s
+2025-08-27 23:04:47,051 - __main__ - INFO - Waveguide simulation completed successfully in 0.042s
+2025-08-27 23:04:47,101 - __main__ - INFO - Waveguide simulation completed successfully in 0.050s
+2025-08-27 23:04:47,153 - __main__ - INFO - Waveguide simulation completed successfully in 0.052s
+2025-08-27 23:04:47,154 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "080b9eca",
+  "severity": "high",
+  "component": "input_validator",
+  "recoverable": true,
+  "processing_time": 7.05718994140625e-05,
+  "context": {}
+}
+2025-08-27 23:04:47,154 - __main__ - INFO - Error 080b9eca recovered successfully
+2025-08-27 23:04:47,154 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "a2f45558",
+  "severity": "medium",
+  "component": "physics_validator",
+  "recoverable": true,
+  "processing_time": 3.170967102050781e-05,
+  "context": {}
+}
+2025-08-27 23:04:47,455 - __main__ - INFO - Error a2f45558 recovered successfully
+2025-08-27 23:04:47,455 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "6839e51e",
+  "severity": "critical",
+  "component": "safety_validator",
+  "recoverable": true,
+  "processing_time": 4.0531158447265625e-05,
+  "context": {}
+}
+2025-08-27 23:04:47,455 - __main__ - ERROR - Photonic error occurred: {
+  "error_id": "a7107a83",
+  "severity": "high",
+  "component": "input_validator",
+  "recoverable": true,
+  "processing_time": 5.984306335449219e-05,
+  "context": {}
+}
+2025-08-27 23:04:47,455 - __main__ - INFO - Error a7107a83 recovered successfully
+2025-08-27 23:04:47,455 - __main__ - INFO - Starting stress test: 10.0s duration, 5.0 req/s
